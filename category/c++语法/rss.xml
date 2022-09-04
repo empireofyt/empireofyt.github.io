@@ -7,6 +7,9 @@
         <language>zh-CN</language>
         <pubDate>Tue, 30 Aug 2022 11:24:34 +0800</pubDate>
         <lastBuildDate>Tue, 30 Aug 2022 11:24:34 +0800</lastBuildDate>
+        <category>Foo</category>
+        <category>Bar</category>
+        <category>Baz</category>
         <item>
             <guid isPermalink="true">https://empireofyt.github.io/2022/08/30/cpp/blog1/</guid>
             <title>blog</title>
@@ -15,6 +18,69 @@
             <description><![CDATA[ &lt;h1 id=&#34;c语法test&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#c语法test&#34;&gt;#&lt;/a&gt; c++ 语法 test&lt;/h1&gt;
 &lt;p&gt;c++ 语法&lt;/p&gt;
 &lt;p&gt;my blog&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://empireofyt.github.io/2013/12/26/cpp/images/</guid>
+            <title>Images</title>
+            <link>https://empireofyt.github.io/2013/12/26/cpp/images/</link>
+            <pubDate>Thu, 26 Dec 2013 22:46:49 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;This is a image test post.&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;/assets/wallpaper-2572384.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;/assets/wallpaper-2311325.jpg&#34; alt=&#34;Caption&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;/assets/wallpaper-878514.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://placehold.it/350x150.jpg&#34; alt=&#34;Small Picture&#34;&gt;&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://empireofyt.github.io/2013/12/25/cpp/excerpts/</guid>
+            <title>Excerpts</title>
+            <link>https://empireofyt.github.io/2013/12/25/cpp/excerpts/</link>
+            <pubDate>Wed, 25 Dec 2013 00:23:23 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;The following contents should be invisible in home/archive page.&lt;/p&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget urna vitae velit eleifend interdum at ac nisi. In nec ligula lacus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed eu cursus erat, ut dapibus quam. Aliquam eleifend dolor vitae libero pharetra adipiscing. Etiam adipiscing dolor a quam tempor, eu convallis nulla varius. Aliquam sollicitudin risus a porta aliquam. Ut nec velit dolor. Proin eget leo lobortis, aliquam est sed, mollis mauris. Fusce vitae leo pretium massa accumsan condimentum. Fusce malesuada gravida lectus vel vulputate. Donec bibendum porta nibh ut aliquam.&lt;/p&gt;
+&lt;p&gt;Sed lorem felis, congue non fringilla eu, aliquam eu eros. Curabitur orci libero, mollis sed semper vitae, adipiscing in lectus. Aenean non egestas odio. Donec sollicitudin nisi quis lorem gravida, in pharetra mauris fringilla. Duis sit amet faucibus dolor, id aliquam neque. In egestas, odio gravida tempor dictum, mauris felis faucibus purus, sit amet commodo lacus diam vitae est. Ut ut quam eget massa semper sodales. Aenean non ipsum cursus, blandit lectus in, ornare odio. Curabitur ultrices porttitor vulputate.&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://empireofyt.github.io/2013/12/25/cpp/gallery-post/</guid>
+            <title>Gallery Post</title>
+            <link>https://empireofyt.github.io/2013/12/25/cpp/gallery-post/</link>
+            <pubDate>Wed, 25 Dec 2013 00:16:18 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;This post contains 4 photos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Widescreen wallpaper&lt;/li&gt;
+&lt;li&gt;Portrait photo&lt;/li&gt;
+&lt;li&gt;Dual widescreen wallpaper&lt;/li&gt;
+&lt;li&gt;Small photo&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;All photos should be displayed properly.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;From &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3dhbGxiYXNlLmNj&#34;&gt;Wallbase.cc&lt;/span&gt;&lt;/em&gt;&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://empireofyt.github.io/2013/12/24/cpp/link-post-without-title/</guid>
+            <title>www.google.com</title>
+            <link>https://empireofyt.github.io/2013/12/24/cpp/link-post-without-title/</link>
+            <pubDate>Tue, 24 Dec 2013 23:44:13 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;This is a link post without a title. The title should be the link with or without protocol. Clicking on the link should open &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3d3dy5nb29nbGUuY29tLw==&#34;&gt;Google&lt;/span&gt; in a new tab or window.&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://empireofyt.github.io/2013/12/24/cpp/link-post/</guid>
+            <title>Link Post</title>
+            <link>https://empireofyt.github.io/2013/12/24/cpp/link-post/</link>
+            <pubDate>Tue, 24 Dec 2013 23:30:04 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;This is a link post. Clicking on the link should open &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3d3dy5nb29nbGUuY29tLw==&#34;&gt;Google&lt;/span&gt; in a new tab or window.&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://empireofyt.github.io/2013/12/24/cpp/hello-world/</guid>
+            <title>Hello World</title>
+            <link>https://empireofyt.github.io/2013/12/24/cpp/hello-world/</link>
+            <pubDate>Tue, 24 Dec 2013 17:49:32 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;Welcome to &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3plc3BpYS50dy9oZXhv&#34;&gt;Hexo&lt;/span&gt;! This is your very first post. Check &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3plc3BpYS50dy9oZXhvL2RvY3M=&#34;&gt;documentation&lt;/span&gt; to learn how to use.&lt;/p&gt;
  ]]></description>
         </item>
     </channel>
