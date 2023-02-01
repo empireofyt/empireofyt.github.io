@@ -51,14 +51,6 @@
             "date_published": "2013-12-24T15:30:04.000Z",
             "content_html": "<p>This is a link post. Clicking on the link should open <span class=\"exturl\" data-url=\"aHR0cDovL3d3dy5nb29nbGUuY29tLw==\">Google</span> in a new tab or window.</p>\n",
             "tags": []
-        },
-        {
-            "id": "https://empireofyt.github.io/2013/12/24/cpp/hello-world/",
-            "url": "https://empireofyt.github.io/2013/12/24/cpp/hello-world/",
-            "title": "Hello World",
-            "date_published": "2013-12-24T09:49:32.000Z",
-            "content_html": "<p>Welcome to <span class=\"exturl\" data-url=\"aHR0cDovL3plc3BpYS50dy9oZXhv\">Hexo</span>! This is your very first post. Check <span class=\"exturl\" data-url=\"aHR0cDovL3plc3BpYS50dy9oZXhvL2RvY3M=\">documentation</span> to learn how to use.</p>\n",
-            "tags": []
         }
     ]
 }

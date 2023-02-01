@@ -4,9 +4,6 @@
     <title> • Posts by &#34;c++语法&#34; category</title>
     <link href="https://empireofyt.github.io" />
     <updated>2022-08-30T03:24:34.000Z</updated>
-    <category term="Foo" />
-    <category term="Bar" />
-    <category term="Baz" />
     <entry>
         <id>https://empireofyt.github.io/2022/08/30/cpp/blog1/</id>
         <title>blog</title>
@@ -71,13 +68,5 @@
         <content type="html">&lt;p&gt;This is a link post. Clicking on the link should open &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3d3dy5nb29nbGUuY29tLw==&#34;&gt;Google&lt;/span&gt; in a new tab or window.&lt;/p&gt;
 </content>
         <updated>2013-12-24T15:30:04.000Z</updated>
-    </entry>
-    <entry>
-        <id>https://empireofyt.github.io/2013/12/24/cpp/hello-world/</id>
-        <title>Hello World</title>
-        <link rel="alternate" href="https://empireofyt.github.io/2013/12/24/cpp/hello-world/"/>
-        <content type="html">&lt;p&gt;Welcome to &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3plc3BpYS50dy9oZXhv&#34;&gt;Hexo&lt;/span&gt;! This is your very first post. Check &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3plc3BpYS50dy9oZXhvL2RvY3M=&#34;&gt;documentation&lt;/span&gt; to learn how to use.&lt;/p&gt;
-</content>
-        <updated>2013-12-24T09:49:32.000Z</updated>
     </entry>
 </feed>
