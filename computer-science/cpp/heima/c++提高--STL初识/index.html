@@ -1,0 +1,845 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="" href="https://empireofyt.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="" href="https://empireofyt.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="" href="https://empireofyt.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+
+<link rel="canonical" href="https://empireofyt.github.io/computer-science/cpp/heima/c++%E6%8F%90%E9%AB%98--STL%E5%88%9D%E8%AF%86/">
+
+
+
+  <title>
+c++提高--STL初识 - 黑马程序员 - c++ - 计算机技术 |
+快乐每一天 = </title>
+<meta name="generator" content="Hexo 5.4.2"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">c++提高--STL初识
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2023-02-02 21:05:58">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-02-02T21:05:58+08:00">2023-02-02</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>4.1k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>4 分钟</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">快乐每一天</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicivghyooj20zk0m8dir.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipeuv80yoj20zk0m8kjl.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclga70tsj20zk0m84mr.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclh0m9pdj20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclwrdwyaj20zk0m8are.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipexj2jgzj20zk0m8b09.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/computer-science/" itemprop="item" rel="index" title="分类于 计算机技术"><span itemprop="name">计算机技术</span></a>
+<meta itemprop="position" content="1" /></span>
+<i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/computer-science/cpp/" itemprop="item" rel="index" title="分类于 c++"><span itemprop="name">c++</span></a>
+<meta itemprop="position" content="2" /></span>
+<i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/computer-science/cpp/heima/" itemprop="item" rel="index" title="分类于 黑马程序员"><span itemprop="name">黑马程序员</span></a>
+<meta itemprop="position" content="3" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://empireofyt.github.io/computer-science/cpp/heima/c++%E6%8F%90%E9%AB%98--STL%E5%88%9D%E8%AF%86/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="计算机圆子">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="stl初识"><a class="markdownIt-Anchor" href="#stl初识">#</a> STL 初识</h1>
+<h3 id="一-stl的诞生"><a class="markdownIt-Anchor" href="#一-stl的诞生">#</a> 一 STL 的诞生</h3>
+<ul>
+<li>
+<p>长久以来，软件界一直希望建立一种可重复利用的东西</p>
+</li>
+<li>
+<p>C++ 的<strong>面向对象</strong>和<strong>泛型编程</strong>思想，目的就是<strong>复用性的提升</strong></p>
+</li>
+<li>
+<p>大多情况下，数据结构和算法都未能有一套标准，导致被迫从事大量重复工作</p>
+</li>
+<li>
+<p>为了建立数据结构和算法的一套标准，诞生了<strong> STL</strong></p>
+</li>
+</ul>
+<h3 id="二-stl基本概念"><a class="markdownIt-Anchor" href="#二-stl基本概念">#</a> 二 STL 基本概念</h3>
+<ul>
+<li>STL(Standard Template Library,<strong> 标准模板库</strong>)</li>
+<li>STL 从广义上分为: <strong>容器 (container) 算法 (algorithm) 迭代器 (iterator)</strong></li>
+<li><strong>容器</strong>和<strong>算法</strong>之间通过<strong>迭代器</strong>进行无缝连接。</li>
+<li>STL 几乎所有的代码都采用了模板类或者模板函数</li>
+</ul>
+<h3 id="三-stl六大组件"><a class="markdownIt-Anchor" href="#三-stl六大组件">#</a> 三 STL 六大组件</h3>
+<p>STL 大体分为六大组件，分别是:<strong> 容器、算法、迭代器、仿函数、适配器（配接器）、空间配置器</strong></p>
+<ol>
+<li>容器：各种数据结构，如 vector、list、deque、set、map 等，用来存放数据。</li>
+<li>算法：各种常用的算法，如 sort、find、copy、for_each 等</li>
+<li>迭代器：扮演了容器与算法之间的胶合剂。</li>
+<li>仿函数：行为类似函数，可作为算法的某种策略。</li>
+<li>适配器：一种用来修饰容器或者仿函数或迭代器接口的东西。</li>
+<li>空间配置器：负责空间的配置与管理。</li>
+</ol>
+<h3 id="四-stl中容器-算法-迭代器"><a class="markdownIt-Anchor" href="#四-stl中容器-算法-迭代器">#</a> 四 STL 中容器、算法、迭代器</h3>
+<p>** 容器：** 置物之所也</p>
+<p>STL<strong> 容器</strong>就是将运用<strong>最广泛的一些数据结构</strong>实现出来</p>
+<p>常用的数据结构：数组，链表，树，栈，队列，集合，映射表 等</p>
+<p>这些容器分为<strong>序列式容器</strong>和<strong>关联式容器</strong>两种:</p>
+<p>​	<strong>序列式容器</strong>：强调值的排序，序列式容器中的每个元素均有固定的位置。<br>
+​	<strong>关联式容器</strong>：二叉树结构，各元素之间没有严格的物理上的顺序关系</p>
+<p>** 算法：** 问题之解法也</p>
+<p>有限的步骤，解决逻辑或数学上的问题，这一门学科我们叫做算法 (Algorithms)</p>
+<p>算法分为:<strong> 质变算法</strong>和<strong>非质变算法</strong>。</p>
+<p>质变算法：是指运算过程中会更改区间内的元素的内容。例如拷贝，替换，删除等等</p>
+<p>非质变算法：是指运算过程中不会更改区间内的元素内容，例如查找、计数、遍历、寻找极值等等</p>
+<p>** 迭代器：** 容器和算法之间粘合剂</p>
+<p>提供一种方法，使之能够依序寻访某个容器所含的各个元素，而又无需暴露该容器的内部表示方式。</p>
+<p>每个容器都有自己专属的迭代器</p>
+<p>迭代器使用非常类似于指针，初学阶段我们可以先理解迭代器为指针</p>
+<p>迭代器种类：</p>
+<table>
+<thead>
+<tr>
+<th>种类</th>
+<th>功能</th>
+<th>支持运算</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>输入迭代器</td>
+<td>对数据的只读访问</td>
+<td>只读，支持 ++、==、！=</td>
+</tr>
+<tr>
+<td>输出迭代器</td>
+<td>对数据的只写访问</td>
+<td>只写，支持 ++</td>
+</tr>
+<tr>
+<td>前向迭代器</td>
+<td>读写操作，并能向前推进迭代器</td>
+<td>读写，支持 ++、==、！=</td>
+</tr>
+<tr>
+<td>双向迭代器</td>
+<td>读写操作，并能向前和向后操作</td>
+<td>读写，支持 ++、–，</td>
+</tr>
+<tr>
+<td>随机访问迭代器</td>
+<td>读写操作，可以以跳跃的方式访问任意数据，功能最强的迭代器</td>
+<td>读写，支持 ++、–、[n]、-n、&lt;、&lt;=、&gt;、&gt;=</td>
+</tr>
+</tbody>
+</table>
+<p>常用的容器中迭代器种类为双向迭代器，和随机访问迭代器</p>
+<h3 id="五-容器算法迭代器初识"><a class="markdownIt-Anchor" href="#五-容器算法迭代器初识">#</a> 五 容器算法迭代器初识</h3>
+<p>了解 STL 中容器、算法、迭代器概念之后，我们利用代码感受 STL 的魅力</p>
+<p>STL 中最常用的容器为 Vector，可以理解为数组，下面我们将学习如何向这个容器中插入数据、并遍历这个容器</p>
+<h4 id="51-vector存放内置数据类型"><a class="markdownIt-Anchor" href="#51-vector存放内置数据类型">#</a> 5.1 vector 存放内置数据类型</h4>
+<p>容器：      <code>vector</code></p>
+<p>算法：      <code>for_each</code></p>
+<p>迭代器：  <code>vector&lt;int&gt;::iterator</code></p>
+<p><strong>示例：</strong></p>
+<pre><code class="language-C++">#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+void MyPrint(int val)
+&#123;
+	cout &lt;&lt; val &lt;&lt; endl;
+&#125;
+
+void test01() &#123;
+
+	//创建vector容器对象，并且通过模板参数指定容器中存放的数据的类型
+	vector&lt;int&gt; v;
+	//向容器中放数据
+	v.push_back(10);
+	v.push_back(20);
+	v.push_back(30);
+	v.push_back(40);
+
+	//每一个容器都有自己的迭代器，迭代器是用来遍历容器中的元素
+	//v.begin()返回迭代器，这个迭代器指向容器中第一个数据
+	//v.end()返回迭代器，这个迭代器指向容器元素的最后一个元素的下一个位置
+	//vector&lt;int&gt;::iterator 拿到vector&lt;int&gt;这种容器的迭代器类型
+
+	vector&lt;int&gt;::iterator pBegin = v.begin();
+	vector&lt;int&gt;::iterator pEnd = v.end();
+
+	//第一种遍历方式：
+	while (pBegin != pEnd) &#123;
+		cout &lt;&lt; *pBegin &lt;&lt; endl;
+		pBegin++;
+	&#125;
+
+	
+	//第二种遍历方式：
+	for (vector&lt;int&gt;::iterator it = v.begin(); it != v.end(); it++) &#123;
+		cout &lt;&lt; *it &lt;&lt; endl;
+	&#125;
+	cout &lt;&lt; endl;
+
+	//第三种遍历方式：
+	//使用STL提供标准遍历算法  头文件 algorithm
+	for_each(v.begin(), v.end(), MyPrint);
+&#125;
+
+int main() &#123;
+
+	test01();
+
+	system(&quot;pause&quot;);
+
+	return 0;
+&#125;
+</code></pre>
+<h4 id="52-vector存放自定义数据类型"><a class="markdownIt-Anchor" href="#52-vector存放自定义数据类型">#</a> 5.2 Vector 存放自定义数据类型</h4>
+<p>学习目标：vector 中存放自定义数据类型，并打印输出</p>
+<p><strong>示例：</strong></p>
+<pre><code class="language-c++">#include &lt;vector&gt;
+#include &lt;string&gt;
+
+//自定义数据类型
+class Person &#123;
+public:
+	Person(string name, int age) &#123;
+		mName = name;
+		mAge = age;
+	&#125;
+public:
+	string mName;
+	int mAge;
+&#125;;
+//存放对象
+void test01() &#123;
+
+	vector&lt;Person&gt; v;
+
+	//创建数据
+	Person p1(&quot;aaa&quot;, 10);
+	Person p2(&quot;bbb&quot;, 20);
+	Person p3(&quot;ccc&quot;, 30);
+	Person p4(&quot;ddd&quot;, 40);
+	Person p5(&quot;eee&quot;, 50);
+
+	v.push_back(p1);
+	v.push_back(p2);
+	v.push_back(p3);
+	v.push_back(p4);
+	v.push_back(p5);
+
+	for (vector&lt;Person&gt;::iterator it = v.begin(); it != v.end(); it++) &#123;
+		cout &lt;&lt; &quot;Name:&quot; &lt;&lt; (*it).mName &lt;&lt; &quot; Age:&quot; &lt;&lt; (*it).mAge &lt;&lt; endl;
+
+	&#125;
+&#125;
+
+
+//放对象指针
+void test02() &#123;
+
+	vector&lt;Person*&gt; v;
+
+	//创建数据
+	Person p1(&quot;aaa&quot;, 10);
+	Person p2(&quot;bbb&quot;, 20);
+	Person p3(&quot;ccc&quot;, 30);
+	Person p4(&quot;ddd&quot;, 40);
+	Person p5(&quot;eee&quot;, 50);
+
+	v.push_back(&amp;p1);
+	v.push_back(&amp;p2);
+	v.push_back(&amp;p3);
+	v.push_back(&amp;p4);
+	v.push_back(&amp;p5);
+
+	for (vector&lt;Person*&gt;::iterator it = v.begin(); it != v.end(); it++) &#123;
+		Person * p = (*it);
+		cout &lt;&lt; &quot;Name:&quot; &lt;&lt; p-&gt;mName &lt;&lt; &quot; Age:&quot; &lt;&lt; (*it)-&gt;mAge &lt;&lt; endl;
+	&#125;
+&#125;
+
+
+int main() &#123;
+
+	test01();
+    
+	test02();
+
+	system(&quot;pause&quot;);
+
+	return 0;
+&#125;
+</code></pre>
+<h4 id="53-vector容器嵌套容器"><a class="markdownIt-Anchor" href="#53-vector容器嵌套容器">#</a> 5.3 Vector 容器嵌套容器</h4>
+<p>学习目标：容器中嵌套容器，我们将所有数据进行遍历输出</p>
+<p><strong>示例：</strong></p>
+<pre><code class="language-C++">#include &lt;vector&gt;
+
+//容器嵌套容器
+void test01() &#123;
+
+	vector&lt; vector&lt;int&gt; &gt;  v;
+
+	vector&lt;int&gt; v1;
+	vector&lt;int&gt; v2;
+	vector&lt;int&gt; v3;
+	vector&lt;int&gt; v4;
+
+	for (int i = 0; i &lt; 4; i++) &#123;
+		v1.push_back(i + 1);
+		v2.push_back(i + 2);
+		v3.push_back(i + 3);
+		v4.push_back(i + 4);
+	&#125;
+
+	//将容器元素插入到vector v中
+	v.push_back(v1);
+	v.push_back(v2);
+	v.push_back(v3);
+	v.push_back(v4);
+
+
+	for (vector&lt;vector&lt;int&gt;&gt;::iterator it = v.begin(); it != v.end(); it++) &#123;
+
+		for (vector&lt;int&gt;::iterator vit = (*it).begin(); vit != (*it).end(); vit++) &#123;
+			cout &lt;&lt; *vit &lt;&lt; &quot; &quot;;
+		&#125;
+		cout &lt;&lt; endl;
+	&#125;
+
+&#125;
+
+int main() &#123;
+
+	test01();
+
+	system(&quot;pause&quot;);
+
+	return 0;
+&#125;
+</code></pre>
+
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2023-02-02 21:09:54" itemprop="dateModified" datetime="2023-02-02T21:09:54+08:00">2023-02-02</time>
+  </span>
+  <span id="computer-science/cpp/heima/c++提高--STL初识/" class="item leancloud_visitors" data-flag-title="c++提高--STL初识" title="阅读次数">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">阅读次数</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>计算机圆子 <i class="ic i-at"><em>@</em></i>
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://empireofyt.github.io/computer-science/cpp/heima/c++%E6%8F%90%E9%AB%98--STL%E5%88%9D%E8%AF%86/" title="c++提高--STL初识">https://empireofyt.github.io/computer-science/cpp/heima/c++提高--STL初识/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/computer-science/cpp/heima/c++%E6%8F%90%E9%AB%98--%E6%A8%A1%E6%9D%BF/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipexj2jgzj20zk0m8b09.jpg" title="c++提高--模板">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 黑马程序员</span>
+  <h3>c++提高--模板</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/computer-science/cpp/heima/c++%E6%8F%90%E9%AB%98--STL%E5%B8%B8%E8%A7%81%E5%AE%B9%E5%99%A8/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicitzannuj20zk0m8b29.jpg" title="c++提高--STL常见容器">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 黑马程序员</span>
+  <h3>c++提高--STL常见容器</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#stl%E5%88%9D%E8%AF%86"><span class="toc-number">1.</span> <span class="toc-text"> STL 初识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80-stl%E7%9A%84%E8%AF%9E%E7%94%9F"><span class="toc-number">1.0.1.</span> <span class="toc-text"> 一 STL 的诞生</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C-stl%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">1.0.2.</span> <span class="toc-text"> 二 STL 基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89-stl%E5%85%AD%E5%A4%A7%E7%BB%84%E4%BB%B6"><span class="toc-number">1.0.3.</span> <span class="toc-text"> 三 STL 六大组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B-stl%E4%B8%AD%E5%AE%B9%E5%99%A8-%E7%AE%97%E6%B3%95-%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="toc-number">1.0.4.</span> <span class="toc-text"> 四 STL 中容器、算法、迭代器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94-%E5%AE%B9%E5%99%A8%E7%AE%97%E6%B3%95%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%88%9D%E8%AF%86"><span class="toc-number">1.0.5.</span> <span class="toc-text"> 五 容器算法迭代器初识</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#51-vector%E5%AD%98%E6%94%BE%E5%86%85%E7%BD%AE%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.0.5.1.</span> <span class="toc-text"> 5.1 vector 存放内置数据类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#52-vector%E5%AD%98%E6%94%BE%E8%87%AA%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.0.5.2.</span> <span class="toc-text"> 5.2 Vector 存放自定义数据类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#53-vector%E5%AE%B9%E5%99%A8%E5%B5%8C%E5%A5%97%E5%AE%B9%E5%99%A8"><span class="toc-number">1.0.5.3.</span> <span class="toc-text"> 5.3 Vector 容器嵌套容器</span></a></li></ol></li></ol></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/computer-science/cpp/heima/c++%E5%9F%BA%E7%A1%80--%E5%87%BD%E6%95%B0/" rel="bookmark" title="c++基础--函数">c++基础--函数</a></li><li><a href="/computer-science/cpp/heima/c++%E5%9F%BA%E7%A1%80--%E6%8C%87%E9%92%88/" rel="bookmark" title="c++基础--指针">c++基础--指针</a></li><li><a href="/computer-science/cpp/heima/c++%E5%9F%BA%E7%A1%80--%E7%BB%93%E6%9E%84%E4%BD%93/" rel="bookmark" title="c++基础--结构体">c++基础--结构体</a></li><li><a href="/computer-science/cpp/heima/c++%E5%9F%BA%E7%A1%80--%E9%80%9A%E8%AE%AF%E5%BD%95%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" rel="bookmark" title="c++基础--通讯录管理系统">c++基础--通讯录管理系统</a></li><li><a href="/computer-science/cpp/heima/c++%E6%8F%90%E9%AB%98--%E6%A8%A1%E6%9D%BF/" rel="bookmark" title="c++提高--模板">c++提高--模板</a></li><li class="active"><a href="/computer-science/cpp/heima/c++%E6%8F%90%E9%AB%98--STL%E5%88%9D%E8%AF%86/" rel="bookmark" title="c++提高--STL初识">c++提高--STL初识</a></li><li><a href="/computer-science/cpp/heima/c++%E6%8F%90%E9%AB%98--STL%E5%B8%B8%E8%A7%81%E5%AE%B9%E5%99%A8/" rel="bookmark" title="c++提高--STL常见容器">c++提高--STL常见容器</a></li><li><a href="/computer-science/cpp/heima/c++%E6%8F%90%E9%AB%98--STL%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95/" rel="bookmark" title="c++提高--STL常见算法">c++提高--STL常见算法</a></li><li><a href="/computer-science/cpp/heima/c++%E6%8F%90%E9%AB%98--STL%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1/" rel="bookmark" title="c++提高--STL函数对象">c++提高--STL函数对象</a></li><li><a href="/computer-science/cpp/heima/c++%E6%A0%B8%E5%BF%83--%E5%87%BD%E6%95%B0%E9%AB%98%E7%BA%A7/" rel="bookmark" title="c++核心--函数高级">c++核心--函数高级</a></li><li><a href="/computer-science/cpp/heima/c++%E6%A0%B8%E5%BF%83--%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/" rel="bookmark" title="c++核心--类和对象">c++核心--类和对象</a></li><li><a href="/computer-science/cpp/heima/c++%E6%A0%B8%E5%BF%83--%E5%86%85%E5%AD%98%E5%88%86%E5%8C%BA%E6%A8%A1%E5%9E%8B/" rel="bookmark" title="c++核心--内存分区模型">c++核心--内存分区模型</a></li><li><a href="/computer-science/cpp/heima/c++%E6%A0%B8%E5%BF%83--%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/" rel="bookmark" title="c++核心--文件操作">c++核心--文件操作</a></li><li><a href="/computer-science/cpp/heima/c++%E6%A0%B8%E5%BF%83--%E5%BC%95%E7%94%A8/" rel="bookmark" title="c++核心--引用">c++核心--引用</a></li><li><a href="/computer-science/cpp/heima/c++%E6%A0%B8%E5%BF%83--%E8%81%8C%E5%B7%A5%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" rel="bookmark" title="c++核心--职工管理系统">c++核心--职工管理系统</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="计算机圆子"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">计算机圆子</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">18</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">5</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">1</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tLw==" title="https:&#x2F;&#x2F;github.com&#x2F;"><i class="ic i-github"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS8=" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item douban" data-url="aHR0cHM6Ly93d3cuZG91YmFuLmNvbS8=" title="https:&#x2F;&#x2F;www.douban.com&#x2F;"><i class="ic i-douban"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/computer-science/cpp/heima/c++%E6%8F%90%E9%AB%98--%E6%A8%A1%E6%9D%BF/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/computer-science/cpp/heima/c++%E6%8F%90%E9%AB%98--STL%E5%B8%B8%E8%A7%81%E5%AE%B9%E5%99%A8/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/computer-science/" title="分类于 计算机技术">计算机技术</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/computer-science/cpp/" title="分类于 c++">c++</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/computer-science/cpp/heima/" title="分类于 黑马程序员">黑马程序员</a>
+</div>
+
+    <span><a href="/computer-science/cpp/heima/c++%E6%A0%B8%E5%BF%83--%E8%81%8C%E5%B7%A5%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" title="c++核心--职工管理系统">c++核心--职工管理系统</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/computer-science/" title="分类于 计算机技术">计算机技术</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/computer-science/cpp/" title="分类于 c++">c++</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/computer-science/cpp/heima/" title="分类于 黑马程序员">黑马程序员</a>
+</div>
+
+    <span><a href="/computer-science/cpp/heima/c++%E6%A0%B8%E5%BF%83--%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/" title="c++核心--类和对象">c++核心--类和对象</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/computer-science/" title="分类于 计算机技术">计算机技术</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/computer-science/cpp/" title="分类于 c++">c++</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/computer-science/cpp/heima/" title="分类于 黑马程序员">黑马程序员</a>
+</div>
+
+    <span><a href="/computer-science/cpp/heima/c++%E6%8F%90%E9%AB%98--STL%E5%B8%B8%E8%A7%81%E5%AE%B9%E5%99%A8/" title="c++提高--STL常见容器">c++提高--STL常见容器</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/computer-science/" title="分类于 计算机技术">计算机技术</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/computer-science/cpp/" title="分类于 c++">c++</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/computer-science/cpp/heima/" title="分类于 黑马程序员">黑马程序员</a>
+</div>
+
+    <span><a href="/computer-science/cpp/heima/c++%E6%A0%B8%E5%BF%83--%E5%87%BD%E6%95%B0%E9%AB%98%E7%BA%A7/" title="c++核心--函数高级">c++核心--函数高级</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/computer-science/" title="分类于 计算机技术">计算机技术</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/computer-science/algorithm/" title="分类于 算法">算法</a>
+</div>
+
+    <span><a href="/computer-science/algorithm/BFS/" title="BFS">BFS</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/computer-science/" title="分类于 计算机技术">计算机技术</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/computer-science/cpp/" title="分类于 c++">c++</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/computer-science/cpp/heima/" title="分类于 黑马程序员">黑马程序员</a>
+</div>
+
+    <span><a href="/computer-science/cpp/heima/c++%E5%9F%BA%E7%A1%80--%E7%BB%93%E6%9E%84%E4%BD%93/" title="c++基础--结构体">c++基础--结构体</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/computer-science/" title="分类于 计算机技术">计算机技术</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/computer-science/cpp/" title="分类于 c++">c++</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/computer-science/cpp/heima/" title="分类于 黑马程序员">黑马程序员</a>
+</div>
+
+    <span><a href="/computer-science/cpp/heima/c++%E6%8F%90%E9%AB%98--STL%E5%88%9D%E8%AF%86/" title="c++提高--STL初识">c++提高--STL初识</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/computer-science/" title="分类于 计算机技术">计算机技术</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/computer-science/cpp/" title="分类于 c++">c++</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/computer-science/cpp/heima/" title="分类于 黑马程序员">黑马程序员</a>
+</div>
+
+    <span><a href="/computer-science/cpp/heima/c++%E6%A0%B8%E5%BF%83--%E5%BC%95%E7%94%A8/" title="c++核心--引用">c++核心--引用</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/computer-science/" title="分类于 计算机技术">计算机技术</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/computer-science/cpp/" title="分类于 c++">c++</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/computer-science/cpp/heima/" title="分类于 黑马程序员">黑马程序员</a>
+</div>
+
+    <span><a href="/computer-science/cpp/heima/c++%E6%8F%90%E9%AB%98--STL%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1/" title="c++提高--STL函数对象">c++提高--STL函数对象</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/happy/blog/" title="blog">blog</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">计算机圆子 @ 快乐每一天</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="站点总字数">62k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="站点阅读时长">57 分钟</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: 'computer-science/cpp/heima/c++提高--STL初识/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

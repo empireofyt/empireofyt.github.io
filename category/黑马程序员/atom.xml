@@ -1,0 +1,4606 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://empireofyt.github.io</id>
+    <title> • Posts by &#34;黑马程序员&#34; category</title>
+    <link href="https://empireofyt.github.io" />
+    <updated>2023-02-02T13:13:58.158Z</updated>
+    <category term="算法" />
+    <entry>
+        <id>https://empireofyt.github.io/computer-science/cpp/heima/c++%E6%A0%B8%E5%BF%83--%E8%81%8C%E5%B7%A5%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/</id>
+        <title>c++核心--职工管理系统</title>
+        <link rel="alternate" href="https://empireofyt.github.io/computer-science/cpp/heima/c++%E6%A0%B8%E5%BF%83--%E8%81%8C%E5%B7%A5%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/"/>
+        <content type="html"></content>
+        <updated>2023-02-02T13:13:58.158Z</updated>
+    </entry>
+    <entry>
+        <id>https://empireofyt.github.io/computer-science/cpp/heima/c++%E6%A0%B8%E5%BF%83--%E5%BC%95%E7%94%A8/</id>
+        <title>c++核心--引用</title>
+        <link rel="alternate" href="https://empireofyt.github.io/computer-science/cpp/heima/c++%E6%A0%B8%E5%BF%83--%E5%BC%95%E7%94%A8/"/>
+        <content type="html">&lt;h2 id=&#34;引用&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#引用&#34;&gt;#&lt;/a&gt; 引用&lt;/h2&gt;
+&lt;h3 id=&#34;1-引用的使用&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#1-引用的使用&#34;&gt;#&lt;/a&gt; 1 引用的使用&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;作用：&lt;/strong&gt; 给变量起别名&lt;br&gt;
+&lt;strong&gt;语法：&lt;/strong&gt; &lt;code&gt;数据类型 &amp;amp;别名 = 原名&lt;/code&gt; &lt;br&gt;
+&lt;strong&gt;注意：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;引用必须初始化&lt;/li&gt;
+&lt;li&gt;引用在初始化后，不可以改变&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;2-引用做函数参数&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#2-引用做函数参数&#34;&gt;#&lt;/a&gt; 2 引用做函数参数&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;作用：&lt;/strong&gt; 函数传参时，可以利用引用的技术让形参修饰实参&lt;br&gt;
+&lt;strong&gt;优点：&lt;/strong&gt; 可以简化指针修改实参&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;通过引用参数产生的效果同按地址传递是一样的。引用的语法更清楚简单&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;//1. 值传递
+void mySwap01(int a, int b) &amp;#123;
+	int temp = a;
+	a = b;
+	b = temp;
+&amp;#125;
+
+//2. 地址传递
+void mySwap02(int* a, int* b) &amp;#123;
+	int temp = *a;
+	*a = *b;
+	*b = temp;
+&amp;#125;
+
+//3. 引用传递
+void mySwap03(int&amp;amp; a, int&amp;amp; b) &amp;#123;
+	int temp = a;
+	a = b;
+	b = temp;
+&amp;#125;
+
+int main() &amp;#123;
+
+	int a = 10;
+	int b = 20;
+
+	mySwap01(a, b);
+	cout &amp;lt;&amp;lt; &amp;quot;a:&amp;quot; &amp;lt;&amp;lt; a &amp;lt;&amp;lt; &amp;quot; b:&amp;quot; &amp;lt;&amp;lt; b &amp;lt;&amp;lt; endl;
+
+	mySwap02(&amp;amp;a, &amp;amp;b);
+	cout &amp;lt;&amp;lt; &amp;quot;a:&amp;quot; &amp;lt;&amp;lt; a &amp;lt;&amp;lt; &amp;quot; b:&amp;quot; &amp;lt;&amp;lt; b &amp;lt;&amp;lt; endl;
+
+	mySwap03(a, b);
+	cout &amp;lt;&amp;lt; &amp;quot;a:&amp;quot; &amp;lt;&amp;lt; a &amp;lt;&amp;lt; &amp;quot; b:&amp;quot; &amp;lt;&amp;lt; b &amp;lt;&amp;lt; endl;
+
+	system(&amp;quot;pause&amp;quot;);
+
+	return 0;
+&amp;#125;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;3-引用做函数返回值&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#3-引用做函数返回值&#34;&gt;#&lt;/a&gt; 3 引用做函数返回值&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;作用：&lt;/strong&gt; 引用是可以作为函数的返回值存在的&lt;br&gt;
+&lt;strong&gt;用法：引用是可以作为函数的返回值存在的&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;注意：&lt;/strong&gt; 函数调用作为左值&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//返回局部变量引用
+int&amp;amp; test01() &amp;#123;
+	int a = 10; //局部变量
+	return a;
+&amp;#125;
+
+//返回静态变量引用
+int&amp;amp; test02() &amp;#123;
+	static int a = 20;//静态变量，存放在全局区，全局区上的数据在程序结束后系统释放
+	return a;
+&amp;#125;
+
+int main() &amp;#123;
+
+	//不能返回局部变量的引用
+	int&amp;amp; ref = test01();
+	cout &amp;lt;&amp;lt; &amp;quot;ref = &amp;quot; &amp;lt;&amp;lt; ref &amp;lt;&amp;lt; endl;
+	cout &amp;lt;&amp;lt; &amp;quot;ref = &amp;quot; &amp;lt;&amp;lt; ref &amp;lt;&amp;lt; endl;
+
+	//如果函数做左值，那么必须返回引用
+    //输出20 
+	int&amp;amp; ref2 = test02();
+	cout &amp;lt;&amp;lt; &amp;quot;ref2 = &amp;quot; &amp;lt;&amp;lt; ref2 &amp;lt;&amp;lt; endl;
+	cout &amp;lt;&amp;lt; &amp;quot;ref2 = &amp;quot; &amp;lt;&amp;lt; ref2 &amp;lt;&amp;lt; endl;
+
+    //相当于a=1000
+	test02() = 1000;
+	//输出1000
+	cout &amp;lt;&amp;lt; &amp;quot;ref2 = &amp;quot; &amp;lt;&amp;lt; ref2 &amp;lt;&amp;lt; endl;
+	cout &amp;lt;&amp;lt; &amp;quot;ref2 = &amp;quot; &amp;lt;&amp;lt; ref2 &amp;lt;&amp;lt; endl;
+
+	system(&amp;quot;pause&amp;quot;);
+
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;4-引用的本质&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#4-引用的本质&#34;&gt;#&lt;/a&gt; 4 引用的本质&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;本质：&lt;/strong&gt; 在 c++ 内部实现就是一个指针常量&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//发现是引用，转换为 int* const ref = &amp;amp;a;
+void func(int&amp;amp; ref)&amp;#123;
+	ref = 100; // ref是引用，转换为*ref = 100
+&amp;#125;
+int main()&amp;#123;
+	int a = 10;
+    
+    //自动转换为 int* const ref = &amp;amp;a; 指针常量是指针指向不可改，也说明为什么引用不可更改
+	int&amp;amp; ref = a; 
+	ref = 20; //内部发现ref是引用，自动帮我们转换为: *ref = 20;
+    
+	cout &amp;lt;&amp;lt; &amp;quot;a:&amp;quot; &amp;lt;&amp;lt; a &amp;lt;&amp;lt; endl;
+	cout &amp;lt;&amp;lt; &amp;quot;ref:&amp;quot; &amp;lt;&amp;lt; ref &amp;lt;&amp;lt; endl;
+    
+	func(a);
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;5-常量引用&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#5-常量引用&#34;&gt;#&lt;/a&gt; 5 常量引用&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;作用：&lt;/strong&gt; 常量引用主要用来修饰形参，防止误操作&lt;br&gt;
+在函数形参列表中，可以加&lt;strong&gt; const 修饰形参&lt;/strong&gt;，防止形参改变实参&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//引用使用的场景，通常用来修饰形参
+void showValue(const int&amp;amp; v) &amp;#123;
+	//v += 10;
+	cout &amp;lt;&amp;lt; v &amp;lt;&amp;lt; endl;
+&amp;#125;
+
+int main() &amp;#123;
+
+	//int&amp;amp; ref = 10;  引用本身需要一个合法的内存空间，因此这行错误
+	//加入const就可以了，编译器优化代码，int temp = 10; const int&amp;amp; ref = temp;
+	const int&amp;amp; ref = 10;
+
+	//ref = 100;  //加入const后不可以修改变量
+	cout &amp;lt;&amp;lt; ref &amp;lt;&amp;lt; endl;
+
+	//函数中利用常量引用防止误操作修改实参
+	int a = 10;
+	showValue(a);
+
+	system(&amp;quot;pause&amp;quot;);
+
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+        <updated>2023-02-02T13:13:37.508Z</updated>
+    </entry>
+    <entry>
+        <id>https://empireofyt.github.io/computer-science/cpp/heima/c++%E6%A0%B8%E5%BF%83--%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/</id>
+        <title>c++核心--文件操作</title>
+        <link rel="alternate" href="https://empireofyt.github.io/computer-science/cpp/heima/c++%E6%A0%B8%E5%BF%83--%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/"/>
+        <content type="html">&lt;h2 id=&#34;文件操作&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#文件操作&#34;&gt;#&lt;/a&gt; 文件操作&lt;/h2&gt;
+&lt;p&gt;程序运行时产生的数据都属于临时数据，程序一旦运行结束都会被释放&lt;/p&gt;
+&lt;p&gt;通过&lt;strong&gt;文件可以将数据持久化&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;C++ 中对文件操作需要包含头文件 &lt;strong&gt;&lt;fstream&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;文件类型分为两种：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;文本文件&lt;/strong&gt;     -  文件以文本的&lt;strong&gt; ASCII 码&lt;/strong&gt;形式存储在计算机中&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;二进制文件&lt;/strong&gt; -  文件以文本的&lt;strong&gt;二进制&lt;/strong&gt;形式存储在计算机中，用户一般不能直接读懂它们&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;操作文件的三大类:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;ofstream：写操作 (output)&lt;/li&gt;
+&lt;li&gt;ifstream： 读操作 (input)&lt;/li&gt;
+&lt;li&gt;fstream ： 读写操作&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;1-文本文件&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#1-文本文件&#34;&gt;#&lt;/a&gt; 1. 文本文件&lt;/h3&gt;
+&lt;h4 id=&#34;11-写文件&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#11-写文件&#34;&gt;#&lt;/a&gt; 1.1 写文件&lt;/h4&gt;
+&lt;p&gt;写文件步骤如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;包含头文件       &lt;code&gt; #include &amp;lt;fstream&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;创建流对象        &lt;code&gt;ofstream ofs;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;打开文件          &lt;code&gt;ofs.open(&amp;quot;文件路径&amp;quot;,打开方式);&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;写数据             &lt;code&gt;ofs &amp;lt;&amp;lt; &amp;quot;写入的数据&amp;quot;;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;关闭文件         &lt;code&gt; ofs.close();&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;打开文件方式：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;打开方式&lt;/th&gt;
+&lt;th&gt;解释&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ios::in&lt;/td&gt;
+&lt;td&gt;为读文件而打开文件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ios::out&lt;/td&gt;
+&lt;td&gt;为写文件而打开文件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ios::ate&lt;/td&gt;
+&lt;td&gt;初始位置：文件尾&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ios::app&lt;/td&gt;
+&lt;td&gt;追加方式写文件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ios::trunc&lt;/td&gt;
+&lt;td&gt;如果文件存在先删除，再创建&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ios::binary&lt;/td&gt;
+&lt;td&gt;二进制方式&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;： 文件打开方式可以配合使用，利用 &lt;code&gt;|操作符&lt;/code&gt; &lt;br&gt;
+例如：用二进制方式写文件 &lt;code&gt; ios::binary | ios:: out&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;总结&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;文件操作必须包含头文件 fstream&lt;/li&gt;
+&lt;li&gt;读文件可以利用 ofstream ，或者 fstream 类&lt;/li&gt;
+&lt;li&gt;打开文件时候需要指定操作文件的路径，以及打开方式&lt;/li&gt;
+&lt;li&gt;利用 &amp;lt;&amp;lt; 可以向文件中写数据&lt;/li&gt;
+&lt;li&gt;操作完毕，要 close 关闭文件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;12-读文件&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#12-读文件&#34;&gt;#&lt;/a&gt; 1.2 读文件&lt;/h4&gt;
+&lt;p&gt;读文件步骤如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;包含头文件        #include &lt;fstream&gt;&lt;/li&gt;
+&lt;li&gt;创建流对象        ifstream ifs;&lt;/li&gt;
+&lt;li&gt;打开文件并判断文件是否打开成功&lt;br&gt;
+ ifs.open (“文件路径”, 打开方式);&lt;/li&gt;
+&lt;li&gt;读数据  四种方式读取&lt;/li&gt;
+&lt;li&gt;关闭文件           ifs.close ();&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;利用&lt;strong&gt; is_open&lt;/strong&gt; 函数可以判断文件是否打开成功&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//四种读取文件的方式
+
+//第一种方式
+	//char buf[1024] = &amp;#123; 0 &amp;#125;;
+	//while (ifs &amp;gt;&amp;gt; buf)
+	//&amp;#123;
+	//	cout &amp;lt;&amp;lt; buf &amp;lt;&amp;lt; endl;
+	//&amp;#125;
+
+	//第二种
+	//char buf[1024] = &amp;#123; 0 &amp;#125;;
+	//while (ifs.getline(buf,sizeof(buf)))
+	//&amp;#123;
+	//	cout &amp;lt;&amp;lt; buf &amp;lt;&amp;lt; endl;
+	//&amp;#125;
+
+	//第三种
+	//string buf;
+	//while (getline(ifs, buf))
+	//&amp;#123;
+	//	cout &amp;lt;&amp;lt; buf &amp;lt;&amp;lt; endl;
+	//&amp;#125;
+
+	char c;
+	while ((c = ifs.get()) != EOF)
+	&amp;#123;
+		cout &amp;lt;&amp;lt; c;
+	&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;2-二进制文件&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#2-二进制文件&#34;&gt;#&lt;/a&gt; 2. 二进制文件&lt;/h3&gt;
+&lt;p&gt;以二进制的方式对文件进行读写操作&lt;br&gt;
+打开方式要指定为 &lt;code&gt;ios::binary&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&#34;21-写文件&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#21-写文件&#34;&gt;#&lt;/a&gt; 2.1 写文件&lt;/h4&gt;
+&lt;p&gt;二进制方式写文件主要利用流对象调用成员函数 write&lt;/p&gt;
+&lt;p&gt;函数原型 ： &lt;code&gt;ostream&amp;amp; write(const char * buffer,int len)&lt;/code&gt; ;&lt;/p&gt;
+&lt;p&gt;参数解释：字符指针 buffer 指向内存中一段存储空间。len 是读写的字节数&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//1、包含头文件
+
+	//2、创建输出流对象
+	ofstream ofs(&amp;quot;person.txt&amp;quot;, ios::out | ios::binary);
+	
+	//3、打开文件
+	//ofs.open(&amp;quot;person.txt&amp;quot;, ios::out | ios::binary);
+
+	Person p = &amp;#123;&amp;quot;张三&amp;quot;  , 18&amp;#125;;
+
+	//4、写文件
+	ofs.write((const char *)&amp;amp;p, sizeof(p));
+
+	//5、关闭文件
+	ofs.close();
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;22-读文件&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#22-读文件&#34;&gt;#&lt;/a&gt; 2.2 读文件&lt;/h4&gt;
+&lt;p&gt;二进制方式读文件主要利用流对象调用成员函数 read&lt;/p&gt;
+&lt;p&gt;函数原型： &lt;code&gt;istream&amp;amp; read(char *buffer,int len);&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;参数解释：字符指针 buffer 指向内存中一段存储空间。len 是读写的字节数&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ifstream ifs(&amp;quot;person.txt&amp;quot;, ios::in | ios::binary);
+	if (!ifs.is_open())
+	&amp;#123;
+		cout &amp;lt;&amp;lt; &amp;quot;文件打开失败&amp;quot; &amp;lt;&amp;lt; endl;
+	&amp;#125;
+
+	Person p;
+	ifs.read((char *)&amp;amp;p, sizeof(p));
+
+	cout &amp;lt;&amp;lt; &amp;quot;姓名： &amp;quot; &amp;lt;&amp;lt; p.m_Name &amp;lt;&amp;lt; &amp;quot; 年龄： &amp;quot; &amp;lt;&amp;lt; p.m_Age &amp;lt;&amp;lt; endl;
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+        <updated>2023-02-02T13:13:11.887Z</updated>
+    </entry>
+    <entry>
+        <id>https://empireofyt.github.io/computer-science/cpp/heima/c++%E6%A0%B8%E5%BF%83--%E5%86%85%E5%AD%98%E5%88%86%E5%8C%BA%E6%A8%A1%E5%9E%8B/</id>
+        <title>c++核心--内存分区模型</title>
+        <link rel="alternate" href="https://empireofyt.github.io/computer-science/cpp/heima/c++%E6%A0%B8%E5%BF%83--%E5%86%85%E5%AD%98%E5%88%86%E5%8C%BA%E6%A8%A1%E5%9E%8B/"/>
+        <content type="html">&lt;h1 id=&#34;内存分区模型&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#内存分区模型&#34;&gt;#&lt;/a&gt; 内存分区模型&lt;/h1&gt;
+&lt;h3 id=&#34;1-内存分区模型&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#1-内存分区模型&#34;&gt;#&lt;/a&gt; 1. 内存分区模型&lt;/h3&gt;
+&lt;p&gt;C++ 程序在执行时，将内存大方向划分为 4 个区域&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;代码区&lt;/strong&gt;：存放函数体的二进制代码，由操作系统进行管理的&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;全局区&lt;/strong&gt;：存放全局变量和静态变量以及常量&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;栈区&lt;/strong&gt;：由编译器自动分配释放，存放函数的参数值，局部变量等&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;堆区&lt;/strong&gt;：由程序员分配和释放，若程序员不释放，程序结束时由操作系统回收&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;2-程序运行前&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#2-程序运行前&#34;&gt;#&lt;/a&gt; 2 程序运行前&lt;/h3&gt;
+&lt;p&gt;在程序编译后，生成了 exe 可执行程序，未执行该程序前分为两个区域&lt;br&gt;
+&lt;strong&gt;代码区&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;pre&gt;&lt;code&gt;存放 CPU 执行的机器指令代码区是共享的，共享的目的是对于频繁被执行的程序，只需要在内存中有一份代码即可
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;pre&gt;&lt;code&gt;代码区是只读的，使其只读的原因是防止程序意外地修改了它的指令
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;全局区&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;pre&gt;&lt;code&gt;全局变量和静态变量存放在此.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;pre&gt;&lt;code&gt;全局区还包含了常量区, 字符串常量和const修饰的全局常量也存放在此.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;pre&gt;&lt;code&gt;该区域的数据在程序结束后由操作系统释放
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;const 修饰的局部变量不在全局区&lt;br&gt;
+代码区特点是共享和只读&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;3-程序运行后&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#3-程序运行后&#34;&gt;#&lt;/a&gt; 3. 程序运行后&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;栈区：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;由编译器自动分配释放，存放函数的参数值，局部变量等注意事项：&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;不要返回局部变量的地址&lt;/strong&gt;，栈区开辟的数据由编译器自动释放。若返回局部变量的地址，第一次可以成功，第二次就会失败了。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;堆区&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;由程序员分配释放，若程序员不释放，程序结束时由操作系统回收&lt;/li&gt;
+&lt;li&gt;在 c++ 中主要利用&lt;strong&gt; new&lt;/strong&gt; 在&lt;strong&gt;堆区&lt;/strong&gt;开辟内存&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;int* func()
+&amp;#123;
+//指针a本质是局部变量，故在栈区
+//指针保存的new的数据是放在堆区
+	int* a = new int(10);
+	return a;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;4-new操作符&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#4-new操作符&#34;&gt;#&lt;/a&gt; 4. new 操作符&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;C++ 中利用&lt;strong&gt; new&lt;/strong&gt; 操作符在堆区开辟数据。利用 &lt;strong&gt;delete&lt;/strong&gt; 操作符释放数据&lt;/li&gt;
+&lt;li&gt;堆区开辟的数据，由程序员手动开辟，手动释放&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;语法&lt;/strong&gt;： &lt;code&gt;new 数据类型&lt;/code&gt; &lt;br&gt;
+ &lt;code&gt;delete 变量名&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;利用 new 创建的数据，会返回该&lt;strong&gt;数据对应的类型的指针&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;new 和 delete 数组的时候，要加上  [ ]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;int* a = new int(10);   //值为10的int型数据
+delete a;
+int* arr = new int[10];    //10个数据的数组
+delete[] arr;
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+        <updated>2023-02-02T13:12:35.466Z</updated>
+    </entry>
+    <entry>
+        <id>https://empireofyt.github.io/computer-science/cpp/heima/c++%E6%A0%B8%E5%BF%83--%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/</id>
+        <title>c++核心--类和对象</title>
+        <link rel="alternate" href="https://empireofyt.github.io/computer-science/cpp/heima/c++%E6%A0%B8%E5%BF%83--%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/"/>
+        <content type="html">&lt;h2 id=&#34;类和对象&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#类和对象&#34;&gt;#&lt;/a&gt; 类和对象&lt;/h2&gt;
+&lt;p&gt;面向对象的三大特性: &lt;strong&gt;封装、继承、多态&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;1-封装&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#1-封装&#34;&gt;#&lt;/a&gt; 1. 封装&lt;/h3&gt;
+&lt;h4 id=&#34;11-封装的意义&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#11-封装的意义&#34;&gt;#&lt;/a&gt; 1.1 封装的意义：&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;将属性和行为作为一个整体，表现生活中的事物&lt;/li&gt;
+&lt;li&gt;将属性和行为加以权限控制&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;封装意义一&lt;/strong&gt;：在设计类的时候，属性和行为写在一起，表现事物&lt;br&gt;
+&lt;strong&gt;语法：&lt;/strong&gt;  &lt;code&gt;class 类名&amp;#123; 访问权限： 属性 / 行为 &amp;#125;;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;封装意义二&lt;/strong&gt;：类在设计时，可以把属性和行为放在不同的权限下，加以控制访问权限有三种：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;public 公共权限&lt;/li&gt;
+&lt;li&gt;protected 保护权限&lt;/li&gt;
+&lt;li&gt;private 私有权限&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;struct 和 class 的区别&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;struct 默认权限是 公共 public&lt;/li&gt;
+&lt;li&gt;class 默认权限是 私有 private&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;12-成员属性设置为私有&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#12-成员属性设置为私有&#34;&gt;#&lt;/a&gt; 1.2 成员属性设置为私有&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;优点 1&lt;/strong&gt;：将所有成员属性设置为私有，可以自己控制读写权限&lt;br&gt;
+&lt;strong&gt;优点 2&lt;/strong&gt;：对于写权限，我们可以检测数据的有效性&lt;/p&gt;
+&lt;h3 id=&#34;2-对象的初始化和清理&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#2-对象的初始化和清理&#34;&gt;#&lt;/a&gt; 2. 对象的初始化和清理&lt;/h3&gt;
+&lt;h4 id=&#34;21-构造函数和析构函数&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#21-构造函数和析构函数&#34;&gt;#&lt;/a&gt; 2.1 构造函数和析构函数&lt;/h4&gt;
+&lt;p&gt;构造函数和析构函数将会被编译器&lt;strong&gt;自动调用&lt;/strong&gt;，完成对象初始化和清理工作。如果我们不提供构造和析构，编译器会提供&lt;br&gt;
+&lt;strong&gt;编译器提供的构造函数和析构函数是空实现&lt;/strong&gt;。&lt;br&gt;
+&lt;strong&gt;构造函数&lt;/strong&gt;：主要作用在于创建对象时为对象的成员属性赋值，构造函数由编译器自动调用，无须手动调用。&lt;br&gt;
+&lt;strong&gt;析构函数&lt;/strong&gt;：主要作用在于对象销毁前系统自动调用，执行一些清理工作。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;构造函数语法&lt;/strong&gt;： &lt;code&gt;类名()&amp;#123;&amp;#125;&lt;/code&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;构造函数，没有返回值也不写 void&lt;/li&gt;
+&lt;li&gt;函数名称与类名相同&lt;/li&gt;
+&lt;li&gt;构造函数&lt;strong&gt;可以有参数&lt;/strong&gt;，因此&lt;strong&gt;可以发生重载&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;程序在调用对象时候会自动调用构造，无须手动调用，而且只会调用一次&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;析构函数语法&lt;/strong&gt;：  &lt;code&gt;~类名()&amp;#123;&amp;#125;&lt;/code&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;析构函数，没有返回值也不写 void&lt;/li&gt;
+&lt;li&gt;函数名称与类名相同，在名称前加上符号～&lt;/li&gt;
+&lt;li&gt;析构函数&lt;strong&gt;不可以有参数&lt;/strong&gt;，因此&lt;strong&gt;不可以发生重载&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;程序在&lt;strong&gt;对象销毁前会自动调用析构&lt;/strong&gt;，无须手动调用，而且只会调用一次&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;22-构造函数的分类及其调用&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#22-构造函数的分类及其调用&#34;&gt;#&lt;/a&gt; 2.2 构造函数的分类及其调用&lt;/h4&gt;
+&lt;p&gt;两种分类方式：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;按参数分为： 有参构造和无参构造&lt;/li&gt;
+&lt;li&gt;按类型分为： 普通构造和拷贝构造&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;三种调用方式：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;括号法&lt;/li&gt;
+&lt;li&gt;显示法&lt;/li&gt;
+&lt;li&gt;隐式转换法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;#include&amp;lt;iostream&amp;gt;
+
+#include&amp;lt;string&amp;gt;
+
+using namespace std;
+
+
+// 构造函数的分类及调用
+
+//分类
+
+
+class Person &amp;#123;
+
+public:
+
+        int age;
+
+        Person() &amp;#123;
+
+               cout &amp;lt;&amp;lt; &amp;quot;无参数构造&amp;quot; &amp;lt;&amp;lt; endl;
+
+        &amp;#125;
+
+
+
+        Person(int a) &amp;#123;
+
+               age = a;
+
+               cout &amp;lt;&amp;lt; &amp;quot;有参数构造&amp;quot; &amp;lt;&amp;lt; endl;
+
+        &amp;#125;
+
+
+
+        // 拷贝构造函数
+
+        Person(const Person &amp;amp;p) &amp;#123;
+
+               //将传入的人身上的所有属性，拷贝到我身上
+
+               age = p.age;
+
+               cout &amp;lt;&amp;lt; &amp;quot;拷贝构造函数&amp;quot; &amp;lt;&amp;lt; endl;
+
+        &amp;#125;
+
+        ~Person() &amp;#123;
+
+               cout &amp;lt;&amp;lt; &amp;quot;析构函数&amp;quot; &amp;lt;&amp;lt; endl;
+
+        &amp;#125;
+
+&amp;#125;;
+
+
+
+//调用
+
+void test1() &amp;#123;
+        //1. 括号法
+        Person p1;     //默认构造函数调用，
+        //注意调用构造函数时不要加上（），加上括号，编译器会认为这是一个函数的声明
+        Person p2(10); //有参数构造函数
+        Person p3(p2); //拷贝构造函数
+        cout &amp;lt;&amp;lt; &amp;quot;p2&#39;s age = &amp;quot; &amp;lt;&amp;lt; p2.age &amp;lt;&amp;lt; endl;
+        cout &amp;lt;&amp;lt; &amp;quot;p3&#39;s age = &amp;quot; &amp;lt;&amp;lt; p3.age &amp;lt;&amp;lt; endl;
+
+        //2. 显示法
+        Person p4;//默认构造函数调用，
+        Person p5 = Person(10);//有参数构造函数
+        Person p6 = Person(p5);//拷贝构造函数
+        Person(10);//匿名对象，当前行执行完，系统会立刻回收，马上析构
+        //2.3 隐式转换法
+        Person p7 = 10; // Person p7 = Person(10); 
+       Person p8 = p7; // Person p8 = Person(p7); 
+        //注意2：不能利用 拷贝构造函数 初始化匿名对象 编译器认为是对象声明
+        //Person p5(p4);
+&amp;#125;
+
+
+int main() &amp;#123;
+        test1();
+        system(&amp;quot;pause&amp;quot;);
+        return 0;
+&amp;#125;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;23-拷贝构造函数调用时机&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#23-拷贝构造函数调用时机&#34;&gt;#&lt;/a&gt; 2.3 拷贝构造函数调用时机&lt;/h4&gt;
+&lt;p&gt;C++ 中拷贝构造函数调用时机通常有三种情况&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;使用一个已经创建完毕的对象来初始化一个新对象&lt;/li&gt;
+&lt;li&gt;值传递的方式给函数参数传值&lt;/li&gt;
+&lt;li&gt;以值方式返回局部对象&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;class Person &amp;#123;
+public:
+	Person() &amp;#123;
+		cout &amp;lt;&amp;lt; &amp;quot;无参构造函数!&amp;quot; &amp;lt;&amp;lt; endl;
+		mAge = 0;
+	&amp;#125;
+	Person(int age) &amp;#123;
+		cout &amp;lt;&amp;lt; &amp;quot;有参构造函数!&amp;quot; &amp;lt;&amp;lt; endl;
+		mAge = age;
+	&amp;#125;
+	Person(const Person&amp;amp; p) &amp;#123;
+		cout &amp;lt;&amp;lt; &amp;quot;拷贝构造函数!&amp;quot; &amp;lt;&amp;lt; endl;
+		mAge = p.mAge;
+	&amp;#125;
+	//析构函数在释放内存之前调用
+	~Person() &amp;#123;
+		cout &amp;lt;&amp;lt; &amp;quot;析构函数!&amp;quot; &amp;lt;&amp;lt; endl;
+	&amp;#125;
+public:
+	int mAge;
+&amp;#125;;
+
+//1. 使用一个已经创建完毕的对象来初始化一个新对象
+void test01() &amp;#123;
+
+	Person man(100); //p对象已经创建完毕
+	Person newman(man); //调用拷贝构造函数
+	Person newman2 = man; //拷贝构造
+
+	//Person newman3;
+	//newman3 = man; //不是调用拷贝构造函数，赋值操作
+&amp;#125;
+
+//2. 值传递的方式给函数参数传值
+//相当于Person p1 = p;
+void doWork(Person p1) &amp;#123;&amp;#125;
+void test02() &amp;#123;
+	Person p; //无参构造函数
+	doWork(p);
+&amp;#125;
+
+//3. 以值方式返回局部对象
+Person doWork2()
+&amp;#123;
+	Person p1;
+	cout &amp;lt;&amp;lt; (int *)&amp;amp;p1 &amp;lt;&amp;lt; endl;
+	return p1;
+&amp;#125;
+
+void test03()
+&amp;#123;
+	Person p = doWork2();
+	cout &amp;lt;&amp;lt; (int *)&amp;amp;p &amp;lt;&amp;lt; endl;
+&amp;#125;
+
+
+int main() &amp;#123;
+
+	//test01();
+	//test02();
+	test03();
+
+	system(&amp;quot;pause&amp;quot;);
+
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;24-构造函数调用规则&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#24-构造函数调用规则&#34;&gt;#&lt;/a&gt; 2.4 构造函数调用规则&lt;/h4&gt;
+&lt;p&gt;默认情况下，c++ 编译器至少给一个类添加 3 个函数&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;默认构造函数&lt;/strong&gt; (无参，函数体为空)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;默认析构函数&lt;/strong&gt; (无参，函数体为空)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;默认拷贝构造函数&lt;/strong&gt; ，对属性进行值拷贝&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;构造函数调用规则&lt;/strong&gt;如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如果用户定义&lt;strong&gt;有参构造函数&lt;/strong&gt;，c++&lt;strong&gt; 不在提供默认无参构造&lt;/strong&gt;，但是会&lt;strong&gt;提供默认拷贝构造&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;如果用户定义&lt;strong&gt;拷贝构造函数&lt;/strong&gt;，c++&lt;strong&gt; 不会再提供其他构造函数&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;25-深拷贝和浅拷贝面试经典问题&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#25-深拷贝和浅拷贝面试经典问题&#34;&gt;#&lt;/a&gt; 2.5 深拷贝和浅拷贝（面试经典问题）&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;浅拷贝&lt;/strong&gt;：简单的赋值拷贝操作；如果利用编译器提供的拷贝构造函数，就会进行浅拷贝&lt;br&gt;
+&lt;strong&gt;深拷贝&lt;/strong&gt;：在堆区重新申请空间，进行拷贝操作；若自己写，可利用 new 进行深拷贝&lt;/p&gt;
+&lt;p&gt;浅拷贝的问题：会带来堆区的内存重复释放&lt;br&gt;
+解决方法：使用深拷贝&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;en-resource://database/937:1&#34; alt=&#34;098eb1d2a927c933f402f0a31c5475ae.png&#34;&gt;&lt;br&gt;
+&lt;img data-src=&#34;en-resource://database/939:1&#34; alt=&#34;946a958eeefb478fa0ccd1a068fc6dca.png&#34;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include&amp;lt;iostream&amp;gt;
+
+#include&amp;lt;string&amp;gt;
+
+
+
+using namespace std;
+
+
+
+// 深拷贝和浅拷贝
+
+
+
+class Person &amp;#123;
+
+public:
+
+        int age;
+
+        int *height;//设计为指针，是为了把height开辟在堆区
+
+
+
+        Person() &amp;#123;
+
+               cout &amp;lt;&amp;lt; &amp;quot;无参数构造&amp;quot; &amp;lt;&amp;lt; endl;
+
+        &amp;#125;
+
+
+
+        Person(int a, int h) &amp;#123;
+
+               age = a;
+
+               height= new int(h);//把身高开辟在堆区
+
+               cout &amp;lt;&amp;lt; &amp;quot;有参数构造&amp;quot; &amp;lt;&amp;lt; endl;
+
+        &amp;#125;
+
+
+
+        // 拷贝构造函数  
+
+        Person(const Person&amp;amp; p) &amp;#123;
+
+               cout &amp;lt;&amp;lt; &amp;quot;拷贝构造函数!&amp;quot; &amp;lt;&amp;lt; endl;
+
+               //如果不利用深拷贝在堆区创建新内存，会导致浅拷贝带来的重复释放堆区问题
+
+               age = p.age;
+
+               // height = p.height; // 这就是编译器自动进行的浅拷贝
+
+               height = new int(*p.height);  //使用new，在堆区新开辟一个空间
+
+
+
+        &amp;#125;
+
+
+
+        ~Person() &amp;#123;
+
+               //将堆区开辟的数据做释放操作
+
+               if (height != NULL)
+
+               &amp;#123;
+
+                       delete height;
+
+               &amp;#125;
+
+               cout &amp;lt;&amp;lt; &amp;quot;析构函数&amp;quot; &amp;lt;&amp;lt; endl;
+
+        &amp;#125;
+
+&amp;#125;;
+
+
+
+void test01() &amp;#123;
+
+        Person p1(18, 160);
+
+        cout &amp;lt;&amp;lt; &amp;quot;p1&#39;s age =&amp;quot; &amp;lt;&amp;lt; p1.age &amp;lt;&amp;lt; endl;
+
+        cout &amp;lt;&amp;lt; &amp;quot;p1&#39;s height =&amp;quot; &amp;lt;&amp;lt; *p1.height &amp;lt;&amp;lt; endl;
+
+
+
+        Person p2(p1);
+
+        cout &amp;lt;&amp;lt; &amp;quot;p2&#39;s age =&amp;quot; &amp;lt;&amp;lt; p2.age &amp;lt;&amp;lt; endl;
+
+        cout &amp;lt;&amp;lt; &amp;quot;p2&#39;s height =&amp;quot; &amp;lt;&amp;lt; *p2.height &amp;lt;&amp;lt; endl;
+
+&amp;#125;
+
+
+int main() &amp;#123;
+
+        test01();
+
+        system(&amp;quot;pause&amp;quot;);
+
+        return 0;
+
+&amp;#125;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：当成功编写拷贝构造函数，但在 vs 里面运行失败，原因在于没有把其他 cpp 文件注释&lt;br&gt;
+&lt;strong&gt;总结&lt;/strong&gt;：如果属性有在堆区开辟的，一定要自己提供拷贝构造函数，防止浅拷贝带来的问题&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;26-初始化列表&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#26-初始化列表&#34;&gt;#&lt;/a&gt; 2.6 初始化列表&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;作用&lt;/strong&gt;：C++ 提供了初始化列表语法，用来初始化属性&lt;br&gt;
+&lt;strong&gt;语法&lt;/strong&gt;： &lt;code&gt;构造函数()：属性1(值1),属性2（值2）... &amp;#123;&amp;#125;&lt;/code&gt; &lt;br&gt;
+ 上述语法固定了初始化的值，若想改变，则需要按照下法处理&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class Person &amp;#123;
+
+public:
+
+        int a, b, c;
+
+        //初始化列表，可随时改变值
+
+        Person(int aa, int bb, int cc) :a(aa), b(bb), c(cc)
+
+        &amp;#123;  &amp;#125;
+
+&amp;#125;;
+
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;27-类对象作为类成员&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#27-类对象作为类成员&#34;&gt;#&lt;/a&gt; 2.7 类对象作为类成员&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;class A&amp;#123;&amp;#125;
+class B&amp;#123;
+    A b;//
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;当类 A 对象作为 B 中一个成员时，创建对象时，会&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;先构造 A 再构造 B&lt;/li&gt;
+&lt;li&gt;先析构 B 在析构 A&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;28-静态成员&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#28-静态成员&#34;&gt;#&lt;/a&gt; 2.8 静态成员&lt;/h4&gt;
+&lt;p&gt;静态成员就是在成员变量和成员函数前加上关键字 static，称为静态成员&lt;br&gt;
+静态成员分为：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;静态成员变量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;所有对象共享同一份数据&lt;/li&gt;
+&lt;li&gt;在编译阶段分配内存&lt;/li&gt;
+&lt;li&gt;类内声明，类外初始化&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;静态成员变量也有访问权限；&lt;br&gt;
+静态成员变量可以通过对象访问（ &lt;code&gt;对象名.静态成员变量 &lt;/code&gt; ）或者通过类名访问（ &lt;code&gt;类名::静态成员变量&lt;/code&gt; ）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;class Person
+&amp;#123;
+	
+public:
+	static int m_A; //静态成员变量
+private:
+	static int m_B; //静态成员变量也是有访问权限的
+&amp;#125;;
+//类外初始化的方法
+int Person::m_A = 10;
+int Person::m_B = 10;//私有变量无法类外访问
+
+void test01()
+&amp;#123;
+	//静态成员变量两种访问方式
+
+	//1、通过对象
+	Person p1;
+	p1.m_A = 100;
+	cout &amp;lt;&amp;lt; &amp;quot;p1.m_A = &amp;quot; &amp;lt;&amp;lt; p1.m_A &amp;lt;&amp;lt; endl;//输出100
+
+	Person p2;
+	p2.m_A = 200;
+	cout &amp;lt;&amp;lt; &amp;quot;p1.m_A = &amp;quot; &amp;lt;&amp;lt; p1.m_A &amp;lt;&amp;lt; endl; //共享同一份数据，200
+	cout &amp;lt;&amp;lt; &amp;quot;p2.m_A = &amp;quot; &amp;lt;&amp;lt; p2.m_A &amp;lt;&amp;lt; endl;//输出200
+
+	//2、通过类名
+	cout &amp;lt;&amp;lt; &amp;quot;m_A = &amp;quot; &amp;lt;&amp;lt; Person::m_A &amp;lt;&amp;lt; endl;//200
+	//cout &amp;lt;&amp;lt; &amp;quot;m_B = &amp;quot; &amp;lt;&amp;lt; Person::m_B &amp;lt;&amp;lt; endl; //私有权限访问不到
+&amp;#125;
+
+int main() &amp;#123;
+	test01();
+	system(&amp;quot;pause&amp;quot;);
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;静态成员函数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;所有对象共享同一个函数&lt;/li&gt;
+&lt;li&gt;静态成员函数只能访问静态成员变量&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;访问方式：1 通过对象 (.)  2 通过类名 ( :: )&lt;br&gt;
+ 静态成员函数也有访问权限；&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;3-c对象模型和this指针&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#3-c对象模型和this指针&#34;&gt;#&lt;/a&gt; 3. C++ 对象模型和 this 指针&lt;/h3&gt;
+&lt;h4 id=&#34;31-成员变量和成员函数分开存储&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#31-成员变量和成员函数分开存储&#34;&gt;#&lt;/a&gt; 3.1 成员变量和成员函数分开存储&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;在 C++ 中，类内的成员变量和成员函数分开存储&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;只有&lt;strong&gt;非静态成员变量&lt;/strong&gt;才属于类的对象上，占用内存空间；静态成员变量和（静态 &amp;amp; 非静态）成员函数都不属于类的对象，不占用内存空间。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;空对象&lt;/strong&gt;占用内存空间为&lt;strong&gt; 1&lt;/strong&gt;，也有自己独一无二的内存地址&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;32-this指针&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#32-this指针&#34;&gt;#&lt;/a&gt; 3.2 this 指针&lt;/h4&gt;
+&lt;p&gt;在 C&lt;ins&gt; 中成员变量和成员函数是分开存储的，每一个非静态成员函数只会诞生一份函数实例，也就是说多个同类型的对象会共用一块代码&lt;br&gt;
+那么问题是：这一块代码是如何区分那个对象调用自己的呢？c&lt;/ins&gt; 通过提供特殊的&lt;strong&gt;对象指针，this 指针&lt;/strong&gt;，解决上述问题。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;this 指针&lt;/strong&gt;指向被调用的成员函数所属的对象 this 指针是隐含每一个非静态成员函数内的一种指针&lt;/p&gt;
+&lt;p&gt;this 指针不需要定义，直接使用即可&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;this 指针的用途&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;当形参和成员变量同名时，可用 this 指针来区分&lt;/li&gt;
+&lt;li&gt;在类的非静态成员函数中返回对象本身，可使用 return *this&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;class Person
+&amp;#123;
+public:
+
+	Person(int age)
+	&amp;#123;
+		//1、当形参和成员变量同名时，可用this指针来区分,，第一个age才是类内定义的age，第二个age是传来的参数副本
+		this-&amp;gt;age = age;
+	&amp;#125;
+
+	Person&amp;amp; PersonAddPerson(Person p) //返回的是引用才会一直加，否则就是返回副本
+	&amp;#123;
+		this-&amp;gt;age += p.age;
+		//返回对象本身
+		return *this;
+	&amp;#125;
+
+	int age;
+&amp;#125;;
+
+void test01()
+&amp;#123;
+	Person p1(10);
+	cout &amp;lt;&amp;lt; &amp;quot;p1.age = &amp;quot; &amp;lt;&amp;lt; p1.age &amp;lt;&amp;lt; endl;
+
+	Person p2(10);
+    //链式编程思想
+p2.PersonAddPerson(p1).PersonAddPerson(p1).PersonAddPerson(p1);
+	cout &amp;lt;&amp;lt; &amp;quot;p2.age = &amp;quot; &amp;lt;&amp;lt; p2.age &amp;lt;&amp;lt; endl;
+&amp;#125;
+
+int main() &amp;#123;
+
+	test01();
+	system(&amp;quot;pause&amp;quot;);
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;33-空指针访问成员函数&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#33-空指针访问成员函数&#34;&gt;#&lt;/a&gt; 3.3 空指针访问成员函数&lt;/h4&gt;
+&lt;p&gt;C++ 中空指针也是可以调用成员函数的，但是也要注意有没有用到 this 指针&lt;/p&gt;
+&lt;p&gt;如果用到 this 指针，需要加以判断保证代码的健壮性&lt;/p&gt;
+&lt;p&gt;this 指针的本质是指针常量，指针的指向不可以修改&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;void ShowPerson() &amp;#123;
+		if (this == NULL) &amp;#123;
+			return;
+		&amp;#125;
+		cout &amp;lt;&amp;lt; mAge &amp;lt;&amp;lt; endl;
+	&amp;#125;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;34-const修饰成员函数&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#34-const修饰成员函数&#34;&gt;#&lt;/a&gt; 3.4 const 修饰成员函数&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;常函数&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;成员函数后加 const 后我们称为这个函数为常函数&lt;/li&gt;
+&lt;li&gt;常函数内不可以修改成员属性&lt;/li&gt;
+&lt;li&gt;成员属性声明时加关键字 mutable 后，在常函数中依然可以修改&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;常对象&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;声明对象前加 const 称该对象为常对象&lt;/li&gt;
+&lt;li&gt;常对象只能调用常函数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;class Person &amp;#123;
+public:
+	Person() &amp;#123;
+		m_A = 0;
+		m_B = 0;
+	&amp;#125;
+
+	//this指针的本质是一个指针常量，指针的指向不可修改
+	//如果想让指针指向的值也不可以修改，需要声明常函数
+	void ShowPerson() const &amp;#123;
+		//const Type* const pointer;
+		//this = NULL; //不能修改指针的指向 Person* const this;
+		//this-&amp;gt;mA = 100; //但是this指针指向的对象的数据是可以修改的
+
+		//const修饰成员函数，表示指针指向的内存空间的数据不能修改，除了mutable修饰的变量
+		this-&amp;gt;m_B = 100;
+	&amp;#125;
+
+	void MyFunc() const &amp;#123;
+		//mA = 10000;
+	&amp;#125;
+
+public:
+	int m_A;
+	mutable int m_B; //可修改 可变的
+&amp;#125;;
+
+
+//const修饰对象  常对象
+void test01() &amp;#123;
+
+	const Person person; //常量对象  
+	cout &amp;lt;&amp;lt; person.m_A &amp;lt;&amp;lt; endl;
+	//person.mA = 100; //常对象不能修改成员变量的值,但是可以访问
+	person.m_B = 100; //但是常对象可以修改mutable修饰成员变量
+
+	//常对象访问成员函数
+	person.MyFunc(); //常对象不能调用const的函数
+
+&amp;#125;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;4-友元&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#4-友元&#34;&gt;#&lt;/a&gt; 4. 友元&lt;/h3&gt;
+&lt;p&gt;友元的目的就是让一个函数或者类 访问另一个类中私有成员&lt;/p&gt;
+&lt;p&gt;友元的关键字为&lt;strong&gt; friend&lt;/strong&gt;&lt;br&gt;
+ 友元的三种实现&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;全局函数做友元&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;//告诉编译器 goodGay全局函数 是 Building类的好朋友，可以访问类中的私有内容
+	friend void goodGay(Building * building);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;类做友元&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;//告诉编译器 goodGay类是Building类的好朋友，可以访问到Building类中私有内容
+	friend class goodGay;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;成员函数做友元&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;//告诉编译器  goodGay类中的visit成员函数 是Building好朋友，可以访问私有内容
+	friend void goodGay::visit();
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;5-运算符重载&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#5-运算符重载&#34;&gt;#&lt;/a&gt; 5. 运算符重载&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;概念&lt;/strong&gt;：对已有的运算符重新进行定义，赋予其另一种功能，以适应不同的数据类型&lt;br&gt;
+&lt;strong&gt;注意&lt;/strong&gt;：对于内置的数据类型的表达式的的运算符是不可能改变的&lt;/p&gt;
+&lt;h4 id=&#34;51-加号运算符重载&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#51-加号运算符重载&#34;&gt;#&lt;/a&gt; 5.1 加号运算符重载&lt;/h4&gt;
+&lt;p&gt;方法：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;成员函数&lt;/li&gt;
+&lt;li&gt;全局函数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;//成员函数实现 + 号运算符重载
+	Person operator+(const Person&amp;amp; p) &amp;#123;
+		Person temp;
+		temp.m_A = this-&amp;gt;m_A + p.m_A;
+		temp.m_B = this-&amp;gt;m_B + p.m_B;
+		return temp;
+	&amp;#125;
+    Person p3 = p2 + p1;  //相当于 p2.operaor+(p1)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;//全局函数实现 + 号运算符重载
+Person operator+(const Person&amp;amp; p1, const Person&amp;amp; p2) &amp;#123;
+	Person temp(0, 0);
+	temp.m_A = p1.m_A + p2.m_A;
+	temp.m_B = p1.m_B + p2.m_B;
+	return temp;
+&amp;#125;
+Person p3 = p2 + p1;  //相当于 operaor+(p1,p2)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;//全局函数
+//运算符重载 可以发生函数重载 
+Person operator+(const Person&amp;amp; p2, int val)  
+&amp;#123;
+	Person temp;
+	temp.m_A = p2.m_A + val;
+	temp.m_B = p2.m_B + val;
+	return temp;
+&amp;#125;
+Person p4 = p3 + 10; //相当于 operator+(p3,10)
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;52-左移运算符重载&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#52-左移运算符重载&#34;&gt;#&lt;/a&gt; 5.2 左移运算符重载&lt;/h4&gt;
+&lt;p&gt;方式：只有全局函数才可以，成员函数无法达到我们的期望&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//成员函数：
+//本质p.operator&amp;lt;&amp;lt;(cout)  简化版本p&amp;lt;&amp;lt;cout，不满足我们的期望
+        void operator&amp;lt;&amp;lt;(cout) &amp;#123;&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;//只能利用全局函数重载左移运算符
+//本质operator&amp;lt;&amp;lt;(cout， p)  简化版本cout&amp;lt;&amp;lt;p，符合要求
+//ostream对象只能有一个
+ostream&amp;amp; operator&amp;lt;&amp;lt;(ostream&amp;amp; out, Person&amp;amp; p) &amp;#123;
+	out &amp;lt;&amp;lt; &amp;quot;a:&amp;quot; &amp;lt;&amp;lt; p.m_A &amp;lt;&amp;lt; &amp;quot; b:&amp;quot; &amp;lt;&amp;lt; p.m_B;
+	return out;
+&amp;#125;
+//链式编程思想，定义返回的类型为ostream&amp;amp;，则cout &amp;lt;&amp;lt; p后还是一个cout，可以继续加endl
+   cout &amp;lt;&amp;lt; p &amp;lt;&amp;lt; endl;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;53-递增运算符重载&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#53-递增运算符重载&#34;&gt;#&lt;/a&gt; 5.3 递增运算符重载&lt;/h4&gt;
+&lt;p&gt;深浅拷贝问题&lt;br&gt;
+ c++ 编译器至少给一个类添加 4 个函数&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;默认构造函数 (无参，函数体为空)&lt;/li&gt;
+&lt;li&gt;默认析构函数 (无参，函数体为空)&lt;/li&gt;
+&lt;li&gt;默认拷贝构造函数，对属性进行值拷贝&lt;/li&gt;
+&lt;li&gt;赋值运算符 operator=, 对属性进行值拷贝&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果类中有属性指向堆区，做赋值操作时也会出现深浅拷贝问题&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class Person
+&amp;#123;
+public:
+
+	Person(int age)
+	&amp;#123;
+		//将年龄数据开辟到堆区
+		m_Age = new int(age);
+	&amp;#125;
+
+	//重载赋值运算符 
+	Person&amp;amp; operator=(Person &amp;amp;p)
+	&amp;#123;
+		if (m_Age != NULL)
+		&amp;#123;
+			delete m_Age;
+			m_Age = NULL;
+		&amp;#125;
+		//编译器提供的代码是浅拷贝
+		//m_Age = p.m_Age;
+
+		//提供深拷贝 解决浅拷贝的问题
+		m_Age = new int(*p.m_Age);
+
+		//返回自身
+		return *this;
+	&amp;#125;
+
+
+	~Person()
+	&amp;#123;
+		if (m_Age != NULL)
+		&amp;#123;
+			delete m_Age;
+			m_Age = NULL;
+		&amp;#125;
+	&amp;#125;
+
+	//年龄的指针
+	int *m_Age;
+
+&amp;#125;;
+
+
+void test01()
+&amp;#123;
+	Person p1(18);
+	Person p2(20);
+	Person p3(30);
+
+	p3 = p2 = p1; //赋值操作
+    
+	cout &amp;lt;&amp;lt; &amp;quot;p1的年龄为：&amp;quot; &amp;lt;&amp;lt; *p1.m_Age &amp;lt;&amp;lt; endl;
+    cout &amp;lt;&amp;lt; &amp;quot;p2的年龄为：&amp;quot; &amp;lt;&amp;lt; *p2.m_Age &amp;lt;&amp;lt; endl;
+	cout &amp;lt;&amp;lt; &amp;quot;p3的年龄为：&amp;quot; &amp;lt;&amp;lt; *p3.m_Age &amp;lt;&amp;lt; endl;
+&amp;#125;
+
+int main() &amp;#123;
+	test01();
+	system(&amp;quot;pause&amp;quot;);
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;55-函数调用运算符重载&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#55-函数调用运算符重载&#34;&gt;#&lt;/a&gt; 5.5 函数调用运算符重载&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;函数调用运算符 () 也可以重载&lt;/li&gt;
+&lt;li&gt;由于重载后使用的方式非常像函数的调用，因此称为仿函数仿函数&lt;/li&gt;
+&lt;li&gt;没有固定写法，非常灵活&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;class MyPrint
+&amp;#123;
+public:
+	void operator()(string text)
+	&amp;#123;
+		cout &amp;lt;&amp;lt; text &amp;lt;&amp;lt; endl;
+	&amp;#125;
+
+&amp;#125;;
+void test01()
+&amp;#123;
+	//重载的（）操作符 也称为仿函数
+	MyPrint myFunc;
+	myFunc(&amp;quot;hello world&amp;quot;);
+&amp;#125;
+
+
+class MyAdd
+&amp;#123;
+public:
+	int operator()(int v1, int v2)
+	&amp;#123;
+		return v1 + v2;
+	&amp;#125;
+&amp;#125;;
+
+void test02()
+&amp;#123;
+	MyAdd add;
+	int ret = add(10, 10);
+	cout &amp;lt;&amp;lt; &amp;quot;ret = &amp;quot; &amp;lt;&amp;lt; ret &amp;lt;&amp;lt; endl;
+
+	//匿名对象调用  
+	cout &amp;lt;&amp;lt; &amp;quot;MyAdd()(100,100) = &amp;quot; &amp;lt;&amp;lt; MyAdd()(100, 100) &amp;lt;&amp;lt; endl;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;6-继承&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#6-继承&#34;&gt;#&lt;/a&gt; 6. 继承&lt;/h3&gt;
+&lt;h4 id=&#34;61-继承的基本语法&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#61-继承的基本语法&#34;&gt;#&lt;/a&gt; 6.1 继承的基本语法&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;优点&lt;/strong&gt;： 减少重复代码&lt;br&gt;
+&lt;strong&gt;语法&lt;/strong&gt;：  &lt;code&gt;class A : 继承方式 B;&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A 类称为子类 或 派生类&lt;/li&gt;
+&lt;li&gt;B 类称为父类 或 基类&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;派生类中的成员，包含两大部分：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一类是从基类继承过来的，一类是自己增加的成员。&lt;/li&gt;
+&lt;li&gt;从基类继承过过来的表现其共性，而新增的成员体现了其个性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;62-继承方式&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#62-继承方式&#34;&gt;#&lt;/a&gt; 6.2 继承方式&lt;/h4&gt;
+&lt;p&gt;继承方式：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;公共继承&lt;/li&gt;
+&lt;li&gt;保护继承&lt;/li&gt;
+&lt;li&gt;私有继承&lt;br&gt;
+&lt;img data-src=&#34;en-resource://database/1062:1&#34; alt=&#34;dc2636a35ca7cf20ef2e3bf033b2b85c.png&#34;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;63-继承中的对象模型&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#63-继承中的对象模型&#34;&gt;#&lt;/a&gt; 6.3 继承中的对象模型&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;class Base &amp;#123;
+
+public:
+        int m_A;
+protected:
+        int m_B;
+private:
+        int m_C;
+&amp;#125;;
+class Son : public Base &amp;#123;
+public:
+        int m_D;
+&amp;#125;;
+
+void test01() &amp;#123;
+        cout &amp;lt;&amp;lt; sizeof(Son) &amp;lt;&amp;lt; endl;//输出的是16
+        return;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;父类中的&lt;strong&gt;所有非静态成员属性&lt;/strong&gt;都会被子类继承下去&lt;br&gt;
+父类中的私有成员属性是被编译器隐藏了，虽然访问不到，但的确被继承了&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;利用 vs 的开发人员命令提示工具查看对象模型（对象的布局）:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;打开工具窗口后，定位到当前 CPP 文件的盘符&lt;/li&gt;
+&lt;li&gt;然后输入： cl /d1 reportSingleClassLayout 查看的类名 所属文件名&lt;/li&gt;
+&lt;li&gt;结果如下所示：&lt;br&gt;
+&lt;img data-src=&#34;en-resource://database/1066:1&#34; alt=&#34;a2fb57ba4f8eafec791c565fa73df6b9.png&#34;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;64-继承中构造和析构的顺序&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#64-继承中构造和析构的顺序&#34;&gt;#&lt;/a&gt; 6.4 继承中构造和析构的顺序&lt;/h4&gt;
+&lt;p&gt;继承中：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;先调用父类构造函数，再调用子类构造函数，&lt;/li&gt;
+&lt;li&gt;析构顺序与构造相反&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;65-继承同名成员处理方式&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#65-继承同名成员处理方式&#34;&gt;#&lt;/a&gt; 6.5 继承同名成员处理方式&lt;/h4&gt;
+&lt;p&gt;当子类与父类出现同名的成员，如何通过子类对象，访问到子类或父类中同名的数据：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;访问子类同名成员 直接访问即可&lt;/li&gt;
+&lt;li&gt;访问父类同名成员 需要加作用域&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;当子类与父类拥有同名的成员函数（即使参数列表不同），子类会隐藏父类中同名成员函数，加作用域可以访问到父类中同名函数&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;class Base &amp;#123;
+public:
+        Base() &amp;#123;
+               m_A = 100;
+        &amp;#125;
+        void func() &amp;#123;
+               cout &amp;lt;&amp;lt; &amp;quot;父类的函数&amp;quot; &amp;lt;&amp;lt; endl;
+        &amp;#125;
+
+        void func(int m_A) &amp;#123;
+               cout &amp;lt;&amp;lt; &amp;quot;父类的函数有参数&amp;quot; &amp;lt;&amp;lt; endl;
+        &amp;#125;
+        int m_A;
+&amp;#125;;
+
+class Son : public Base &amp;#123;
+public:
+        Son() &amp;#123;
+               m_A = 200;
+       &amp;#125;
+        void func() &amp;#123;
+               cout &amp;lt;&amp;lt; &amp;quot;子类的函数&amp;quot; &amp;lt;&amp;lt; endl;
+        &amp;#125;
+        int m_A;
+
+&amp;#125;;
+
+void test01() &amp;#123;
+        Son b;
+        cout &amp;lt;&amp;lt; b.m_A &amp;lt;&amp;lt; endl;//直接访问，即为子类的同名成员
+        cout &amp;lt;&amp;lt; b.Base::m_A &amp;lt;&amp;lt; endl;//加上作用域，即可访问父类的同名成员
+        b.func();//直接访问，即为子类的同名函数
+        b.Base::func();//加上作用域，即可访问父类的同名函数
+
+        //当子类与父类拥有同名的成员函数，子类会隐藏父类中所有版本的同名成员函数
+        //如果想访问父类中被隐藏的同名成员函数，需要加父类的作用域
+        //b.func(100);
+        b.Base::func(100);
+        return;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;66-继承同名静态成员处理方式&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#66-继承同名静态成员处理方式&#34;&gt;#&lt;/a&gt; 6.6 继承同名静态成员处理方式&lt;/h4&gt;
+&lt;p&gt;静态成员变量复习：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;类内声明，类外初始化&lt;/li&gt;
+&lt;li&gt;访问方式有两种：1 通过对象访问      2. 通过类名访问&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;继承同名静态成员处理方式：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;访问子类同名成员 直接访问即可&lt;/li&gt;
+&lt;li&gt;访问父类同名成员 需要加作用域&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;当子类与父类拥有同名的静态成员函数（即使参数列表不同），子类会隐藏父类中同名静态成员函数，加作用域可以访问到父类中同名静态成员函数&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;class Base &amp;#123;
+public:
+        //静态成员变量特点：定义就分配内存，所有对象共享同一份数据
+        //类内申明，类外初始化
+        static int m_A;
+        static void func() &amp;#123;
+               cout &amp;lt;&amp;lt; &amp;quot;父类的函数&amp;quot; &amp;lt;&amp;lt; endl;
+        &amp;#125;
+&amp;#125;;
+int Base::m_A = 100;
+
+class Son : public Base &amp;#123;
+public:
+        static int m_A;
+        static void func() &amp;#123;
+               cout &amp;lt;&amp;lt; &amp;quot;子类的函数&amp;quot; &amp;lt;&amp;lt; endl;
+        &amp;#125;
+&amp;#125;;
+int Son::m_A = 200;
+
+void test01() &amp;#123;
+        //通过对象访问
+        cout &amp;lt;&amp;lt; &amp;quot;通过对象访问： &amp;quot; &amp;lt;&amp;lt; endl;
+        Son b;
+        cout &amp;lt;&amp;lt; &amp;quot;Son下m_A = &amp;quot; &amp;lt;&amp;lt; b.m_A &amp;lt;&amp;lt; endl;//直接访问，即为子类的同名成员
+       cout &amp;lt;&amp;lt; &amp;quot;Base下m_A = &amp;quot; &amp;lt;&amp;lt; b.Base::m_A &amp;lt;&amp;lt; endl;//加上作用域，即可访问父类的同名成员
+
+        //通过类名访问
+        cout &amp;lt;&amp;lt; &amp;quot;通过类名访问： &amp;quot; &amp;lt;&amp;lt; endl;
+        cout &amp;lt;&amp;lt; &amp;quot;Son下m_A = &amp;quot; &amp;lt;&amp;lt; Son::m_A &amp;lt;&amp;lt; endl;//直接访问，即为子类的同名成员
+        cout &amp;lt;&amp;lt; &amp;quot;Base下m_A = &amp;quot; &amp;lt;&amp;lt; Base::m_A &amp;lt;&amp;lt; endl;//加上作用域，即可访问父类的同名成员
+        //第一个::代表通过类名方式访问， 第二个::代表作用域
+        cout &amp;lt;&amp;lt; &amp;quot;Base下m_A = &amp;quot; &amp;lt;&amp;lt; Son::Base::m_A &amp;lt;&amp;lt; endl;
+        return;
+&amp;#125;
+
+void test02() &amp;#123;
+       //通过对象访问
+        cout &amp;lt;&amp;lt; &amp;quot;通过对象访问： &amp;quot; &amp;lt;&amp;lt; endl;
+        Son s;
+        s.func();
+        s.Base::func();
+        //当子类与父类拥有同名的成员函数，子类会隐藏父类中所有版本的同名成员函数
+        //如果想访问父类中被隐藏的同名成员函数，需要加父类的作用域
+        //s.func(100);
+        s.Base::func(100);
+        
+        //通过类名访问
+        cout &amp;lt;&amp;lt; &amp;quot;通过类名访问： &amp;quot; &amp;lt;&amp;lt; endl;
+        Son::func();
+        Base::func();
+        Son::Base::func();
+        Son::Base::func(100);
+&amp;#125;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;67-多继承语法&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#67-多继承语法&#34;&gt;#&lt;/a&gt; 6.7 多继承语法&lt;/h4&gt;
+&lt;p&gt;C++ 允许一个类继承多个类&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;语法&lt;/strong&gt;： &lt;code&gt;class 子类 ：继承方式 父类1 ， 继承方式 父类2...&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;多继承可能会引发父类中有同名成员出现，需要加&lt;strong&gt;作用域&lt;/strong&gt;区分&lt;/p&gt;
+&lt;p&gt;C++ 实际开发中不建议用多继承&lt;/p&gt;
+&lt;h4 id=&#34;68-菱形继承&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#68-菱形继承&#34;&gt;#&lt;/a&gt; 6.8 菱形继承&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;菱形继承概念&lt;/strong&gt;：两个派生类继承同一个基类，又有某个类同时继承者两个派生类&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class Animal
+&amp;#123;
+public:
+	int m_Age;
+&amp;#125;;
+
+//利用虚继承，可以解决菱形继承的问题
+//继承前加virtual关键字后，变为虚继承
+//此时公共的父类Animal称为虚基类
+class Sheep : virtual public Animal &amp;#123;&amp;#125;;
+class Tuo   : virtual public Animal &amp;#123;&amp;#125;;
+class SheepTuo : public Sheep, public Tuo &amp;#123;&amp;#125;;
+
+void test01()
+&amp;#123;
+	SheepTuo st;
+	st.Sheep::m_Age = 100;
+	st.Tuo::m_Age = 200;
+
+	cout &amp;lt;&amp;lt; &amp;quot;st.Sheep::m_Age = &amp;quot; &amp;lt;&amp;lt; st.Sheep::m_Age &amp;lt;&amp;lt; endl;
+	cout &amp;lt;&amp;lt; &amp;quot;st.Tuo::m_Age = &amp;quot; &amp;lt;&amp;lt;  st.Tuo::m_Age &amp;lt;&amp;lt; endl;
+	cout &amp;lt;&amp;lt; &amp;quot;st.m_Age = &amp;quot; &amp;lt;&amp;lt; st.m_Age &amp;lt;&amp;lt; endl;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;菱形继承带来的主要问题是子类继承两份相同的数据，导致资源浪费以及毫无意义&lt;br&gt;
+利用虚继承可以解决菱形继承问题&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;7-多态&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#7-多态&#34;&gt;#&lt;/a&gt; 7. 多态&lt;/h3&gt;
+&lt;h4 id=&#34;71-多态的基本概念&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#71-多态的基本概念&#34;&gt;#&lt;/a&gt; 7.1 多态的基本概念&lt;/h4&gt;
+&lt;p&gt;多态分为两类&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;静态&lt;/strong&gt;多态: &lt;strong&gt;函数重载和 算符重载&lt;/strong&gt;属于静态多态，复用函数名&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;动态&lt;/strong&gt;多态: &lt;strong&gt;派生类和虚函数&lt;/strong&gt;实现运行时多态静态多态和动态多态&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;区别：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;静态多态&lt;/strong&gt;的函数地址&lt;strong&gt;早绑定 - 编译阶段&lt;/strong&gt;确定函数地址&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;动态多态&lt;/strong&gt;的函数地址&lt;strong&gt;晚绑定 - 运行阶段&lt;/strong&gt;确定函数地址&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;应用：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;基类中的函数 A 不是虚函数，派生类中的同名函数 Aa，则生成一个派生类对象，只会调用 A&lt;/li&gt;
+&lt;li&gt;基类中的函数 A 是虚函数，派生类中的同名函数 Aa，则生成一个派生类对象，会调用 Aa&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;多态满足条件&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;有继承关系子类&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;重写&lt;/strong&gt;父类中的&lt;strong&gt;虚函数&lt;/strong&gt;多态&lt;br&gt;
+&lt;strong&gt;重写&lt;/strong&gt;：函数返回值类型 函数名 参数列表 完全一致称为重写&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;使用条件&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;父类指针或引用指向子类对象&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;父类 *指针变量 = new 子类;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;多态的优点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;代码组织结构清晰&lt;/li&gt;
+&lt;li&gt;可读性强&lt;/li&gt;
+&lt;li&gt;利于前期和后期的扩展以及维护&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img data-src=&#34;en-resource://database/1070:1&#34; alt=&#34;e1c8f86e43581c2952d33d0e5f322eed.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;没有重写时：&lt;br&gt;
+&lt;img data-src=&#34;en-resource://database/1072:1&#34; alt=&#34;41c0d2aa0e0c734b3aa5dcfb2aa72f8c.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;发生重写时：&lt;br&gt;
+&lt;img data-src=&#34;en-resource://database/1074:1&#34; alt=&#34;b18a91d2beec4622fb0af86790fe2b5c.png&#34;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class Animal
+&amp;#123;
+public:
+	//Speak函数就是虚函数
+	//函数前面加上virtual关键字，变成虚函数，那么编译器在编译的时候就不能确定函数调用了。
+	virtual void speak()
+	&amp;#123;
+		cout &amp;lt;&amp;lt; &amp;quot;动物在说话&amp;quot; &amp;lt;&amp;lt; endl;
+	&amp;#125;
+&amp;#125;;
+
+class Cat :public Animal
+&amp;#123;
+public:
+	void speak()
+	&amp;#123;
+		cout &amp;lt;&amp;lt; &amp;quot;小猫在说话&amp;quot; &amp;lt;&amp;lt; endl;
+	&amp;#125;
+&amp;#125;;
+
+class Dog :public Animal
+&amp;#123;
+public:
+
+	void speak()
+	&amp;#123;
+		cout &amp;lt;&amp;lt; &amp;quot;小狗在说话&amp;quot; &amp;lt;&amp;lt; endl;
+	&amp;#125;
+
+&amp;#125;;
+//我们希望传入什么对象，那么就调用什么对象的函数
+//如果函数地址在编译阶段就能确定，那么静态联编
+//如果函数地址在运行阶段才能确定，就是动态联编
+
+void DoSpeak(Animal &amp;amp; animal)
+&amp;#123;
+	animal.speak();
+&amp;#125;
+//
+//多态满足条件： 
+//1、有继承关系
+//2、子类重写父类中的虚函数
+//多态使用：
+//父类指针或引用指向子类对象
+
+void test01()
+&amp;#123;
+	Cat cat;
+	DoSpeak(cat);
+
+	Dog dog;
+	DoSpeak(dog);
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;//多态实现
+//抽象计算器类
+//多态优点：代码组织结构清晰，可读性强，利于前期和后期的扩展以及维护
+class AbstractCalculator
+&amp;#123;
+public :
+
+	virtual int getResult()
+	&amp;#123;
+		return 0;
+	&amp;#125;
+
+	int m_Num1;
+	int m_Num2;
+&amp;#125;;
+
+//加法计算器
+class AddCalculator :public AbstractCalculator
+&amp;#123;
+public:
+	int getResult()
+	&amp;#123;
+		return m_Num1 + m_Num2;
+	&amp;#125;
+&amp;#125;;
+
+//减法计算器
+class SubCalculator :public AbstractCalculator
+&amp;#123;
+public:
+	int getResult()
+	&amp;#123;
+		return m_Num1 - m_Num2;
+	&amp;#125;
+&amp;#125;;
+
+void test02()
+&amp;#123;
+	//创建加法计算器
+	AbstractCalculator *abc = new AddCalculator;
+	abc-&amp;gt;m_Num1 = 10;
+	abc-&amp;gt;m_Num2 = 10;
+	cout &amp;lt;&amp;lt; abc-&amp;gt;m_Num1 &amp;lt;&amp;lt; &amp;quot; + &amp;quot; &amp;lt;&amp;lt; abc-&amp;gt;m_Num2 &amp;lt;&amp;lt; &amp;quot; = &amp;quot; &amp;lt;&amp;lt; abc-&amp;gt;getResult() &amp;lt;&amp;lt; endl;
+	delete abc;  //用完了记得销毁
+
+	//创建减法计算器
+	abc = new SubCalculator;
+	abc-&amp;gt;m_Num1 = 10;
+	abc-&amp;gt;m_Num2 = 10;
+	cout &amp;lt;&amp;lt; abc-&amp;gt;m_Num1 &amp;lt;&amp;lt; &amp;quot; - &amp;quot; &amp;lt;&amp;lt; abc-&amp;gt;m_Num2 &amp;lt;&amp;lt; &amp;quot; = &amp;quot; &amp;lt;&amp;lt; abc-&amp;gt;getResult() &amp;lt;&amp;lt; endl;
+	delete abc;  
+&amp;#125;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;72-纯虚函数和抽象类&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#72-纯虚函数和抽象类&#34;&gt;#&lt;/a&gt; 7.2 纯虚函数和抽象类&lt;/h4&gt;
+&lt;p&gt;在多态中，通常父类中虚函数的实现是毫无意义的，主要都是调用子类重写的内容，因此可以将虚函数改为&lt;strong&gt;纯虚函数&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;纯虚函数语法&lt;/strong&gt;： &lt;code&gt;virtual 返回值类型 函数名 （参数列表）= 0 ;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;当类中有了纯虚函数，这个类也称为&lt;strong&gt;抽象类&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;抽象类特点&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;无法实例化对象&lt;/li&gt;
+&lt;li&gt;子类必须重写抽象类中的纯虚函数，否则也属于抽象类&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;#include&amp;lt;iostream&amp;gt;
+#include&amp;lt;string&amp;gt;
+using namespace std;
+
+class AbstractDrinking &amp;#123;
+public:
+        //煮水，冲泡，倒入杯中，放入佐料
+        virtual void Boil() = 0;
+        virtual void Brew() = 0;
+        virtual void PourIntoCup() = 0;
+        virtual void Putsth() = 0;
+        void makeDrink() &amp;#123;
+               Boil();
+               Brew();
+              PourIntoCup();
+              Putsth();
+        &amp;#125;
+&amp;#125;;
+
+class Coffee :public AbstractDrinking &amp;#123;
+public:
+        //煮水，冲泡，倒入杯中，放入佐料
+        virtual void Boil() &amp;#123;
+               cout &amp;lt;&amp;lt; &amp;quot;Boil coffee&amp;quot; &amp;lt;&amp;lt; endl;
+        &amp;#125;
+        virtual void Brew() &amp;#123;
+               cout &amp;lt;&amp;lt; &amp;quot;Brew coffee&amp;quot; &amp;lt;&amp;lt; endl;
+        &amp;#125;
+        virtual void PourIntoCup() &amp;#123;
+              cout &amp;lt;&amp;lt; &amp;quot;PourIntoCup coffee&amp;quot; &amp;lt;&amp;lt; endl;
+        &amp;#125;
+        virtual void Putsth() &amp;#123;
+               cout &amp;lt;&amp;lt; &amp;quot;Putsth coffee&amp;quot; &amp;lt;&amp;lt; endl;
+        &amp;#125;
+&amp;#125;;
+
+class Tea :public AbstractDrinking &amp;#123;
+public:
+        //煮水，冲泡，倒入杯中，放入佐料
+        virtual void Boil() &amp;#123;
+               cout &amp;lt;&amp;lt; &amp;quot;Boil Tea&amp;quot; &amp;lt;&amp;lt; endl;
+        &amp;#125;
+        virtual void Brew() &amp;#123;
+               cout &amp;lt;&amp;lt; &amp;quot;Brew Tea&amp;quot; &amp;lt;&amp;lt; endl;
+        &amp;#125;
+        virtual void PourIntoCup() &amp;#123;
+              cout &amp;lt;&amp;lt; &amp;quot;PourIntoCup Tea&amp;quot; &amp;lt;&amp;lt; endl;
+        &amp;#125;
+        virtual void Putsth() &amp;#123;
+               cout &amp;lt;&amp;lt; &amp;quot;Putsth Tea&amp;quot; &amp;lt;&amp;lt; endl;
+        &amp;#125;
+&amp;#125;;
+
+void doWork(AbstractDrinking* abs) &amp;#123;
+        //父类指针调用接口
+        abs-&amp;gt;makeDrink();
+        delete abs;//释放
+&amp;#125;
+
+void test01() &amp;#123;
+        doWork(new Coffee);
+        doWork(new Tea);
+       return;
+&amp;#125;
+
+int main() &amp;#123;
+        test01();
+        system(&amp;quot;pause&amp;quot;);
+        return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;73-虚析构和纯虚析构&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#73-虚析构和纯虚析构&#34;&gt;#&lt;/a&gt; 7.3 虚析构和纯虚析构&lt;/h4&gt;
+&lt;p&gt;多态使用时，如果子类中有属性开辟到堆区，那么父类指针在释放时无法调用到子类的析构代码&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;解决方式&lt;/strong&gt;：将父类中的析构函数改为虚析构或者纯虚析构&lt;/p&gt;
+&lt;p&gt;虚析构和纯虚析构&lt;strong&gt;共性&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;可以解决父类指针释放子类对象&lt;/li&gt;
+&lt;li&gt;都需要有具体的函数实现&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;虚析构和纯虚析构&lt;strong&gt;区别&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如果是纯虚析构，该类属于抽象类，无法实例化对象&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;虚析构语法&lt;/strong&gt;： &lt;code&gt;virtual ~类名()&amp;#123;&amp;#125;&lt;/code&gt; &lt;br&gt;
+&lt;strong&gt; 纯虚析构语法&lt;/strong&gt;： &lt;code&gt;virtual ~类名() = 0;类名::~类名()&amp;#123;&amp;#125;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;总结&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;虚析构或纯虚析构就是用来解决&lt;strong&gt;通过父类指针释放子类对象&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;如果子类中没有堆区数据，可以不写为虚析构或纯虚析构&lt;/li&gt;
+&lt;li&gt;拥有纯虚析构函数的类也属于抽象类&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;class Animal
+&amp;#123;
+public:
+        Animal()
+        &amp;#123;
+               cout &amp;lt;&amp;lt; &amp;quot;Animal 构造函数调用！&amp;quot; &amp;lt;&amp;lt; endl;
+        &amp;#125;
+        //Speak函数就是纯虚函数
+        virtual void speak() = 0;
+         /*~Animal()
+        &amp;#123;
+               cout &amp;lt;&amp;lt; &amp;quot;Animal析构函数调用！&amp;quot; &amp;lt;&amp;lt; endl;
+        &amp;#125;*/
+        //析构函数加上virtual关键字，变成虚析构函数
+        /*virtual ~Animal()
+        &amp;#123;
+               cout &amp;lt;&amp;lt; &amp;quot;Animal虚析构函数调用！&amp;quot; &amp;lt;&amp;lt; endl;
+        &amp;#125;*/
+        //纯虚析构,使用的时候，必须要类外实现，因为父类也有可能有数据咋堆区
+        //有了纯虚析构之后，类也是抽象类，无法实例化对象
+        virtual ~Animal() = 0;
+&amp;#125;;
+
+//类外实现
+Animal::~Animal()
+&amp;#123;
+        cout &amp;lt;&amp;lt; &amp;quot;Animal 纯虚析构函数调用！&amp;quot; &amp;lt;&amp;lt; endl;
+&amp;#125;
+
+class Cat :public Animal
+&amp;#123;
+public:
+        string *m_Name;
+        Cat(string name)
+        &amp;#123;
+               cout &amp;lt;&amp;lt; &amp;quot;Cat构造函数调用！&amp;quot; &amp;lt;&amp;lt; endl;
+               //堆区创造一个属性
+               m_Name = new string(name);
+        &amp;#125;
+        virtual void speak()
+        &amp;#123;
+               cout &amp;lt;&amp;lt; &amp;quot;小猫在说话&amp;quot; &amp;lt;&amp;lt; endl;
+        &amp;#125;
+        ~Cat()
+        &amp;#123;
+               cout &amp;lt;&amp;lt; &amp;quot;Cat析构函数调用!&amp;quot; &amp;lt;&amp;lt; endl;
+               if (this-&amp;gt;m_Name != NULL) &amp;#123;
+                       delete m_Name;
+                       m_Name = NULL;
+               &amp;#125;
+        &amp;#125;
+&amp;#125;;
+
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+        <updated>2023-02-02T13:11:14.603Z</updated>
+    </entry>
+    <entry>
+        <id>https://empireofyt.github.io/computer-science/cpp/heima/c++%E6%A0%B8%E5%BF%83--%E5%87%BD%E6%95%B0%E9%AB%98%E7%BA%A7/</id>
+        <title>c++核心--函数高级</title>
+        <link rel="alternate" href="https://empireofyt.github.io/computer-science/cpp/heima/c++%E6%A0%B8%E5%BF%83--%E5%87%BD%E6%95%B0%E9%AB%98%E7%BA%A7/"/>
+        <content type="html">&lt;h2 id=&#34;函数高级&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#函数高级&#34;&gt;#&lt;/a&gt; 函数高级&lt;/h2&gt;
+&lt;h3 id=&#34;1-函数默认参数&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#1-函数默认参数&#34;&gt;#&lt;/a&gt; 1. 函数默认参数&lt;/h3&gt;
+&lt;p&gt;在 C++ 中，函数的形参列表中的形参是可以有默认值的。&lt;br&gt;
+&lt;strong&gt;语法：&lt;/strong&gt;  &lt;code&gt;返回值类型 函数名 （参数= 默认值）&amp;#123;&amp;#125;&lt;/code&gt; &lt;br&gt;
+&lt;strong&gt; 注意：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如果某个位置参数有默认值，那么从这个位置往后，从左向右，必须都要有默认值&lt;/li&gt;
+&lt;li&gt;函数的声明和实现，只能用一个存在默认值&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;2-函数的占位参数&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#2-函数的占位参数&#34;&gt;#&lt;/a&gt; 2. 函数的占位参数&lt;/h3&gt;
+&lt;p&gt;C++ 中函数的形参列表里可以有占位参数，用来做占位，调用函数时必须填补该位置&lt;br&gt;
+&lt;strong&gt;语法：&lt;/strong&gt;  &lt;code&gt;返回值类型 函数名 (数据类型)&amp;#123;&amp;#125;&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//函数占位参数 ，占位参数也可以有默认参数
+void func(int a, int = 10) &amp;#123;
+//这个=10不写也可
+	cout &amp;lt;&amp;lt; &amp;quot;this is func&amp;quot; &amp;lt;&amp;lt; endl;
+&amp;#125;
+
+int main() &amp;#123;
+
+	func(10,10); //占位参数必须填补
+
+	system(&amp;quot;pause&amp;quot;);
+
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;3-函数重载&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#3-函数重载&#34;&gt;#&lt;/a&gt; 3. 函数重载&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;作用：&lt;/strong&gt; 函数名可以相同，提高复用性&lt;br&gt;
+&lt;strong&gt;函数重载满足条件：&lt;/strong&gt;   同一个作用域下函数名称相同函数参数类型不同 或者 个数不同 或者 顺序不同&lt;br&gt;
+&lt;strong&gt;注意：&lt;/strong&gt; 函数的返回值不可以作为函数重载的条件&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注意事项：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;引用作为重载条件&lt;/li&gt;
+&lt;li&gt;函数重载碰到函数默认参数&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;//函数重载注意事项
+//1、引用作为重载条件
+
+void func(int &amp;amp;a)// int &amp;amp;a = 10 这是不合法的写法
+&amp;#123;
+	cout &amp;lt;&amp;lt; &amp;quot;func (int &amp;amp;a) 调用 &amp;quot; &amp;lt;&amp;lt; endl;
+&amp;#125;
+
+void func(const int &amp;amp;a)  //const int &amp;amp;a = 10; 这是合法的写法
+&amp;#123;
+	cout &amp;lt;&amp;lt; &amp;quot;func (const int &amp;amp;a) 调用 &amp;quot; &amp;lt;&amp;lt; endl;
+&amp;#125;
+
+
+//2、函数重载碰到函数默认参数
+
+void func2(int a, int b = 10)
+&amp;#123;
+	cout &amp;lt;&amp;lt; &amp;quot;func2(int a, int b = 10) 调用&amp;quot; &amp;lt;&amp;lt; endl;
+&amp;#125;
+
+void func2(int a)
+&amp;#123;
+	cout &amp;lt;&amp;lt; &amp;quot;func2(int a) 调用&amp;quot; &amp;lt;&amp;lt; endl;
+&amp;#125;
+
+int main() &amp;#123;
+	
+	int a = 10;
+	func(a); //调用无const
+	func(10);//调用有const
+
+
+	//func2(10); //碰到默认参数产生歧义，需要避免
+
+	system(&amp;quot;pause&amp;quot;);
+
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+        <updated>2023-02-02T13:10:25.953Z</updated>
+    </entry>
+    <entry>
+        <id>https://empireofyt.github.io/computer-science/cpp/heima/c++%E6%8F%90%E9%AB%98--STL%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1/</id>
+        <title>c++提高--STL函数对象</title>
+        <link rel="alternate" href="https://empireofyt.github.io/computer-science/cpp/heima/c++%E6%8F%90%E9%AB%98--STL%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1/"/>
+        <content type="html">&lt;h1 id=&#34;stl-函数对象&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#stl-函数对象&#34;&gt;#&lt;/a&gt; STL- 函数对象&lt;/h1&gt;
+&lt;h3 id=&#34;一-函数对象&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#一-函数对象&#34;&gt;#&lt;/a&gt; 一 函数对象&lt;/h3&gt;
+&lt;h4 id=&#34;11-函数对象概念&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#11-函数对象概念&#34;&gt;#&lt;/a&gt; 1.1 函数对象概念&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;概念：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;重载&lt;strong&gt;函数调用操作符&lt;/strong&gt;的类，其对象常称为&lt;strong&gt;函数对象&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;函数对象&lt;/strong&gt;使用重载的 () 时，行为类似函数调用，也叫&lt;strong&gt;仿函数&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;本质：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;函数对象 (仿函数) 是一个&lt;strong&gt;类&lt;/strong&gt;，不是一个函数&lt;/p&gt;
+&lt;h4 id=&#34;12-函数对象使用&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#12-函数对象使用&#34;&gt;#&lt;/a&gt; 1.2  函数对象使用&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;特点：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;函数对象在使用时，可以像普通函数那样调用，可以有参数，可以有返回值&lt;/li&gt;
+&lt;li&gt;函数对象超出普通函数的概念，函数对象可以有自己的状态&lt;/li&gt;
+&lt;li&gt;函数对象可以作为参数传递&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;示例:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C++&#34;&gt;#include &amp;lt;string&amp;gt;
+
+//1、函数对象在使用时，可以像普通函数那样调用, 可以有参数，可以有返回值
+class MyAdd
+&amp;#123;
+public :
+	int operator()(int v1,int v2)
+	&amp;#123;
+		return v1 + v2;
+	&amp;#125;
+&amp;#125;;
+
+void test01()
+&amp;#123;
+	MyAdd myAdd;
+	cout &amp;lt;&amp;lt; myAdd(10, 10) &amp;lt;&amp;lt; endl;
+&amp;#125;
+
+//2、函数对象可以有自己的状态
+class MyPrint
+&amp;#123;
+public:
+	MyPrint()
+	&amp;#123;
+		count = 0;
+	&amp;#125;
+	void operator()(string test)
+	&amp;#123;
+		cout &amp;lt;&amp;lt; test &amp;lt;&amp;lt; endl;
+		count++; //统计使用次数
+	&amp;#125;
+
+	int count; //内部自己的状态
+&amp;#125;;
+void test02()
+&amp;#123;
+	MyPrint myPrint;
+	myPrint(&amp;quot;hello world&amp;quot;);
+	myPrint(&amp;quot;hello world&amp;quot;);
+	myPrint(&amp;quot;hello world&amp;quot;);
+	cout &amp;lt;&amp;lt; &amp;quot;myPrint调用次数为： &amp;quot; &amp;lt;&amp;lt; myPrint.count &amp;lt;&amp;lt; endl;
+&amp;#125;
+
+//3、函数对象可以作为参数传递
+void doPrint(MyPrint &amp;amp;mp , string test)
+&amp;#123;
+	mp(test);
+&amp;#125;
+
+void test03()
+&amp;#123;
+	MyPrint myPrint;
+	doPrint(myPrint, &amp;quot;Hello C++&amp;quot;);
+&amp;#125;
+
+int main() &amp;#123;
+
+	//test01();
+	//test02();
+	test03();
+
+	system(&amp;quot;pause&amp;quot;);
+
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;总结：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;仿函数写法非常灵活，可以作为参数进行传递。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;二-谓词&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#二-谓词&#34;&gt;#&lt;/a&gt; 二  谓词&lt;/h3&gt;
+&lt;h4 id=&#34;21-谓词概念&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#21-谓词概念&#34;&gt;#&lt;/a&gt; 2.1 谓词概念&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;概念：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;返回 bool 类型的仿函数称为&lt;strong&gt;谓词&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;如果 operator () 接受一个参数，那么叫做一元谓词&lt;/li&gt;
+&lt;li&gt;如果 operator () 接受两个参数，那么叫做二元谓词&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;22-一元谓词&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#22-一元谓词&#34;&gt;#&lt;/a&gt; 2.2 一元谓词&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C++&#34;&gt;#include &amp;lt;vector&amp;gt;
+#include &amp;lt;algorithm&amp;gt;
+
+//1.一元谓词
+struct GreaterFive&amp;#123;
+	bool operator()(int val) &amp;#123;
+		return val &amp;gt; 5;
+	&amp;#125;
+&amp;#125;;
+
+void test01() &amp;#123;
+
+	vector&amp;lt;int&amp;gt; v;
+	for (int i = 0; i &amp;lt; 10; i++)
+	&amp;#123;
+		v.push_back(i);
+	&amp;#125;
+
+	vector&amp;lt;int&amp;gt;::iterator it = find_if(v.begin(), v.end(), GreaterFive());
+	if (it == v.end()) &amp;#123;
+		cout &amp;lt;&amp;lt; &amp;quot;没找到!&amp;quot; &amp;lt;&amp;lt; endl;
+	&amp;#125;
+	else &amp;#123;
+		cout &amp;lt;&amp;lt; &amp;quot;找到:&amp;quot; &amp;lt;&amp;lt; *it &amp;lt;&amp;lt; endl;
+	&amp;#125;
+
+&amp;#125;
+
+int main() &amp;#123;
+
+	test01();
+
+	system(&amp;quot;pause&amp;quot;);
+
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;总结：参数只有一个的谓词，称为一元谓词&lt;/p&gt;
+&lt;h4 id=&#34;23-二元谓词&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#23-二元谓词&#34;&gt;#&lt;/a&gt; 2.3 二元谓词&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C++&#34;&gt;#include &amp;lt;vector&amp;gt;
+#include &amp;lt;algorithm&amp;gt;
+//二元谓词
+class MyCompare
+&amp;#123;
+public:
+	bool operator()(int num1, int num2)
+	&amp;#123;
+		return num1 &amp;gt; num2;
+	&amp;#125;
+&amp;#125;;
+
+void test01()
+&amp;#123;
+	vector&amp;lt;int&amp;gt; v;
+	v.push_back(10);
+	v.push_back(40);
+	v.push_back(20);
+	v.push_back(30);
+	v.push_back(50);
+
+	//默认从小到大
+	sort(v.begin(), v.end());
+	for (vector&amp;lt;int&amp;gt;::iterator it = v.begin(); it != v.end(); it++)
+	&amp;#123;
+		cout &amp;lt;&amp;lt; *it &amp;lt;&amp;lt; &amp;quot; &amp;quot;;
+	&amp;#125;
+	cout &amp;lt;&amp;lt; endl;
+	cout &amp;lt;&amp;lt; &amp;quot;----------------------------&amp;quot; &amp;lt;&amp;lt; endl;
+
+	//使用函数对象改变算法策略，排序从大到小
+	sort(v.begin(), v.end(), MyCompare());
+	for (vector&amp;lt;int&amp;gt;::iterator it = v.begin(); it != v.end(); it++)
+	&amp;#123;
+		cout &amp;lt;&amp;lt; *it &amp;lt;&amp;lt; &amp;quot; &amp;quot;;
+	&amp;#125;
+	cout &amp;lt;&amp;lt; endl;
+&amp;#125;
+
+int main() &amp;#123;
+
+	test01();
+
+	system(&amp;quot;pause&amp;quot;);
+
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;总结：参数只有两个的谓词，称为二元谓词&lt;/p&gt;
+&lt;h3 id=&#34;三-内建函数对象&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#三-内建函数对象&#34;&gt;#&lt;/a&gt; 三 内建函数对象&lt;/h3&gt;
+&lt;h4 id=&#34;31-内建函数对象意义&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#31-内建函数对象意义&#34;&gt;#&lt;/a&gt; 3.1 内建函数对象意义&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;概念：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;STL 内建了一些函数对象&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;分类:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;算术仿函数&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;关系仿函数&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;逻辑仿函数&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;用法：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;这些仿函数所产生的对象，用法和一般函数完全相同&lt;/li&gt;
+&lt;li&gt;使用内建函数对象，需要引入头文件  &lt;code&gt;#include&amp;lt;functional&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;32-算术仿函数&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#32-算术仿函数&#34;&gt;#&lt;/a&gt; 3.2 算术仿函数&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;功能描述：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;实现四则运算&lt;/li&gt;
+&lt;li&gt;其中 negate 是一元运算，其他都是二元运算&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;仿函数原型：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;template&amp;lt;class T&amp;gt; T plus&amp;lt;T&amp;gt;&lt;/code&gt;                 // 加法仿函数&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;template&amp;lt;class T&amp;gt; T minus&amp;lt;T&amp;gt;&lt;/code&gt;               // 减法仿函数&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;template&amp;lt;class T&amp;gt; T multiplies&amp;lt;T&amp;gt;&lt;/code&gt;     // 乘法仿函数&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;template&amp;lt;class T&amp;gt; T divides&amp;lt;T&amp;gt;&lt;/code&gt;          // 除法仿函数&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;template&amp;lt;class T&amp;gt; T modulus&amp;lt;T&amp;gt;&lt;/code&gt;          // 取模仿函数&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;template&amp;lt;class T&amp;gt; T negate&amp;lt;T&amp;gt;&lt;/code&gt;            // 取反仿函数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C++&#34;&gt;#include &amp;lt;functional&amp;gt;
+//negate
+void test01()
+&amp;#123;
+	negate&amp;lt;int&amp;gt; n;
+	cout &amp;lt;&amp;lt; n(50) &amp;lt;&amp;lt; endl;
+&amp;#125;
+
+//plus
+void test02()
+&amp;#123;
+	plus&amp;lt;int&amp;gt; p;
+	cout &amp;lt;&amp;lt; p(10, 20) &amp;lt;&amp;lt; endl;
+&amp;#125;
+
+int main() &amp;#123;
+
+	test01();
+	test02();
+
+	system(&amp;quot;pause&amp;quot;);
+
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;总结：使用内建函数对象时，需要引入头文件  &lt;code&gt;#include &amp;lt;functional&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&#34;33-关系仿函数&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#33-关系仿函数&#34;&gt;#&lt;/a&gt; 3.3 关系仿函数&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;功能描述：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;实现关系对比&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;仿函数原型：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;template&amp;lt;class T&amp;gt; bool equal_to&amp;lt;T&amp;gt;&lt;/code&gt;                     // 等于&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;template&amp;lt;class T&amp;gt; bool not_equal_to&amp;lt;T&amp;gt;&lt;/code&gt;             // 不等于&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;template&amp;lt;class T&amp;gt; bool greater&amp;lt;T&amp;gt;&lt;/code&gt;                       // 大于&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;template&amp;lt;class T&amp;gt; bool greater_equal&amp;lt;T&amp;gt;&lt;/code&gt;           // 大于等于&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;template&amp;lt;class T&amp;gt; bool less&amp;lt;T&amp;gt;&lt;/code&gt;                            // 小于&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;template&amp;lt;class T&amp;gt; bool less_equal&amp;lt;T&amp;gt;&lt;/code&gt;                // 小于等于&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C++&#34;&gt;#include &amp;lt;functional&amp;gt;
+#include &amp;lt;vector&amp;gt;
+#include &amp;lt;algorithm&amp;gt;
+
+class MyCompare
+&amp;#123;
+public:
+	bool operator()(int v1,int v2)
+	&amp;#123;
+		return v1 &amp;gt; v2;
+	&amp;#125;
+&amp;#125;;
+void test01()
+&amp;#123;
+	vector&amp;lt;int&amp;gt; v;
+
+	v.push_back(10);
+	v.push_back(30);
+	v.push_back(50);
+	v.push_back(40);
+	v.push_back(20);
+
+	for (vector&amp;lt;int&amp;gt;::iterator it = v.begin(); it != v.end(); it++) &amp;#123;
+		cout &amp;lt;&amp;lt; *it &amp;lt;&amp;lt; &amp;quot; &amp;quot;;
+	&amp;#125;
+	cout &amp;lt;&amp;lt; endl;
+
+	//自己实现仿函数
+	//sort(v.begin(), v.end(), MyCompare());
+	//STL内建仿函数  大于仿函数
+	sort(v.begin(), v.end(), greater&amp;lt;int&amp;gt;());
+
+	for (vector&amp;lt;int&amp;gt;::iterator it = v.begin(); it != v.end(); it++) &amp;#123;
+		cout &amp;lt;&amp;lt; *it &amp;lt;&amp;lt; &amp;quot; &amp;quot;;
+	&amp;#125;
+	cout &amp;lt;&amp;lt; endl;
+&amp;#125;
+
+int main() &amp;#123;
+
+	test01();
+
+	system(&amp;quot;pause&amp;quot;);
+
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;总结：关系仿函数中最常用的就是 greater&amp;lt;&amp;gt; 大于&lt;/p&gt;
+&lt;h4 id=&#34;34-逻辑仿函数&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#34-逻辑仿函数&#34;&gt;#&lt;/a&gt; 3.4 逻辑仿函数&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;功能描述：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;实现逻辑运算&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;函数原型：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;template&amp;lt;class T&amp;gt; bool logical_and&amp;lt;T&amp;gt;&lt;/code&gt;               // 逻辑与&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;template&amp;lt;class T&amp;gt; bool logical_or&amp;lt;T&amp;gt;&lt;/code&gt;                 // 逻辑或&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;template&amp;lt;class T&amp;gt; bool logical_not&amp;lt;T&amp;gt;&lt;/code&gt;               // 逻辑非&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C++&#34;&gt;#include &amp;lt;vector&amp;gt;
+#include &amp;lt;functional&amp;gt;
+#include &amp;lt;algorithm&amp;gt;
+void test01()
+&amp;#123;
+	vector&amp;lt;bool&amp;gt; v;
+	v.push_back(true);
+	v.push_back(false);
+	v.push_back(true);
+	v.push_back(false);
+
+	for (vector&amp;lt;bool&amp;gt;::iterator it = v.begin();it!= v.end();it++)
+	&amp;#123;
+		cout &amp;lt;&amp;lt; *it &amp;lt;&amp;lt; &amp;quot; &amp;quot;;
+	&amp;#125;
+	cout &amp;lt;&amp;lt; endl;
+
+	//逻辑非  将v容器搬运到v2中，并执行逻辑非运算
+	vector&amp;lt;bool&amp;gt; v2;
+	v2.resize(v.size());
+	transform(v.begin(), v.end(),  v2.begin(), logical_not&amp;lt;bool&amp;gt;());
+	for (vector&amp;lt;bool&amp;gt;::iterator it = v2.begin(); it != v2.end(); it++)
+	&amp;#123;
+		cout &amp;lt;&amp;lt; *it &amp;lt;&amp;lt; &amp;quot; &amp;quot;;
+	&amp;#125;
+	cout &amp;lt;&amp;lt; endl;
+&amp;#125;
+
+int main() &amp;#123;
+
+	test01();
+
+	system(&amp;quot;pause&amp;quot;);
+
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;总结：逻辑仿函数实际应用较少，了解即可&lt;/p&gt;
+</content>
+        <updated>2023-02-02T13:07:49.634Z</updated>
+    </entry>
+    <entry>
+        <id>https://empireofyt.github.io/computer-science/cpp/heima/c++%E6%8F%90%E9%AB%98--STL%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95/</id>
+        <title>c++提高--STL常见算法</title>
+        <link rel="alternate" href="https://empireofyt.github.io/computer-science/cpp/heima/c++%E6%8F%90%E9%AB%98--STL%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95/"/>
+        <content type="html">&lt;h1 id=&#34;stl-常用算法&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#stl-常用算法&#34;&gt;#&lt;/a&gt; STL- 常用算法&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;概述&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;算法主要是由头文件 &lt;code&gt;&amp;lt;algorithm&amp;gt;&lt;/code&gt;   &lt;code&gt;&amp;lt;functional&amp;gt;&lt;/code&gt;   &lt;code&gt;&amp;lt;numeric&amp;gt;&lt;/code&gt;  组成。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;algorithm&amp;gt;&lt;/code&gt;  是所有 STL 头文件中最大的一个，范围涉及到比较、 交换、查找、遍历操作、复制、修改等等&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;numeric&amp;gt;&lt;/code&gt;  体积很小，只包括几个在序列上面进行简单数学运算的模板函数&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;functional&amp;gt;&lt;/code&gt;  定义了一些模板类，用以声明函数对象。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;1-常用遍历算法&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#1-常用遍历算法&#34;&gt;#&lt;/a&gt; 1 常用遍历算法&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;学习目标：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;掌握常用的遍历算法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;算法简介：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;for_each&lt;/code&gt;      // 遍历容器&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;transform&lt;/code&gt;    // 搬运容器到另一个容器中&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;11-for_each&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#11-for_each&#34;&gt;#&lt;/a&gt; 1.1 for_each&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;功能描述：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;实现遍历容器&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;函数原型：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;for_each(iterator beg, iterator end, _func);  &lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;// 遍历算法 遍历容器元素&lt;/p&gt;
+&lt;p&gt;//beg 开始迭代器&lt;/p&gt;
+&lt;p&gt;//end 结束迭代器&lt;/p&gt;
+&lt;p&gt;//_func 函数或者函数对象&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C++&#34;&gt;#include &amp;lt;algorithm&amp;gt;
+#include &amp;lt;vector&amp;gt;
+
+//普通函数
+void print01(int val) 
+&amp;#123;
+	cout &amp;lt;&amp;lt; val &amp;lt;&amp;lt; &amp;quot; &amp;quot;;
+&amp;#125;
+//函数对象
+class print02 
+&amp;#123;
+ public:
+	void operator()(int val) 
+	&amp;#123;
+		cout &amp;lt;&amp;lt; val &amp;lt;&amp;lt; &amp;quot; &amp;quot;;
+	&amp;#125;
+&amp;#125;;
+
+//for_each算法基本用法
+void test01() &amp;#123;
+
+	vector&amp;lt;int&amp;gt; v;
+	for (int i = 0; i &amp;lt; 10; i++) 
+	&amp;#123;
+		v.push_back(i);
+	&amp;#125;
+
+	//遍历算法
+	for_each(v.begin(), v.end(), print01);
+	cout &amp;lt;&amp;lt; endl;
+
+	for_each(v.begin(), v.end(), print02());
+	cout &amp;lt;&amp;lt; endl;
+&amp;#125;
+
+int main() &amp;#123;
+
+	test01();
+
+	system(&amp;quot;pause&amp;quot;);
+
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;** 总结：**for_each 在实际开发中是最常用遍历算法，需要熟练掌握&lt;/p&gt;
+&lt;h4 id=&#34;12-transform&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#12-transform&#34;&gt;#&lt;/a&gt; 1.2 transform&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;功能描述：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;搬运容器到另一个容器中&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;函数原型：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;transform(iterator beg1, iterator end1, iterator beg2, _func);&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;//beg1 源容器开始迭代器&lt;/p&gt;
+&lt;p&gt;//end1 源容器结束迭代器&lt;/p&gt;
+&lt;p&gt;//beg2 目标容器开始迭代器&lt;/p&gt;
+&lt;p&gt;//_func 函数或者函数对象&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C++&#34;&gt;#include&amp;lt;vector&amp;gt;
+#include&amp;lt;algorithm&amp;gt;
+
+//常用遍历算法  搬运 transform
+
+class TransForm
+&amp;#123;
+public:
+	int operator()(int val)
+	&amp;#123;
+		return val;
+	&amp;#125;
+
+&amp;#125;;
+
+class MyPrint
+&amp;#123;
+public:
+	void operator()(int val)
+	&amp;#123;
+		cout &amp;lt;&amp;lt; val &amp;lt;&amp;lt; &amp;quot; &amp;quot;;
+	&amp;#125;
+&amp;#125;;
+
+void test01()
+&amp;#123;
+	vector&amp;lt;int&amp;gt;v;
+	for (int i = 0; i &amp;lt; 10; i++)
+	&amp;#123;
+		v.push_back(i);
+	&amp;#125;
+
+	vector&amp;lt;int&amp;gt;vTarget; //目标容器
+
+	vTarget.resize(v.size()); // 目标容器需要提前开辟空间
+
+	transform(v.begin(), v.end(), vTarget.begin(), TransForm());
+
+	for_each(vTarget.begin(), vTarget.end(), MyPrint());
+&amp;#125;
+
+int main() &amp;#123;
+
+	test01();
+
+	system(&amp;quot;pause&amp;quot;);
+
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;总结：&lt;/strong&gt; 搬运的目标容器必须要提前开辟空间，否则无法正常搬运&lt;/p&gt;
+&lt;h3 id=&#34;2-常用查找算法&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#2-常用查找算法&#34;&gt;#&lt;/a&gt; 2 常用查找算法&lt;/h3&gt;
+&lt;p&gt;学习目标：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;掌握常用的查找算法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;算法简介：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;find&lt;/code&gt;                      // 查找元素&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;find_if&lt;/code&gt;                // 按条件查找元素&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;adjacent_find&lt;/code&gt;     // 查找相邻重复元素&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;binary_search&lt;/code&gt;     // 二分查找法&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;count&lt;/code&gt;                    // 统计元素个数&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;count_if&lt;/code&gt;              // 按条件统计元素个数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;21-find&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#21-find&#34;&gt;#&lt;/a&gt; 2.1 find&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;功能描述：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;查找指定元素，找到返回指定元素的迭代器，找不到返回结束迭代器 end ()&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;函数原型：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;find(iterator beg, iterator end, value);  &lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;// 按值查找元素，找到返回指定位置迭代器，找不到返回结束迭代器位置&lt;/p&gt;
+&lt;p&gt;//beg 开始迭代器&lt;/p&gt;
+&lt;p&gt;//end 结束迭代器&lt;/p&gt;
+&lt;p&gt;//value 查找的元素&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C++&#34;&gt;#include &amp;lt;algorithm&amp;gt;
+#include &amp;lt;vector&amp;gt;
+#include &amp;lt;string&amp;gt;
+void test01() &amp;#123;
+
+	vector&amp;lt;int&amp;gt; v;
+	for (int i = 0; i &amp;lt; 10; i++) &amp;#123;
+		v.push_back(i + 1);
+	&amp;#125;
+	//查找容器中是否有 5 这个元素
+	vector&amp;lt;int&amp;gt;::iterator it = find(v.begin(), v.end(), 5);
+	if (it == v.end()) 
+	&amp;#123;
+		cout &amp;lt;&amp;lt; &amp;quot;没有找到!&amp;quot; &amp;lt;&amp;lt; endl;
+	&amp;#125;
+	else 
+	&amp;#123;
+		cout &amp;lt;&amp;lt; &amp;quot;找到:&amp;quot; &amp;lt;&amp;lt; *it &amp;lt;&amp;lt; endl;
+	&amp;#125;
+&amp;#125;
+
+class Person &amp;#123;
+public:
+	Person(string name, int age) 
+	&amp;#123;
+		this-&amp;gt;m_Name = name;
+		this-&amp;gt;m_Age = age;
+	&amp;#125;
+	//重载==
+	bool operator==(const Person&amp;amp; p) 
+	&amp;#123;
+		if (this-&amp;gt;m_Name == p.m_Name &amp;amp;&amp;amp; this-&amp;gt;m_Age == p.m_Age) 
+		&amp;#123;
+			return true;
+		&amp;#125;
+		return false;
+	&amp;#125;
+
+public:
+	string m_Name;
+	int m_Age;
+&amp;#125;;
+
+void test02() &amp;#123;
+
+	vector&amp;lt;Person&amp;gt; v;
+
+	//创建数据
+	Person p1(&amp;quot;aaa&amp;quot;, 10);
+	Person p2(&amp;quot;bbb&amp;quot;, 20);
+	Person p3(&amp;quot;ccc&amp;quot;, 30);
+	Person p4(&amp;quot;ddd&amp;quot;, 40);
+
+	v.push_back(p1);
+	v.push_back(p2);
+	v.push_back(p3);
+	v.push_back(p4);
+
+	vector&amp;lt;Person&amp;gt;::iterator it = find(v.begin(), v.end(), p2);
+	if (it == v.end()) 
+	&amp;#123;
+		cout &amp;lt;&amp;lt; &amp;quot;没有找到!&amp;quot; &amp;lt;&amp;lt; endl;
+	&amp;#125;
+	else 
+	&amp;#123;
+		cout &amp;lt;&amp;lt; &amp;quot;找到姓名:&amp;quot; &amp;lt;&amp;lt; it-&amp;gt;m_Name &amp;lt;&amp;lt; &amp;quot; 年龄: &amp;quot; &amp;lt;&amp;lt; it-&amp;gt;m_Age &amp;lt;&amp;lt; endl;
+	&amp;#125;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;总结： 利用 find 可以在容器中找指定的元素，返回值是&lt;strong&gt;迭代器&lt;/strong&gt;&lt;/p&gt;
+&lt;h4 id=&#34;22-find_if&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#22-find_if&#34;&gt;#&lt;/a&gt; 2.2 find_if&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;功能描述：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;按条件查找元素&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;函数原型：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;find_if(iterator beg, iterator end, _Pred);  &lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;// 按值查找元素，找到返回指定位置迭代器，找不到返回结束迭代器位置&lt;/p&gt;
+&lt;p&gt;//beg 开始迭代器&lt;/p&gt;
+&lt;p&gt;//end 结束迭代器&lt;/p&gt;
+&lt;p&gt;//_Pred 函数或者谓词（返回 bool 类型的仿函数）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C++&#34;&gt;#include &amp;lt;algorithm&amp;gt;
+#include &amp;lt;vector&amp;gt;
+#include &amp;lt;string&amp;gt;
+
+//内置数据类型
+class GreaterFive
+&amp;#123;
+public:
+	bool operator()(int val)
+	&amp;#123;
+		return val &amp;gt; 5;
+	&amp;#125;
+&amp;#125;;
+
+void test01() &amp;#123;
+
+	vector&amp;lt;int&amp;gt; v;
+	for (int i = 0; i &amp;lt; 10; i++) &amp;#123;
+		v.push_back(i + 1);
+	&amp;#125;
+
+	vector&amp;lt;int&amp;gt;::iterator it = find_if(v.begin(), v.end(), GreaterFive());
+	if (it == v.end()) &amp;#123;
+		cout &amp;lt;&amp;lt; &amp;quot;没有找到!&amp;quot; &amp;lt;&amp;lt; endl;
+	&amp;#125;
+	else &amp;#123;
+		cout &amp;lt;&amp;lt; &amp;quot;找到大于5的数字:&amp;quot; &amp;lt;&amp;lt; *it &amp;lt;&amp;lt; endl;
+	&amp;#125;
+&amp;#125;
+
+//自定义数据类型
+class Person &amp;#123;
+public:
+	Person(string name, int age)
+	&amp;#123;
+		this-&amp;gt;m_Name = name;
+		this-&amp;gt;m_Age = age;
+	&amp;#125;
+public:
+	string m_Name;
+	int m_Age;
+&amp;#125;;
+
+class Greater20
+&amp;#123;
+public:
+	bool operator()(Person &amp;amp;p)
+	&amp;#123;
+		return p.m_Age &amp;gt; 20;
+	&amp;#125;
+
+&amp;#125;;
+
+void test02() &amp;#123;
+
+	vector&amp;lt;Person&amp;gt; v;
+
+	//创建数据
+	Person p1(&amp;quot;aaa&amp;quot;, 10);
+	Person p2(&amp;quot;bbb&amp;quot;, 20);
+	Person p3(&amp;quot;ccc&amp;quot;, 30);
+	Person p4(&amp;quot;ddd&amp;quot;, 40);
+
+	v.push_back(p1);
+	v.push_back(p2);
+	v.push_back(p3);
+	v.push_back(p4);
+
+	vector&amp;lt;Person&amp;gt;::iterator it = find_if(v.begin(), v.end(), Greater20());
+	if (it == v.end())
+	&amp;#123;
+		cout &amp;lt;&amp;lt; &amp;quot;没有找到!&amp;quot; &amp;lt;&amp;lt; endl;
+	&amp;#125;
+	else
+	&amp;#123;
+		cout &amp;lt;&amp;lt; &amp;quot;找到姓名:&amp;quot; &amp;lt;&amp;lt; it-&amp;gt;m_Name &amp;lt;&amp;lt; &amp;quot; 年龄: &amp;quot; &amp;lt;&amp;lt; it-&amp;gt;m_Age &amp;lt;&amp;lt; endl;
+	&amp;#125;
+&amp;#125;
+
+int main() &amp;#123;
+
+	//test01();
+
+	test02();
+
+	system(&amp;quot;pause&amp;quot;);
+
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;总结：find_if 按条件查找使查找更加灵活，提供的仿函数可以改变不同的策略&lt;/p&gt;
+&lt;h4 id=&#34;23-adjacent_find&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#23-adjacent_find&#34;&gt;#&lt;/a&gt; 2.3 adjacent_find&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;功能描述：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;查找相邻重复元素&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;函数原型：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;adjacent_find(iterator beg, iterator end);  &lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;// 查找相邻重复元素，返回相邻元素的第一个位置的迭代器&lt;/p&gt;
+&lt;p&gt;//beg 开始迭代器&lt;/p&gt;
+&lt;p&gt;//end 结束迭代器&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C++&#34;&gt;#include &amp;lt;algorithm&amp;gt;
+#include &amp;lt;vector&amp;gt;
+
+void test01()
+&amp;#123;
+	vector&amp;lt;int&amp;gt; v;
+	v.push_back(1);
+	v.push_back(2);
+	v.push_back(5);
+	v.push_back(2);
+	v.push_back(4);
+	v.push_back(4);
+	v.push_back(3);
+
+	//查找相邻重复元素
+	vector&amp;lt;int&amp;gt;::iterator it = adjacent_find(v.begin(), v.end());
+	if (it == v.end()) &amp;#123;
+		cout &amp;lt;&amp;lt; &amp;quot;找不到!&amp;quot; &amp;lt;&amp;lt; endl;
+	&amp;#125;
+	else &amp;#123;
+		cout &amp;lt;&amp;lt; &amp;quot;找到相邻重复元素为:&amp;quot; &amp;lt;&amp;lt; *it &amp;lt;&amp;lt; endl;
+	&amp;#125;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;总结：面试题中如果出现查找相邻重复元素，记得用 STL 中的 adjacent_find 算法&lt;/p&gt;
+&lt;h4 id=&#34;24-binary_search&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#24-binary_search&#34;&gt;#&lt;/a&gt; 2.4 binary_search&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;功能描述：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;查找指定元素是否存在&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;函数原型：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;bool binary_search(iterator beg, iterator end, value);  &lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;// 查找指定的元素，查到 返回 true  否则 false&lt;/p&gt;
+&lt;p&gt;// 注意：在&lt;strong&gt;无序序列中不可用&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;//beg 开始迭代器&lt;/p&gt;
+&lt;p&gt;//end 结束迭代器&lt;/p&gt;
+&lt;p&gt;//value 查找的元素&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C++&#34;&gt;#include &amp;lt;algorithm&amp;gt;
+#include &amp;lt;vector&amp;gt;
+
+void test01()
+&amp;#123;
+	vector&amp;lt;int&amp;gt;v;
+
+	for (int i = 0; i &amp;lt; 10; i++)
+	&amp;#123;
+		v.push_back(i);
+	&amp;#125;
+	//二分查找
+	bool ret = binary_search(v.begin(), v.end(),2);
+	if (ret)
+	&amp;#123;
+		cout &amp;lt;&amp;lt; &amp;quot;找到了&amp;quot; &amp;lt;&amp;lt; endl;
+	&amp;#125;
+	else
+	&amp;#123;
+		cout &amp;lt;&amp;lt; &amp;quot;未找到&amp;quot; &amp;lt;&amp;lt; endl;
+	&amp;#125;
+&amp;#125;
+
+int main() &amp;#123;
+
+	test01();
+
+	system(&amp;quot;pause&amp;quot;);
+
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;** 总结：** 二分查找法查找效率很高，值得注意的是查找的容器中元素必须的有序序列&lt;/p&gt;
+&lt;h4 id=&#34;25-count&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#25-count&#34;&gt;#&lt;/a&gt; 2.5 count&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;功能描述：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;统计元素个数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;函数原型：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;count(iterator beg, iterator end, value);  &lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;// 统计元素出现次数&lt;/p&gt;
+&lt;p&gt;//beg 开始迭代器&lt;/p&gt;
+&lt;p&gt;//end 结束迭代器&lt;/p&gt;
+&lt;p&gt;//value 统计的元素&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C++&#34;&gt;#include &amp;lt;algorithm&amp;gt;
+#include &amp;lt;vector&amp;gt;
+
+//内置数据类型
+void test01()
+&amp;#123;
+	vector&amp;lt;int&amp;gt; v;
+	v.push_back(1);
+	v.push_back(2);
+	v.push_back(4);
+	v.push_back(5);
+	v.push_back(3);
+	v.push_back(4);
+	v.push_back(4);
+
+	int num = count(v.begin(), v.end(), 4);
+
+	cout &amp;lt;&amp;lt; &amp;quot;4的个数为： &amp;quot; &amp;lt;&amp;lt; num &amp;lt;&amp;lt; endl;
+&amp;#125;
+
+//自定义数据类型
+class Person
+&amp;#123;
+public:
+	Person(string name, int age)
+	&amp;#123;
+		this-&amp;gt;m_Name = name;
+		this-&amp;gt;m_Age = age;
+	&amp;#125;
+	bool operator==(const Person &amp;amp; p)
+	&amp;#123;
+		if (this-&amp;gt;m_Age == p.m_Age)
+		&amp;#123;
+			return true;
+		&amp;#125;
+		else
+		&amp;#123;
+			return false;
+		&amp;#125;
+	&amp;#125;
+	string m_Name;
+	int m_Age;
+&amp;#125;;
+
+void test02()
+&amp;#123;
+	vector&amp;lt;Person&amp;gt; v;
+
+	Person p1(&amp;quot;刘备&amp;quot;, 35);
+	Person p2(&amp;quot;关羽&amp;quot;, 35);
+	Person p3(&amp;quot;张飞&amp;quot;, 35);
+	Person p4(&amp;quot;赵云&amp;quot;, 30);
+	Person p5(&amp;quot;曹操&amp;quot;, 25);
+
+	v.push_back(p1);
+	v.push_back(p2);
+	v.push_back(p3);
+	v.push_back(p4);
+	v.push_back(p5);
+    
+    Person p(&amp;quot;诸葛亮&amp;quot;,35);
+
+	int num = count(v.begin(), v.end(), p);
+	cout &amp;lt;&amp;lt; &amp;quot;num = &amp;quot; &amp;lt;&amp;lt; num &amp;lt;&amp;lt; endl;
+&amp;#125;
+int main() &amp;#123;
+
+	//test01();
+
+	test02();
+
+	system(&amp;quot;pause&amp;quot;);
+
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;总结：&lt;/strong&gt; 统计自定义数据类型时候，需要配合重载  &lt;code&gt;operator==&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&#34;26-count_if&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#26-count_if&#34;&gt;#&lt;/a&gt; 2.6 count_if&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;功能描述：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;按条件统计元素个数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;函数原型：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;count_if(iterator beg, iterator end, _Pred);  &lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;// 按条件统计元素出现次数&lt;/p&gt;
+&lt;p&gt;//beg 开始迭代器&lt;/p&gt;
+&lt;p&gt;//end 结束迭代器&lt;/p&gt;
+&lt;p&gt;//_Pred 谓词&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C++&#34;&gt;#include &amp;lt;algorithm&amp;gt;
+#include &amp;lt;vector&amp;gt;
+
+class Greater4
+&amp;#123;
+public:
+	bool operator()(int val)
+	&amp;#123;
+		return val &amp;gt;= 4;
+	&amp;#125;
+&amp;#125;;
+
+//内置数据类型
+void test01()
+&amp;#123;
+	vector&amp;lt;int&amp;gt; v;
+	v.push_back(1);
+	v.push_back(2);
+	v.push_back(4);
+	v.push_back(5);
+	v.push_back(3);
+	v.push_back(4);
+	v.push_back(4);
+
+	int num = count_if(v.begin(), v.end(), Greater4());
+
+	cout &amp;lt;&amp;lt; &amp;quot;大于4的个数为： &amp;quot; &amp;lt;&amp;lt; num &amp;lt;&amp;lt; endl;
+&amp;#125;
+
+//自定义数据类型
+class Person
+&amp;#123;
+public:
+	Person(string name, int age)
+	&amp;#123;
+		this-&amp;gt;m_Name = name;
+		this-&amp;gt;m_Age = age;
+	&amp;#125;
+
+	string m_Name;
+	int m_Age;
+&amp;#125;;
+
+class AgeLess35
+&amp;#123;
+public:
+	bool operator()(const Person &amp;amp;p)
+	&amp;#123;
+		return p.m_Age &amp;lt; 35;
+	&amp;#125;
+&amp;#125;;
+void test02()
+&amp;#123;
+	vector&amp;lt;Person&amp;gt; v;
+
+	Person p1(&amp;quot;刘备&amp;quot;, 35);
+	Person p2(&amp;quot;关羽&amp;quot;, 35);
+	Person p3(&amp;quot;张飞&amp;quot;, 35);
+	Person p4(&amp;quot;赵云&amp;quot;, 30);
+	Person p5(&amp;quot;曹操&amp;quot;, 25);
+
+	v.push_back(p1);
+	v.push_back(p2);
+	v.push_back(p3);
+	v.push_back(p4);
+	v.push_back(p5);
+
+	int num = count_if(v.begin(), v.end(), AgeLess35());
+	cout &amp;lt;&amp;lt; &amp;quot;小于35岁的个数：&amp;quot; &amp;lt;&amp;lt; num &amp;lt;&amp;lt; endl;
+&amp;#125;
+
+
+int main() &amp;#123;
+
+	//test01();
+
+	test02();
+
+	system(&amp;quot;pause&amp;quot;);
+
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;** 总结：** 按值统计用 count，按条件统计用 count_if&lt;/p&gt;
+&lt;h3 id=&#34;3-常用排序算法&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#3-常用排序算法&#34;&gt;#&lt;/a&gt; 3 常用排序算法&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;学习目标：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;掌握常用的排序算法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;算法简介：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;sort&lt;/code&gt;              // 对容器内元素进行排序&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;random_shuffle&lt;/code&gt;    // 洗牌   指定范围内的元素随机调整次序&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;merge &lt;/code&gt;            // 容器元素合并，并存储到另一容器中&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;reverse&lt;/code&gt;        // 反转指定范围的元素&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;31-sort&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#31-sort&#34;&gt;#&lt;/a&gt; 3.1 sort&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;功能描述：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;对容器内元素进行排序&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;函数原型：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;sort(iterator beg, iterator end, _Pred);  &lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;// 按值查找元素，找到返回指定位置迭代器，找不到返回结束迭代器位置&lt;/p&gt;
+&lt;p&gt;//  beg    开始迭代器&lt;/p&gt;
+&lt;p&gt;//  end    结束迭代器&lt;/p&gt;
+&lt;p&gt;//_Pred  谓词&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;#include &amp;lt;algorithm&amp;gt;
+#include &amp;lt;vector&amp;gt;
+
+void myPrint(int val)
+&amp;#123;
+	cout &amp;lt;&amp;lt; val &amp;lt;&amp;lt; &amp;quot; &amp;quot;;
+&amp;#125;
+
+void test01() &amp;#123;
+	vector&amp;lt;int&amp;gt; v;
+	v.push_back(10);
+	v.push_back(30);
+	v.push_back(50);
+	v.push_back(20);
+	v.push_back(40);
+
+	//sort默认从小到大排序
+	sort(v.begin(), v.end());
+	for_each(v.begin(), v.end(), myPrint);
+	cout &amp;lt;&amp;lt; endl;
+
+	//从大到小排序
+	sort(v.begin(), v.end(), greater&amp;lt;int&amp;gt;());
+	for_each(v.begin(), v.end(), myPrint);
+	cout &amp;lt;&amp;lt; endl;
+&amp;#125;
+
+int main() &amp;#123;
+
+	test01();
+
+	system(&amp;quot;pause&amp;quot;);
+
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;** 总结：**sort 属于开发中最常用的算法之一，需熟练掌握&lt;/p&gt;
+&lt;h4 id=&#34;32-random_shuffle&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#32-random_shuffle&#34;&gt;#&lt;/a&gt; 3.2 random_shuffle&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;功能描述：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;洗牌   指定范围内的元素随机调整次序&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;函数原型：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;random_shuffle(iterator beg, iterator end);  &lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;// 指定范围内的元素随机调整次序&lt;/p&gt;
+&lt;p&gt;//beg 开始迭代器&lt;/p&gt;
+&lt;p&gt;//end 结束迭代器&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;#include &amp;lt;algorithm&amp;gt;
+#include &amp;lt;vector&amp;gt;
+#include &amp;lt;ctime&amp;gt;
+
+class myPrint
+&amp;#123;
+public:
+	void operator()(int val)
+	&amp;#123;
+		cout &amp;lt;&amp;lt; val &amp;lt;&amp;lt; &amp;quot; &amp;quot;;
+	&amp;#125;
+&amp;#125;;
+
+void test01()
+&amp;#123;
+	srand((unsigned int)time(NULL));
+	vector&amp;lt;int&amp;gt; v;
+	for(int i = 0 ; i &amp;lt; 10;i++)
+	&amp;#123;
+		v.push_back(i);
+	&amp;#125;
+	for_each(v.begin(), v.end(), myPrint());
+	cout &amp;lt;&amp;lt; endl;
+
+	//打乱顺序
+	random_shuffle(v.begin(), v.end());
+	for_each(v.begin(), v.end(), myPrint());
+	cout &amp;lt;&amp;lt; endl;
+&amp;#125;
+
+int main() &amp;#123;
+
+	test01();
+
+	system(&amp;quot;pause&amp;quot;);
+
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;** 总结：**random_shuffle 洗牌算法比较实用，使用时记得加随机数种子&lt;/p&gt;
+&lt;h4 id=&#34;33-merge&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#33-merge&#34;&gt;#&lt;/a&gt; 3.3 merge&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;功能描述：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;两个容器元素合并，并存储到另一容器中&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;函数原型：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;merge(iterator beg1, iterator end1, iterator beg2, iterator end2, iterator dest);  &lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;// 容器元素合并，并存储到另一容器中&lt;/p&gt;
+&lt;p&gt;// 注意：两个容器必须是&lt;strong&gt;有序的&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;//beg1   容器 1 开始迭代器&lt;br&gt;
+ //end1   容器 1 结束迭代器&lt;br&gt;
+ //beg2   容器 2 开始迭代器&lt;br&gt;
+ //end2   容器 2 结束迭代器&lt;br&gt;
+ //dest    目标容器开始迭代器&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;#include &amp;lt;algorithm&amp;gt;
+#include &amp;lt;vector&amp;gt;
+
+class myPrint
+&amp;#123;
+public:
+	void operator()(int val)
+	&amp;#123;
+		cout &amp;lt;&amp;lt; val &amp;lt;&amp;lt; &amp;quot; &amp;quot;;
+	&amp;#125;
+&amp;#125;;
+
+void test01()
+&amp;#123;
+	vector&amp;lt;int&amp;gt; v1;
+	vector&amp;lt;int&amp;gt; v2;
+	for (int i = 0; i &amp;lt; 10 ; i++) 
+    &amp;#123;
+		v1.push_back(i);
+		v2.push_back(i + 1);
+	&amp;#125;
+
+	vector&amp;lt;int&amp;gt; vtarget;
+	//目标容器需要提前开辟空间
+	vtarget.resize(v1.size() + v2.size());
+	//合并  需要两个有序序列
+	merge(v1.begin(), v1.end(), v2.begin(), v2.end(), vtarget.begin());
+	for_each(vtarget.begin(), vtarget.end(), myPrint());
+	cout &amp;lt;&amp;lt; endl;
+&amp;#125;
+
+int main() &amp;#123;
+
+	test01();
+
+	system(&amp;quot;pause&amp;quot;);
+
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;** 总结：**merge 合并的两个容器必须的有序序列&lt;/p&gt;
+&lt;h4 id=&#34;34-reverse&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#34-reverse&#34;&gt;#&lt;/a&gt; 3.4 reverse&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;功能描述：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;将容器内元素进行反转&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;函数原型：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;reverse(iterator beg, iterator end);  &lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;// 反转指定范围的元素&lt;/p&gt;
+&lt;p&gt;//beg 开始迭代器&lt;/p&gt;
+&lt;p&gt;//end 结束迭代器&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;#include &amp;lt;algorithm&amp;gt;
+#include &amp;lt;vector&amp;gt;
+
+class myPrint
+&amp;#123;
+public:
+	void operator()(int val)
+	&amp;#123;
+		cout &amp;lt;&amp;lt; val &amp;lt;&amp;lt; &amp;quot; &amp;quot;;
+	&amp;#125;
+&amp;#125;;
+
+void test01()
+&amp;#123;
+	vector&amp;lt;int&amp;gt; v;
+	v.push_back(10);
+	v.push_back(30);
+	v.push_back(50);
+	v.push_back(20);
+	v.push_back(40);
+
+	cout &amp;lt;&amp;lt; &amp;quot;反转前： &amp;quot; &amp;lt;&amp;lt; endl;
+	for_each(v.begin(), v.end(), myPrint());
+	cout &amp;lt;&amp;lt; endl;
+
+	cout &amp;lt;&amp;lt; &amp;quot;反转后： &amp;quot; &amp;lt;&amp;lt; endl;
+
+	reverse(v.begin(), v.end());
+	for_each(v.begin(), v.end(), myPrint());
+	cout &amp;lt;&amp;lt; endl;
+&amp;#125;
+
+int main() &amp;#123;
+
+	test01();
+
+	system(&amp;quot;pause&amp;quot;);
+
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;** 总结：**reverse 反转区间内元素，面试题可能涉及到&lt;/p&gt;
+&lt;h3 id=&#34;4-常用拷贝和替换算法&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#4-常用拷贝和替换算法&#34;&gt;#&lt;/a&gt; 4 常用拷贝和替换算法&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;学习目标：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;掌握常用的拷贝和替换算法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;算法简介：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;copy&lt;/code&gt;                       // 容器内指定范围的元素拷贝到另一容器中&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;replace&lt;/code&gt;                 // 将容器内指定范围的旧元素修改为新元素&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;replace_if &lt;/code&gt;           // 容器内指定范围满足条件的元素替换为新元素&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;swap&lt;/code&gt;                      // 互换两个容器的元素&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;41-copy&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#41-copy&#34;&gt;#&lt;/a&gt; 4.1 copy&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;功能描述：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;容器内指定范围的元素拷贝到另一容器中&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;函数原型：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;copy(iterator beg, iterator end, iterator dest);  &lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;// 按值查找元素，找到返回指定位置迭代器，找不到返回结束迭代器位置&lt;/p&gt;
+&lt;p&gt;//beg  开始迭代器&lt;/p&gt;
+&lt;p&gt;//end  结束迭代器&lt;/p&gt;
+&lt;p&gt;//dest 目标起始迭代器&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;#include &amp;lt;algorithm&amp;gt;
+#include &amp;lt;vector&amp;gt;
+
+class myPrint
+&amp;#123;
+public:
+	void operator()(int val)
+	&amp;#123;
+		cout &amp;lt;&amp;lt; val &amp;lt;&amp;lt; &amp;quot; &amp;quot;;
+	&amp;#125;
+&amp;#125;;
+
+void test01()
+&amp;#123;
+	vector&amp;lt;int&amp;gt; v1;
+	for (int i = 0; i &amp;lt; 10; i++) &amp;#123;
+		v1.push_back(i + 1);
+	&amp;#125;
+	vector&amp;lt;int&amp;gt; v2;
+	v2.resize(v1.size());
+	copy(v1.begin(), v1.end(), v2.begin());
+
+	for_each(v2.begin(), v2.end(), myPrint());
+	cout &amp;lt;&amp;lt; endl;
+&amp;#125;
+
+int main() &amp;#123;
+
+	test01();
+
+	system(&amp;quot;pause&amp;quot;);
+
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;** 总结：** 利用 copy 算法在拷贝时，目标容器记得提前开辟空间&lt;/p&gt;
+&lt;h4 id=&#34;42-replace&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#42-replace&#34;&gt;#&lt;/a&gt; 4.2 replace&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;功能描述：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;将容器内指定范围的旧元素修改为新元素&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;函数原型：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;replace(iterator beg, iterator end, oldvalue, newvalue);  &lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;// 将区间内旧元素 替换成 新元素&lt;/p&gt;
+&lt;p&gt;//beg 开始迭代器&lt;/p&gt;
+&lt;p&gt;//end 结束迭代器&lt;/p&gt;
+&lt;p&gt;//oldvalue 旧元素&lt;/p&gt;
+&lt;p&gt;//newvalue 新元素&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;#include &amp;lt;algorithm&amp;gt;
+#include &amp;lt;vector&amp;gt;
+
+class myPrint
+&amp;#123;
+public:
+	void operator()(int val)
+	&amp;#123;
+		cout &amp;lt;&amp;lt; val &amp;lt;&amp;lt; &amp;quot; &amp;quot;;
+	&amp;#125;
+&amp;#125;;
+
+void test01()
+&amp;#123;
+	vector&amp;lt;int&amp;gt; v;
+	v.push_back(20);
+	v.push_back(30);
+	v.push_back(20);
+	v.push_back(40);
+	v.push_back(50);
+	v.push_back(10);
+	v.push_back(20);
+
+	cout &amp;lt;&amp;lt; &amp;quot;替换前：&amp;quot; &amp;lt;&amp;lt; endl;
+	for_each(v.begin(), v.end(), myPrint());
+	cout &amp;lt;&amp;lt; endl;
+
+	//将容器中的20 替换成 2000
+	cout &amp;lt;&amp;lt; &amp;quot;替换后：&amp;quot; &amp;lt;&amp;lt; endl;
+	replace(v.begin(), v.end(), 20,2000);
+	for_each(v.begin(), v.end(), myPrint());
+	cout &amp;lt;&amp;lt; endl;
+&amp;#125;
+
+int main() &amp;#123;
+
+	test01();
+
+	system(&amp;quot;pause&amp;quot;);
+
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;** 总结：**replace 会替换区间内满足条件的元素&lt;/p&gt;
+&lt;h4 id=&#34;43-replace_if&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#43-replace_if&#34;&gt;#&lt;/a&gt; 4.3 replace_if&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;功能描述:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;将区间内满足条件的元素，替换成指定元素&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;函数原型：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;replace_if(iterator beg, iterator end, _pred, newvalue);  &lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;// 按条件替换元素，满足条件的替换成指定元素&lt;/p&gt;
+&lt;p&gt;//beg 开始迭代器&lt;/p&gt;
+&lt;p&gt;//end 结束迭代器&lt;/p&gt;
+&lt;p&gt;//_pred 谓词&lt;/p&gt;
+&lt;p&gt;//newvalue 替换的新元素&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;#include &amp;lt;algorithm&amp;gt;
+#include &amp;lt;vector&amp;gt;
+
+class myPrint
+&amp;#123;
+public:
+	void operator()(int val)
+	&amp;#123;
+		cout &amp;lt;&amp;lt; val &amp;lt;&amp;lt; &amp;quot; &amp;quot;;
+	&amp;#125;
+&amp;#125;;
+
+class ReplaceGreater30
+&amp;#123;
+public:
+	bool operator()(int val)
+	&amp;#123;
+		return val &amp;gt;= 30;
+	&amp;#125;
+
+&amp;#125;;
+
+void test01()
+&amp;#123;
+	vector&amp;lt;int&amp;gt; v;
+	v.push_back(20);
+	v.push_back(30);
+	v.push_back(20);
+	v.push_back(40);
+	v.push_back(50);
+	v.push_back(10);
+	v.push_back(20);
+
+	cout &amp;lt;&amp;lt; &amp;quot;替换前：&amp;quot; &amp;lt;&amp;lt; endl;
+	for_each(v.begin(), v.end(), myPrint());
+	cout &amp;lt;&amp;lt; endl;
+
+	//将容器中大于等于的30 替换成 3000
+	cout &amp;lt;&amp;lt; &amp;quot;替换后：&amp;quot; &amp;lt;&amp;lt; endl;
+	replace_if(v.begin(), v.end(), ReplaceGreater30(), 3000);
+	for_each(v.begin(), v.end(), myPrint());
+	cout &amp;lt;&amp;lt; endl;
+&amp;#125;
+
+int main() &amp;#123;
+
+	test01();
+
+	system(&amp;quot;pause&amp;quot;);
+
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;** 总结：**replace_if 按条件查找，可以利用仿函数灵活筛选满足的条件&lt;/p&gt;
+&lt;h4 id=&#34;44-swap&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#44-swap&#34;&gt;#&lt;/a&gt; 4.4 swap&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;功能描述：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;互换两个容器的元素&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;函数原型：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;swap(container c1, container c2);  &lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;// 互换两个容器的元素&lt;/p&gt;
+&lt;p&gt;//c1 容器 1&lt;/p&gt;
+&lt;p&gt;//c2 容器 2&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;#include &amp;lt;algorithm&amp;gt;
+#include &amp;lt;vector&amp;gt;
+
+class myPrint
+&amp;#123;
+public:
+	void operator()(int val)
+	&amp;#123;
+		cout &amp;lt;&amp;lt; val &amp;lt;&amp;lt; &amp;quot; &amp;quot;;
+	&amp;#125;
+&amp;#125;;
+
+void test01()
+&amp;#123;
+	vector&amp;lt;int&amp;gt; v1;
+	vector&amp;lt;int&amp;gt; v2;
+	for (int i = 0; i &amp;lt; 10; i++) &amp;#123;
+		v1.push_back(i);
+		v2.push_back(i+100);
+	&amp;#125;
+
+	cout &amp;lt;&amp;lt; &amp;quot;交换前： &amp;quot; &amp;lt;&amp;lt; endl;
+	for_each(v1.begin(), v1.end(), myPrint());
+	cout &amp;lt;&amp;lt; endl;
+	for_each(v2.begin(), v2.end(), myPrint());
+	cout &amp;lt;&amp;lt; endl;
+
+	cout &amp;lt;&amp;lt; &amp;quot;交换后： &amp;quot; &amp;lt;&amp;lt; endl;
+	swap(v1, v2);
+	for_each(v1.begin(), v1.end(), myPrint());
+	cout &amp;lt;&amp;lt; endl;
+	for_each(v2.begin(), v2.end(), myPrint());
+	cout &amp;lt;&amp;lt; endl;
+&amp;#125;
+
+int main() &amp;#123;
+
+	test01();
+
+	system(&amp;quot;pause&amp;quot;);
+
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;** 总结：**swap 交换容器时，注意交换的容器要同种类型&lt;/p&gt;
+&lt;h3 id=&#34;5-常用算术生成算法&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#5-常用算术生成算法&#34;&gt;#&lt;/a&gt; 5 常用算术生成算法&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;学习目标：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;掌握常用的算术生成算法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;注意：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;算术生成算法属于小型算法，使用时包含的头文件为  &lt;code&gt;#include &amp;lt;numeric&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;算法简介：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;accumulate&lt;/code&gt;       // 计算容器元素累计总和&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;fill&lt;/code&gt;                  // 向容器中添加元素&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;51-accumulate&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#51-accumulate&#34;&gt;#&lt;/a&gt; 5.1 accumulate&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;功能描述：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;计算区间内 容器元素累计总和&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;函数原型：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;accumulate(iterator beg, iterator end, value);  &lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;// 计算容器元素累计总和&lt;/p&gt;
+&lt;p&gt;//beg 开始迭代器&lt;/p&gt;
+&lt;p&gt;//end 结束迭代器&lt;/p&gt;
+&lt;p&gt;//value 起始值&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;#include &amp;lt;numeric&amp;gt;
+#include &amp;lt;vector&amp;gt;
+void test01()
+&amp;#123;
+	vector&amp;lt;int&amp;gt; v;
+	for (int i = 0; i &amp;lt;= 100; i++) &amp;#123;
+		v.push_back(i);
+	&amp;#125;
+
+	int total = accumulate(v.begin(), v.end(), 0);
+
+	cout &amp;lt;&amp;lt; &amp;quot;total = &amp;quot; &amp;lt;&amp;lt; total &amp;lt;&amp;lt; endl;
+&amp;#125;
+
+int main() &amp;#123;
+
+	test01();
+
+	system(&amp;quot;pause&amp;quot;);
+
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;** 总结：**accumulate 使用时头文件注意是 numeric，这个算法很实用&lt;/p&gt;
+&lt;h4 id=&#34;52-fill&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#52-fill&#34;&gt;#&lt;/a&gt; 5.2 fill&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;功能描述：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;向容器中填充指定的元素&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;函数原型：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;fill(iterator beg, iterator end, value);  &lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;// 向容器中填充元素&lt;/p&gt;
+&lt;p&gt;//beg 开始迭代器&lt;/p&gt;
+&lt;p&gt;//end 结束迭代器&lt;/p&gt;
+&lt;p&gt;//value 填充的值&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;#include &amp;lt;numeric&amp;gt;
+#include &amp;lt;vector&amp;gt;
+#include &amp;lt;algorithm&amp;gt;
+
+class myPrint
+&amp;#123;
+public:
+	void operator()(int val)
+	&amp;#123;
+		cout &amp;lt;&amp;lt; val &amp;lt;&amp;lt; &amp;quot; &amp;quot;;
+	&amp;#125;
+&amp;#125;;
+
+void test01()
+&amp;#123;
+
+	vector&amp;lt;int&amp;gt; v;
+	v.resize(10);
+	//填充
+	fill(v.begin(), v.end(), 100);
+
+	for_each(v.begin(), v.end(), myPrint());
+	cout &amp;lt;&amp;lt; endl;
+&amp;#125;
+
+int main() &amp;#123;
+
+	test01();
+
+	system(&amp;quot;pause&amp;quot;);
+
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;** 总结：** 利用 fill 可以将容器区间内元素填充为 指定的值&lt;/p&gt;
+&lt;h3 id=&#34;6-常用集合算法&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#6-常用集合算法&#34;&gt;#&lt;/a&gt; 6 常用集合算法&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;学习目标：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;掌握常用的集合算法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;算法简介：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;set_intersection&lt;/code&gt;           // 求两个容器的交集&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;set_union&lt;/code&gt;                        // 求两个容器的并集&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;set_difference &lt;/code&gt;               // 求两个容器的差集&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;61-set_intersection&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#61-set_intersection&#34;&gt;#&lt;/a&gt; 6.1 set_intersection&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;功能描述：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;求两个容器的交集&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;函数原型：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;set_intersection(iterator beg1, iterator end1, iterator beg2, iterator end2, iterator dest);  &lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;// 求两个集合的交集&lt;/p&gt;
+&lt;p&gt;// &lt;strong&gt;注意：两个集合必须是有序序列&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;//beg1 容器 1 开始迭代器&lt;br&gt;
+ //end1 容器 1 结束迭代器&lt;br&gt;
+ //beg2 容器 2 开始迭代器&lt;br&gt;
+ //end2 容器 2 结束迭代器&lt;br&gt;
+ //dest 目标容器开始迭代器&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C++&#34;&gt;#include &amp;lt;vector&amp;gt;
+#include &amp;lt;algorithm&amp;gt;
+
+class myPrint
+&amp;#123;
+public:
+	void operator()(int val)
+	&amp;#123;
+		cout &amp;lt;&amp;lt; val &amp;lt;&amp;lt; &amp;quot; &amp;quot;;
+	&amp;#125;
+&amp;#125;;
+
+void test01()
+&amp;#123;
+	vector&amp;lt;int&amp;gt; v1;
+	vector&amp;lt;int&amp;gt; v2;
+	for (int i = 0; i &amp;lt; 10; i++)
+    &amp;#123;
+		v1.push_back(i);
+		v2.push_back(i+5);
+	&amp;#125;
+
+	vector&amp;lt;int&amp;gt; vTarget;
+	//取两个里面较小的值给目标容器开辟空间
+	vTarget.resize(min(v1.size(), v2.size()));
+
+	//返回目标容器的最后一个元素的迭代器地址
+	vector&amp;lt;int&amp;gt;::iterator itEnd = 
+        set_intersection(v1.begin(), v1.end(), v2.begin(), v2.end(), vTarget.begin());
+
+	for_each(vTarget.begin(), itEnd, myPrint());
+	cout &amp;lt;&amp;lt; endl;
+&amp;#125;
+
+int main() &amp;#123;
+
+	test01();
+
+	system(&amp;quot;pause&amp;quot;);
+
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;总结：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;求交集的两个集合必须的有序序列&lt;/li&gt;
+&lt;li&gt;目标容器开辟空间需要从&lt;strong&gt;两个容器中取小值&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;set_intersection 返回值既是交集中最后一个元素的位置&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;62-set_union&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#62-set_union&#34;&gt;#&lt;/a&gt; 6.2 set_union&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;功能描述：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;求两个集合的并集&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;函数原型：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;set_union(iterator beg1, iterator end1, iterator beg2, iterator end2, iterator dest);  &lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;// 求两个集合的并集&lt;/p&gt;
+&lt;p&gt;// &lt;strong&gt;注意：两个集合必须是有序序列&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;//beg1 容器 1 开始迭代器&lt;br&gt;
+ //end1 容器 1 结束迭代器&lt;br&gt;
+ //beg2 容器 2 开始迭代器&lt;br&gt;
+ //end2 容器 2 结束迭代器&lt;br&gt;
+ //dest 目标容器开始迭代器&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C++&#34;&gt;#include &amp;lt;vector&amp;gt;
+#include &amp;lt;algorithm&amp;gt;
+
+class myPrint
+&amp;#123;
+public:
+	void operator()(int val)
+	&amp;#123;
+		cout &amp;lt;&amp;lt; val &amp;lt;&amp;lt; &amp;quot; &amp;quot;;
+	&amp;#125;
+&amp;#125;;
+
+void test01()
+&amp;#123;
+	vector&amp;lt;int&amp;gt; v1;
+	vector&amp;lt;int&amp;gt; v2;
+	for (int i = 0; i &amp;lt; 10; i++) &amp;#123;
+		v1.push_back(i);
+		v2.push_back(i+5);
+	&amp;#125;
+
+	vector&amp;lt;int&amp;gt; vTarget;
+	//取两个容器的和给目标容器开辟空间
+	vTarget.resize(v1.size() + v2.size());
+
+	//返回目标容器的最后一个元素的迭代器地址
+	vector&amp;lt;int&amp;gt;::iterator itEnd = 
+        set_union(v1.begin(), v1.end(), v2.begin(), v2.end(), vTarget.begin());
+
+	for_each(vTarget.begin(), itEnd, myPrint());
+	cout &amp;lt;&amp;lt; endl;
+&amp;#125;
+
+int main() &amp;#123;
+
+	test01();
+
+	system(&amp;quot;pause&amp;quot;);
+
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;总结：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;求并集的两个集合必须的有序序列&lt;/li&gt;
+&lt;li&gt;目标容器开辟空间需要&lt;strong&gt;两个容器相加&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;set_union 返回值既是并集中最后一个元素的位置&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;63-set_difference&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#63-set_difference&#34;&gt;#&lt;/a&gt; 6.3  set_difference&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;功能描述：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;求两个集合的差集&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;函数原型：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;set_difference(iterator beg1, iterator end1, iterator beg2, iterator end2, iterator dest);  &lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;// 求两个集合的差集&lt;/p&gt;
+&lt;p&gt;// &lt;strong&gt;注意：两个集合必须是有序序列&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;//beg1 容器 1 开始迭代器&lt;br&gt;
+ //end1 容器 1 结束迭代器&lt;br&gt;
+ //beg2 容器 2 开始迭代器&lt;br&gt;
+ //end2 容器 2 结束迭代器&lt;br&gt;
+ //dest 目标容器开始迭代器&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C++&#34;&gt;#include &amp;lt;vector&amp;gt;
+#include &amp;lt;algorithm&amp;gt;
+
+class myPrint
+&amp;#123;
+public:
+	void operator()(int val)
+	&amp;#123;
+		cout &amp;lt;&amp;lt; val &amp;lt;&amp;lt; &amp;quot; &amp;quot;;
+	&amp;#125;
+&amp;#125;;
+
+void test01()
+&amp;#123;
+	vector&amp;lt;int&amp;gt; v1;
+	vector&amp;lt;int&amp;gt; v2;
+	for (int i = 0; i &amp;lt; 10; i++) &amp;#123;
+		v1.push_back(i);
+		v2.push_back(i+5);
+	&amp;#125;
+
+	vector&amp;lt;int&amp;gt; vTarget;
+	//取两个里面较大的值给目标容器开辟空间
+	vTarget.resize( max(v1.size() , v2.size()));
+
+	//返回目标容器的最后一个元素的迭代器地址
+	cout &amp;lt;&amp;lt; &amp;quot;v1与v2的差集为： &amp;quot; &amp;lt;&amp;lt; endl;
+	vector&amp;lt;int&amp;gt;::iterator itEnd = 
+        set_difference(v1.begin(), v1.end(), v2.begin(), v2.end(), vTarget.begin());
+	for_each(vTarget.begin(), itEnd, myPrint());
+	cout &amp;lt;&amp;lt; endl;
+
+
+	cout &amp;lt;&amp;lt; &amp;quot;v2与v1的差集为： &amp;quot; &amp;lt;&amp;lt; endl;
+	itEnd = set_difference(v2.begin(), v2.end(), v1.begin(), v1.end(), vTarget.begin());
+	for_each(vTarget.begin(), itEnd, myPrint());
+	cout &amp;lt;&amp;lt; endl;
+&amp;#125;
+
+int main() &amp;#123;
+
+	test01();
+
+	system(&amp;quot;pause&amp;quot;);
+
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;总结：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;求差集的两个集合必须的有序序列&lt;/li&gt;
+&lt;li&gt;目标容器开辟空间需要从&lt;strong&gt;两个容器取较大值&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;set_difference 返回值既是差集中最后一个元素的位置&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        <updated>2023-02-02T13:06:56.141Z</updated>
+    </entry>
+    <entry>
+        <id>https://empireofyt.github.io/computer-science/cpp/heima/c++%E6%8F%90%E9%AB%98--STL%E5%B8%B8%E8%A7%81%E5%AE%B9%E5%99%A8/</id>
+        <title>c++提高--STL常见容器</title>
+        <link rel="alternate" href="https://empireofyt.github.io/computer-science/cpp/heima/c++%E6%8F%90%E9%AB%98--STL%E5%B8%B8%E8%A7%81%E5%AE%B9%E5%99%A8/"/>
+        <content type="html">&lt;h1 id=&#34;stl-常见容器&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#stl-常见容器&#34;&gt;#&lt;/a&gt; STL 常见容器&lt;/h1&gt;
+&lt;h2 id=&#34;一-string容器&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#一-string容器&#34;&gt;#&lt;/a&gt; 一 string 容器&lt;/h2&gt;
+&lt;h2 id=&#34;二-vector容器&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#二-vector容器&#34;&gt;#&lt;/a&gt; 二 vector 容器&lt;/h2&gt;
+&lt;h2 id=&#34;三-deque容器&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#三-deque容器&#34;&gt;#&lt;/a&gt; 三 deque 容器&lt;/h2&gt;
+&lt;h2 id=&#34;四-stack容器&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#四-stack容器&#34;&gt;#&lt;/a&gt; 四 stack 容器&lt;/h2&gt;
+&lt;h2 id=&#34;五-queue容器&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#五-queue容器&#34;&gt;#&lt;/a&gt; 五 queue 容器&lt;/h2&gt;
+&lt;h2 id=&#34;六-list容器&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#六-list容器&#34;&gt;#&lt;/a&gt; 六 list 容器&lt;/h2&gt;
+&lt;h2 id=&#34;七-setmultiset-容器&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#七-setmultiset-容器&#34;&gt;#&lt;/a&gt; 七 set/multiset 容器&lt;/h2&gt;
+&lt;h2 id=&#34;八-map和multimap容器&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#八-map和multimap容器&#34;&gt;#&lt;/a&gt; 八 map 和 multimap 容器&lt;/h2&gt;
+&lt;h2 id=&#34;九-案例员工分组&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#九-案例员工分组&#34;&gt;#&lt;/a&gt; 九 案例–员工分组&lt;/h2&gt;
+</content>
+        <updated>2023-02-02T13:06:37.356Z</updated>
+    </entry>
+    <entry>
+        <id>https://empireofyt.github.io/computer-science/cpp/heima/c++%E6%8F%90%E9%AB%98--STL%E5%88%9D%E8%AF%86/</id>
+        <title>c++提高--STL初识</title>
+        <link rel="alternate" href="https://empireofyt.github.io/computer-science/cpp/heima/c++%E6%8F%90%E9%AB%98--STL%E5%88%9D%E8%AF%86/"/>
+        <content type="html">&lt;h1 id=&#34;stl初识&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#stl初识&#34;&gt;#&lt;/a&gt; STL 初识&lt;/h1&gt;
+&lt;h3 id=&#34;一-stl的诞生&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#一-stl的诞生&#34;&gt;#&lt;/a&gt; 一 STL 的诞生&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;长久以来，软件界一直希望建立一种可重复利用的东西&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;C++ 的&lt;strong&gt;面向对象&lt;/strong&gt;和&lt;strong&gt;泛型编程&lt;/strong&gt;思想，目的就是&lt;strong&gt;复用性的提升&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;大多情况下，数据结构和算法都未能有一套标准，导致被迫从事大量重复工作&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;为了建立数据结构和算法的一套标准，诞生了&lt;strong&gt; STL&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;二-stl基本概念&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#二-stl基本概念&#34;&gt;#&lt;/a&gt; 二 STL 基本概念&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;STL(Standard Template Library,&lt;strong&gt; 标准模板库&lt;/strong&gt;)&lt;/li&gt;
+&lt;li&gt;STL 从广义上分为: &lt;strong&gt;容器 (container) 算法 (algorithm) 迭代器 (iterator)&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器&lt;/strong&gt;和&lt;strong&gt;算法&lt;/strong&gt;之间通过&lt;strong&gt;迭代器&lt;/strong&gt;进行无缝连接。&lt;/li&gt;
+&lt;li&gt;STL 几乎所有的代码都采用了模板类或者模板函数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;三-stl六大组件&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#三-stl六大组件&#34;&gt;#&lt;/a&gt; 三 STL 六大组件&lt;/h3&gt;
+&lt;p&gt;STL 大体分为六大组件，分别是:&lt;strong&gt; 容器、算法、迭代器、仿函数、适配器（配接器）、空间配置器&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;容器：各种数据结构，如 vector、list、deque、set、map 等，用来存放数据。&lt;/li&gt;
+&lt;li&gt;算法：各种常用的算法，如 sort、find、copy、for_each 等&lt;/li&gt;
+&lt;li&gt;迭代器：扮演了容器与算法之间的胶合剂。&lt;/li&gt;
+&lt;li&gt;仿函数：行为类似函数，可作为算法的某种策略。&lt;/li&gt;
+&lt;li&gt;适配器：一种用来修饰容器或者仿函数或迭代器接口的东西。&lt;/li&gt;
+&lt;li&gt;空间配置器：负责空间的配置与管理。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;四-stl中容器-算法-迭代器&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#四-stl中容器-算法-迭代器&#34;&gt;#&lt;/a&gt; 四 STL 中容器、算法、迭代器&lt;/h3&gt;
+&lt;p&gt;** 容器：** 置物之所也&lt;/p&gt;
+&lt;p&gt;STL&lt;strong&gt; 容器&lt;/strong&gt;就是将运用&lt;strong&gt;最广泛的一些数据结构&lt;/strong&gt;实现出来&lt;/p&gt;
+&lt;p&gt;常用的数据结构：数组，链表，树，栈，队列，集合，映射表 等&lt;/p&gt;
+&lt;p&gt;这些容器分为&lt;strong&gt;序列式容器&lt;/strong&gt;和&lt;strong&gt;关联式容器&lt;/strong&gt;两种:&lt;/p&gt;
+&lt;p&gt;​	&lt;strong&gt;序列式容器&lt;/strong&gt;：强调值的排序，序列式容器中的每个元素均有固定的位置。&lt;br&gt;
+​	&lt;strong&gt;关联式容器&lt;/strong&gt;：二叉树结构，各元素之间没有严格的物理上的顺序关系&lt;/p&gt;
+&lt;p&gt;** 算法：** 问题之解法也&lt;/p&gt;
+&lt;p&gt;有限的步骤，解决逻辑或数学上的问题，这一门学科我们叫做算法 (Algorithms)&lt;/p&gt;
+&lt;p&gt;算法分为:&lt;strong&gt; 质变算法&lt;/strong&gt;和&lt;strong&gt;非质变算法&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;质变算法：是指运算过程中会更改区间内的元素的内容。例如拷贝，替换，删除等等&lt;/p&gt;
+&lt;p&gt;非质变算法：是指运算过程中不会更改区间内的元素内容，例如查找、计数、遍历、寻找极值等等&lt;/p&gt;
+&lt;p&gt;** 迭代器：** 容器和算法之间粘合剂&lt;/p&gt;
+&lt;p&gt;提供一种方法，使之能够依序寻访某个容器所含的各个元素，而又无需暴露该容器的内部表示方式。&lt;/p&gt;
+&lt;p&gt;每个容器都有自己专属的迭代器&lt;/p&gt;
+&lt;p&gt;迭代器使用非常类似于指针，初学阶段我们可以先理解迭代器为指针&lt;/p&gt;
+&lt;p&gt;迭代器种类：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;种类&lt;/th&gt;
+&lt;th&gt;功能&lt;/th&gt;
+&lt;th&gt;支持运算&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;输入迭代器&lt;/td&gt;
+&lt;td&gt;对数据的只读访问&lt;/td&gt;
+&lt;td&gt;只读，支持 ++、==、！=&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;输出迭代器&lt;/td&gt;
+&lt;td&gt;对数据的只写访问&lt;/td&gt;
+&lt;td&gt;只写，支持 ++&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;前向迭代器&lt;/td&gt;
+&lt;td&gt;读写操作，并能向前推进迭代器&lt;/td&gt;
+&lt;td&gt;读写，支持 ++、==、！=&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;双向迭代器&lt;/td&gt;
+&lt;td&gt;读写操作，并能向前和向后操作&lt;/td&gt;
+&lt;td&gt;读写，支持 ++、–，&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;随机访问迭代器&lt;/td&gt;
+&lt;td&gt;读写操作，可以以跳跃的方式访问任意数据，功能最强的迭代器&lt;/td&gt;
+&lt;td&gt;读写，支持 ++、–、[n]、-n、&amp;lt;、&amp;lt;=、&amp;gt;、&amp;gt;=&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;常用的容器中迭代器种类为双向迭代器，和随机访问迭代器&lt;/p&gt;
+&lt;h3 id=&#34;五-容器算法迭代器初识&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#五-容器算法迭代器初识&#34;&gt;#&lt;/a&gt; 五 容器算法迭代器初识&lt;/h3&gt;
+&lt;p&gt;了解 STL 中容器、算法、迭代器概念之后，我们利用代码感受 STL 的魅力&lt;/p&gt;
+&lt;p&gt;STL 中最常用的容器为 Vector，可以理解为数组，下面我们将学习如何向这个容器中插入数据、并遍历这个容器&lt;/p&gt;
+&lt;h4 id=&#34;51-vector存放内置数据类型&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#51-vector存放内置数据类型&#34;&gt;#&lt;/a&gt; 5.1 vector 存放内置数据类型&lt;/h4&gt;
+&lt;p&gt;容器：      &lt;code&gt;vector&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;算法：      &lt;code&gt;for_each&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;迭代器：  &lt;code&gt;vector&amp;lt;int&amp;gt;::iterator&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C++&#34;&gt;#include &amp;lt;vector&amp;gt;
+#include &amp;lt;algorithm&amp;gt;
+
+void MyPrint(int val)
+&amp;#123;
+	cout &amp;lt;&amp;lt; val &amp;lt;&amp;lt; endl;
+&amp;#125;
+
+void test01() &amp;#123;
+
+	//创建vector容器对象，并且通过模板参数指定容器中存放的数据的类型
+	vector&amp;lt;int&amp;gt; v;
+	//向容器中放数据
+	v.push_back(10);
+	v.push_back(20);
+	v.push_back(30);
+	v.push_back(40);
+
+	//每一个容器都有自己的迭代器，迭代器是用来遍历容器中的元素
+	//v.begin()返回迭代器，这个迭代器指向容器中第一个数据
+	//v.end()返回迭代器，这个迭代器指向容器元素的最后一个元素的下一个位置
+	//vector&amp;lt;int&amp;gt;::iterator 拿到vector&amp;lt;int&amp;gt;这种容器的迭代器类型
+
+	vector&amp;lt;int&amp;gt;::iterator pBegin = v.begin();
+	vector&amp;lt;int&amp;gt;::iterator pEnd = v.end();
+
+	//第一种遍历方式：
+	while (pBegin != pEnd) &amp;#123;
+		cout &amp;lt;&amp;lt; *pBegin &amp;lt;&amp;lt; endl;
+		pBegin++;
+	&amp;#125;
+
+	
+	//第二种遍历方式：
+	for (vector&amp;lt;int&amp;gt;::iterator it = v.begin(); it != v.end(); it++) &amp;#123;
+		cout &amp;lt;&amp;lt; *it &amp;lt;&amp;lt; endl;
+	&amp;#125;
+	cout &amp;lt;&amp;lt; endl;
+
+	//第三种遍历方式：
+	//使用STL提供标准遍历算法  头文件 algorithm
+	for_each(v.begin(), v.end(), MyPrint);
+&amp;#125;
+
+int main() &amp;#123;
+
+	test01();
+
+	system(&amp;quot;pause&amp;quot;);
+
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;52-vector存放自定义数据类型&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#52-vector存放自定义数据类型&#34;&gt;#&lt;/a&gt; 5.2 Vector 存放自定义数据类型&lt;/h4&gt;
+&lt;p&gt;学习目标：vector 中存放自定义数据类型，并打印输出&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;#include &amp;lt;vector&amp;gt;
+#include &amp;lt;string&amp;gt;
+
+//自定义数据类型
+class Person &amp;#123;
+public:
+	Person(string name, int age) &amp;#123;
+		mName = name;
+		mAge = age;
+	&amp;#125;
+public:
+	string mName;
+	int mAge;
+&amp;#125;;
+//存放对象
+void test01() &amp;#123;
+
+	vector&amp;lt;Person&amp;gt; v;
+
+	//创建数据
+	Person p1(&amp;quot;aaa&amp;quot;, 10);
+	Person p2(&amp;quot;bbb&amp;quot;, 20);
+	Person p3(&amp;quot;ccc&amp;quot;, 30);
+	Person p4(&amp;quot;ddd&amp;quot;, 40);
+	Person p5(&amp;quot;eee&amp;quot;, 50);
+
+	v.push_back(p1);
+	v.push_back(p2);
+	v.push_back(p3);
+	v.push_back(p4);
+	v.push_back(p5);
+
+	for (vector&amp;lt;Person&amp;gt;::iterator it = v.begin(); it != v.end(); it++) &amp;#123;
+		cout &amp;lt;&amp;lt; &amp;quot;Name:&amp;quot; &amp;lt;&amp;lt; (*it).mName &amp;lt;&amp;lt; &amp;quot; Age:&amp;quot; &amp;lt;&amp;lt; (*it).mAge &amp;lt;&amp;lt; endl;
+
+	&amp;#125;
+&amp;#125;
+
+
+//放对象指针
+void test02() &amp;#123;
+
+	vector&amp;lt;Person*&amp;gt; v;
+
+	//创建数据
+	Person p1(&amp;quot;aaa&amp;quot;, 10);
+	Person p2(&amp;quot;bbb&amp;quot;, 20);
+	Person p3(&amp;quot;ccc&amp;quot;, 30);
+	Person p4(&amp;quot;ddd&amp;quot;, 40);
+	Person p5(&amp;quot;eee&amp;quot;, 50);
+
+	v.push_back(&amp;amp;p1);
+	v.push_back(&amp;amp;p2);
+	v.push_back(&amp;amp;p3);
+	v.push_back(&amp;amp;p4);
+	v.push_back(&amp;amp;p5);
+
+	for (vector&amp;lt;Person*&amp;gt;::iterator it = v.begin(); it != v.end(); it++) &amp;#123;
+		Person * p = (*it);
+		cout &amp;lt;&amp;lt; &amp;quot;Name:&amp;quot; &amp;lt;&amp;lt; p-&amp;gt;mName &amp;lt;&amp;lt; &amp;quot; Age:&amp;quot; &amp;lt;&amp;lt; (*it)-&amp;gt;mAge &amp;lt;&amp;lt; endl;
+	&amp;#125;
+&amp;#125;
+
+
+int main() &amp;#123;
+
+	test01();
+    
+	test02();
+
+	system(&amp;quot;pause&amp;quot;);
+
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;53-vector容器嵌套容器&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#53-vector容器嵌套容器&#34;&gt;#&lt;/a&gt; 5.3 Vector 容器嵌套容器&lt;/h4&gt;
+&lt;p&gt;学习目标：容器中嵌套容器，我们将所有数据进行遍历输出&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C++&#34;&gt;#include &amp;lt;vector&amp;gt;
+
+//容器嵌套容器
+void test01() &amp;#123;
+
+	vector&amp;lt; vector&amp;lt;int&amp;gt; &amp;gt;  v;
+
+	vector&amp;lt;int&amp;gt; v1;
+	vector&amp;lt;int&amp;gt; v2;
+	vector&amp;lt;int&amp;gt; v3;
+	vector&amp;lt;int&amp;gt; v4;
+
+	for (int i = 0; i &amp;lt; 4; i++) &amp;#123;
+		v1.push_back(i + 1);
+		v2.push_back(i + 2);
+		v3.push_back(i + 3);
+		v4.push_back(i + 4);
+	&amp;#125;
+
+	//将容器元素插入到vector v中
+	v.push_back(v1);
+	v.push_back(v2);
+	v.push_back(v3);
+	v.push_back(v4);
+
+
+	for (vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt;::iterator it = v.begin(); it != v.end(); it++) &amp;#123;
+
+		for (vector&amp;lt;int&amp;gt;::iterator vit = (*it).begin(); vit != (*it).end(); vit++) &amp;#123;
+			cout &amp;lt;&amp;lt; *vit &amp;lt;&amp;lt; &amp;quot; &amp;quot;;
+		&amp;#125;
+		cout &amp;lt;&amp;lt; endl;
+	&amp;#125;
+
+&amp;#125;
+
+int main() &amp;#123;
+
+	test01();
+
+	system(&amp;quot;pause&amp;quot;);
+
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+        <updated>2023-02-02T13:05:58.003Z</updated>
+    </entry>
+    <entry>
+        <id>https://empireofyt.github.io/computer-science/cpp/heima/c++%E6%8F%90%E9%AB%98--%E6%A8%A1%E6%9D%BF/</id>
+        <title>c++提高--模板</title>
+        <link rel="alternate" href="https://empireofyt.github.io/computer-science/cpp/heima/c++%E6%8F%90%E9%AB%98--%E6%A8%A1%E6%9D%BF/"/>
+        <content type="html">&lt;h1 id=&#34;模板&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#模板&#34;&gt;#&lt;/a&gt; 模板&lt;/h1&gt;
+&lt;h2 id=&#34;一-模板的概念&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#一-模板的概念&#34;&gt;#&lt;/a&gt; 一 模板的概念&lt;/h2&gt;
+&lt;p&gt;含义：建立&lt;strong&gt;通用的模具&lt;/strong&gt;，大大提高&lt;strong&gt;复用性&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;模板的特点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;模板不可以直接使用，它只是一个框架&lt;/li&gt;
+&lt;li&gt;模板的通用并不是万能的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;C++ 提供两种模板机制:&lt;strong&gt; 函数模板&lt;/strong&gt;和&lt;strong&gt;类模板&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;C++ 另一种编程思想称为 &lt;strong&gt;泛型编程&lt;/strong&gt; ，主要利用的技术就是模板&lt;/p&gt;
+&lt;h2 id=&#34;二函数模板&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#二函数模板&#34;&gt;#&lt;/a&gt; 二函数模板&lt;/h2&gt;
+&lt;h3 id=&#34;21-函数模板基础&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#21-函数模板基础&#34;&gt;#&lt;/a&gt; 2.1  函数模板基础&lt;/h3&gt;
+&lt;p&gt;函数模板&lt;strong&gt;作用&lt;/strong&gt;：建立一个通用函数，其函数返回值类型和形参类型可以不具体制定，用一个&lt;strong&gt;虚拟的类型&lt;/strong&gt;来代表。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;语法&lt;/strong&gt;： &lt;code&gt;template&amp;lt;typename T&amp;gt;&lt;/code&gt;       函数声明或定义&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;语法：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C++&#34;&gt;template&amp;lt;typename T&amp;gt;
+函数声明或定义
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;解释：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;template — 声明创建模板&lt;/p&gt;
+&lt;p&gt;typename — 表面其后面的符号是一种数据类型，可以用 class 代替&lt;/p&gt;
+&lt;p&gt;T — 通用的数据类型，名称可以替换，通常为大写字母&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-//利用模板实现交换&#34;&gt;//1、**自动类型推导**
+//mySwap(a, b); 
+
+//2、**显示指定类型**
+mySwap&amp;lt;int&amp;gt;(a, b);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;总结&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;函数模板利用关键字 template&lt;/li&gt;
+&lt;li&gt;使用函数模板有两种方式：自动类型推导、显示指定类型&lt;/li&gt;
+&lt;li&gt;模板的目的是为了提高复用性，将类型参数化&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;22-函数模板注意事项&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#22-函数模板注意事项&#34;&gt;#&lt;/a&gt; 2.2 函数模板注意事项&lt;/h3&gt;
+&lt;p&gt;注意事项：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;自动类型推导，必须推导出一致的数据类型 T, 才可以使用&lt;/li&gt;
+&lt;li&gt;模板必须要确定出 T 的数据类型，才可以使用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;//利用模板提供通用的交换函数
+template&amp;lt;class T&amp;gt;
+void mySwap(T&amp;amp; a, T&amp;amp; b)
+&amp;#123;
+	T temp = a;
+	a = b;
+	b = temp;
+&amp;#125;
+
+
+// 1、自动类型推导，必须推导出一致的数据类型T,才可以使用
+void test01()
+&amp;#123;
+	int a = 10;
+	int b = 20;
+	char c = &#39;c&#39;;
+
+	mySwap(a, b); // 正确，可以推导出一致的T
+	//mySwap(a, c); // 错误，推导不出一致的T类型
+&amp;#125;
+
+
+// 2、模板必须要确定出T的数据类型，才可以使用
+template&amp;lt;class T&amp;gt;
+void func()
+&amp;#123;
+	cout &amp;lt;&amp;lt; &amp;quot;func 调用&amp;quot; &amp;lt;&amp;lt; endl;
+&amp;#125;
+
+void test02()
+&amp;#123;
+	//func(); //错误，模板不能独立使用，必须确定出T的类型
+	func&amp;lt;int&amp;gt;(); //利用显示指定类型的方式，给T一个类型，才可以使用该模板
+&amp;#125;
+
+int main() &amp;#123;
+
+	test01();
+	test02();
+
+	system(&amp;quot;pause&amp;quot;);
+
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;总结：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;使用模板时必须确定出通用数据类型 T，并且能够推导出一致的类型&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;23-普通函数和函数模板的区别&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#23-普通函数和函数模板的区别&#34;&gt;#&lt;/a&gt; 2.3 普通函数和函数模板的区别&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;普通函数与函数模板区别：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;普通函数调用时可以发生自动类型转换（隐式类型转换）&lt;/li&gt;
+&lt;li&gt;函数模板调用时，如果利用自动类型推导，不会发生隐式类型转换&lt;/li&gt;
+&lt;li&gt;如果利用显示指定类型的方式，可以发生隐式类型转换&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C++&#34;&gt;int a = 10;int b = 20;
+char c = &#39;c&#39;;
+cout &amp;lt;&amp;lt; myAdd01(a, c) &amp;lt;&amp;lt; endl; //正确，将char类型的&#39;c&#39;隐式转换为int类型  &#39;c&#39; 对应 ASCII码 99
+//myAdd02(a, c); // 报错，使用自动类型推导时，不会发生隐式类型转换
+myAdd02&amp;lt;int&amp;gt;(a, c); //正确，如果用显示指定类型，可以发生隐式类型转换
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;总结&lt;/strong&gt;：建议使用显示指定类型的方式，调用函数模板，因为可以自己确定通用类型 T&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;调用规则&lt;/strong&gt;如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;如果函数模板和普通函数都可以实现，&lt;strong&gt;优先调用普通函数&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;可以通过&lt;strong&gt;空模板参数列表&lt;/strong&gt;来强制调用函数模板&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;//2、可以通过空模板参数列表来强制调用函数模板``  &lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;myPrint**&amp;lt;&amp;gt;**(a, b); //调用函数模板&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;函数模板也可以发生重载&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果函数模板可以产生更好的匹配，优先调用函数模板&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;24-函数模板的局限性&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#24-函数模板的局限性&#34;&gt;#&lt;/a&gt; 2.4 函数模板的局限性&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;局限性&lt;/strong&gt;：例如两个数组直接赋值，或者是一些自定义数据类型，都没法直接操作，这就是模板的局限性。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;解决方案&lt;/strong&gt;：为这些特定的类型提供&lt;strong&gt;具体化的模板&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;具体化&lt;/strong&gt;，显示具体化的原型和定意思以 **template&amp;lt;&amp;gt;** 开头，并通过名称来指出类型&lt;/p&gt;
+&lt;p&gt;​		 &lt;code&gt;template&amp;lt;&amp;gt; bool myCompare(Person &amp;amp;p1, Person &amp;amp;p2)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;具体化优先于常规模板&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;总结：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;利用具体化的模板，可以解决自定义类型的通用化&lt;/li&gt;
+&lt;li&gt;学习模板并不是为了写模板，而是在 STL 能够运用系统提供的模板&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;三-类模板&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#三-类模板&#34;&gt;#&lt;/a&gt; 三 类模板&lt;/h2&gt;
+&lt;h3 id=&#34;31-类模板基础&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#31-类模板基础&#34;&gt;#&lt;/a&gt; 3.1 类模板基础&lt;/h3&gt;
+&lt;p&gt;类模板&lt;strong&gt;作用&lt;/strong&gt;：建立一个通用类，类中的成员 数据类型可以不具体制定，用一个&lt;strong&gt;虚拟的类型&lt;/strong&gt;来代表。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;语法&lt;/strong&gt;：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;template&amp;lt;typename T&amp;gt;    
+类
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;解释：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;template — 声明创建模板&lt;/p&gt;
+&lt;p&gt;typename — 表面其后面的符号是一种数据类型，可以用 class 代替&lt;/p&gt;
+&lt;p&gt;T — 通用的数据类型，名称可以替换，通常为大写字母&lt;/p&gt;
+&lt;h3 id=&#34;32-类模板和函数模型的区别&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#32-类模板和函数模型的区别&#34;&gt;#&lt;/a&gt; 3.2 类模板和函数模型的区别&lt;/h3&gt;
+&lt;p&gt;类模板与函数模板区别主要有两点：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;类模板没有自动类型推导的使用方式。只能使用&lt;strong&gt;显示指定类型方式&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;类模板在模板参数列表中可以有默认参数，函数模板不可以有&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;//类模板template&amp;lt;class NameType, class AgeType = int&amp;gt;
+//1、类模板没有自动类型推导的使用方式
+void test01()
+&amp;#123;
+	// Person p(&amp;quot;孙悟空&amp;quot;, 1000); // 错误 类模板使用时候，不可以用自动类型推导
+	Person &amp;lt;string ,int&amp;gt;p(&amp;quot;孙悟空&amp;quot;, 1000); //必须使用显示指定类型的方式，使用类模板
+	p.showPerson();
+&amp;#125;
+//2、类模板在模板参数列表中可以有默认参数
+void test02()
+&amp;#123;
+	Person &amp;lt;string&amp;gt; p(&amp;quot;猪八戒&amp;quot;, 999); //类模板中的模板参数列表 可以指定默认参数
+	p.showPerson();
+&amp;#125;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;33-类模板的成员函数&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#33-类模板的成员函数&#34;&gt;#&lt;/a&gt; 3.3 类模板的成员函数&lt;/h3&gt;
+&lt;p&gt;类模板中成员函数和普通类中成员函数创建时机是有区别的：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;普通类中的成员函数一开始&lt;/strong&gt;就可以创建&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;类模板中的成员函数在调用时&lt;/strong&gt;才创建&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;类模板成员函数类外实现，需要加上模板参数列表//构造函数 类外实现
+template&amp;lt;class T1, class T2&amp;gt;
+Person&amp;lt;T1, T2&amp;gt;::Person(T1 name, T2 age) &amp;#123;
+	this-&amp;gt;m_Name = name;
+	this-&amp;gt;m_Age = age;
+&amp;#125;
+//成员函数 类外实现
+template&amp;lt;class T1, class T2&amp;gt;
+	void Person&amp;lt;T1, T2&amp;gt;::showPerson() &amp;#123;
+	cout &amp;lt;&amp;lt; &amp;quot;姓名: &amp;quot; &amp;lt;&amp;lt; this-&amp;gt;m_Name &amp;lt;&amp;lt; &amp;quot; 年龄:&amp;quot; &amp;lt;&amp;lt; this-&amp;gt;m_Age &amp;lt;&amp;lt; endl;
+&amp;#125;
+
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;34-类模板对象做函数参数&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#34-类模板对象做函数参数&#34;&gt;#&lt;/a&gt; 3.4 类模板对象做函数参数&lt;/h3&gt;
+&lt;p&gt;学习目标：类模板实例化出的对象，向函数传参的方式&lt;br&gt;
+一共有三种传入方式：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;指定传入的类型  — 直接显示对象的数据类型&lt;/p&gt;
+&lt;p&gt;void printPerson1(Person&amp;lt;string, int&amp;gt; &amp;amp;p)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;参数模板化      — 将对象中的参数变为模板进行传递&lt;/p&gt;
+&lt;p&gt;template &amp;lt;class T1, class T2&amp;gt;void printPerson2(Person&amp;lt;T1, T2&amp;gt;&amp;amp;p)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;整个类模板化    — 将这个对象类型 模板化进行传递&lt;/p&gt;
+&lt;p&gt;template&lt;class T&gt;void printPerson3(T &amp;amp; p)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;总结&lt;/strong&gt;：通过类模板创建的对象，可以有三种方式向函数中进行传参使用比较广泛是第一种：指定传入的类型&lt;/p&gt;
+&lt;h3 id=&#34;35-类模板与继承&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#35-类模板与继承&#34;&gt;#&lt;/a&gt; 3.5 类模板与继承&lt;/h3&gt;
+&lt;p&gt;当类模板碰到继承时，需要注意一下几点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;当子类继承的父类是一个类模板时，子类在声明的时候，要指定出父类中 T 的类型&lt;/li&gt;
+&lt;li&gt;如果不指定，编译器无法给子类分配内存&lt;/li&gt;
+&lt;li&gt;如果想灵活指定出父类中 T 的类型，子类也需变为类模板&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;总结&lt;/strong&gt;：如果父类是类模板，子类需要指定出父类中 T 的数据类型&lt;/p&gt;
+&lt;h3 id=&#34;36-类模板份文件编写&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#36-类模板份文件编写&#34;&gt;#&lt;/a&gt; 3.6 类模板份文件编写&lt;/h3&gt;
+&lt;p&gt;学习目标：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;掌握类模板成员函数分文件编写产生的问题以及解决方式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;问题：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;类模板中成员函数创建时机是在调用阶段，导致分文件编写时链接不到&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;解决：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;解决方式 1：直接包含.cpp 源文件&lt;/li&gt;
+&lt;li&gt;解决方式 2：将声明和实现写到同一个文件中，并更改后缀名为.hpp，hpp 是约定的名称，并不是强制&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;person.hpp 中代码：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C++&#34;&gt;#pragma once
+#include &amp;lt;iostream&amp;gt;
+using namespace std;
+#include &amp;lt;string&amp;gt;
+
+template&amp;lt;class T1, class T2&amp;gt;
+class Person &amp;#123;
+public:
+	Person(T1 name, T2 age);
+	void showPerson();
+public:
+	T1 m_Name;
+	T2 m_Age;
+&amp;#125;;
+
+//构造函数 类外实现
+template&amp;lt;class T1, class T2&amp;gt;
+Person&amp;lt;T1, T2&amp;gt;::Person(T1 name, T2 age) &amp;#123;
+	this-&amp;gt;m_Name = name;
+	this-&amp;gt;m_Age = age;
+&amp;#125;
+
+//成员函数 类外实现
+template&amp;lt;class T1, class T2&amp;gt;
+void Person&amp;lt;T1, T2&amp;gt;::showPerson() &amp;#123;
+	cout &amp;lt;&amp;lt; &amp;quot;姓名: &amp;quot; &amp;lt;&amp;lt; this-&amp;gt;m_Name &amp;lt;&amp;lt; &amp;quot; 年龄:&amp;quot; &amp;lt;&amp;lt; this-&amp;gt;m_Age &amp;lt;&amp;lt; endl;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;类模板分文件编写.cpp 中代码&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C++&#34;&gt;#include&amp;lt;iostream&amp;gt;
+using namespace std;
+
+//#include &amp;quot;person.h&amp;quot;
+#include &amp;quot;person.cpp&amp;quot; //解决方式1，包含cpp源文件
+
+//解决方式2，将声明和实现写到一起，文件后缀名改为.hpp
+#include &amp;quot;person.hpp&amp;quot;
+void test01()
+&amp;#123;
+	Person&amp;lt;string, int&amp;gt; p(&amp;quot;Tom&amp;quot;, 10);
+	p.showPerson();
+&amp;#125;
+
+int main() &amp;#123;
+
+	test01();
+
+	system(&amp;quot;pause&amp;quot;);
+
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;总结：主流的解决方式是第二种，将类模板成员函数写到一起，并将后缀名改为.hpp&lt;/p&gt;
+&lt;h3 id=&#34;37-类模板和友元&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#37-类模板和友元&#34;&gt;#&lt;/a&gt; 3.7 类模板和友元&lt;/h3&gt;
+&lt;p&gt;学习目标：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;掌握类模板配合友元函数的类内和类外实现&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;全局函数类内实现 - 直接在类内声明友元即可&lt;/p&gt;
+&lt;p&gt;全局函数类外实现 - 需要提前让编译器知道全局函数的存在&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C++&#34;&gt;#include &amp;lt;string&amp;gt;
+
+//2、全局函数配合友元  类外实现 - 先做函数模板声明，下方在做函数模板定义，在做友元
+template&amp;lt;class T1, class T2&amp;gt; class Person;
+
+//如果声明了函数模板，可以将实现写到后面，否则需要将实现体写到类的前面让编译器提前看到
+//template&amp;lt;class T1, class T2&amp;gt; void printPerson2(Person&amp;lt;T1, T2&amp;gt; &amp;amp; p); 
+
+template&amp;lt;class T1, class T2&amp;gt;
+void printPerson2(Person&amp;lt;T1, T2&amp;gt; &amp;amp; p)
+&amp;#123;
+	cout &amp;lt;&amp;lt; &amp;quot;类外实现 ---- 姓名： &amp;quot; &amp;lt;&amp;lt; p.m_Name &amp;lt;&amp;lt; &amp;quot; 年龄：&amp;quot; &amp;lt;&amp;lt; p.m_Age &amp;lt;&amp;lt; endl;
+&amp;#125;
+
+template&amp;lt;class T1, class T2&amp;gt;
+class Person
+&amp;#123;
+	//1、全局函数配合友元   类内实现
+	friend void printPerson(Person&amp;lt;T1, T2&amp;gt; &amp;amp; p)
+	&amp;#123;
+		cout &amp;lt;&amp;lt; &amp;quot;姓名： &amp;quot; &amp;lt;&amp;lt; p.m_Name &amp;lt;&amp;lt; &amp;quot; 年龄：&amp;quot; &amp;lt;&amp;lt; p.m_Age &amp;lt;&amp;lt; endl;
+	&amp;#125;
+
+
+	//全局函数配合友元  类外实现
+	friend void printPerson2&amp;lt;&amp;gt;(Person&amp;lt;T1, T2&amp;gt; &amp;amp; p);
+
+public:
+
+	Person(T1 name, T2 age)
+	&amp;#123;
+		this-&amp;gt;m_Name = name;
+		this-&amp;gt;m_Age = age;
+	&amp;#125;
+
+
+private:
+	T1 m_Name;
+	T2 m_Age;
+
+&amp;#125;;
+
+//1、全局函数在类内实现
+void test01()
+&amp;#123;
+	Person &amp;lt;string, int &amp;gt;p(&amp;quot;Tom&amp;quot;, 20);
+	printPerson(p);
+&amp;#125;
+
+
+//2、全局函数在类外实现
+void test02()
+&amp;#123;
+	Person &amp;lt;string, int &amp;gt;p(&amp;quot;Jerry&amp;quot;, 30);
+	printPerson2(p);
+&amp;#125;
+
+int main() &amp;#123;
+
+	//test01();
+
+	test02();
+
+	system(&amp;quot;pause&amp;quot;);
+
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;总结：建议全局函数做类内实现，用法简单，而且编译器可以直接识别&lt;/p&gt;
+</content>
+        <updated>2023-02-02T12:59:15.720Z</updated>
+    </entry>
+    <entry>
+        <id>https://empireofyt.github.io/computer-science/cpp/heima/c++%E5%9F%BA%E7%A1%80--%E9%80%9A%E8%AE%AF%E5%BD%95%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/</id>
+        <title>c++基础--通讯录管理系统</title>
+        <link rel="alternate" href="https://empireofyt.github.io/computer-science/cpp/heima/c++%E5%9F%BA%E7%A1%80--%E9%80%9A%E8%AE%AF%E5%BD%95%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/"/>
+        <content type="html"></content>
+        <updated>2023-02-02T12:58:57.288Z</updated>
+    </entry>
+    <entry>
+        <id>https://empireofyt.github.io/computer-science/cpp/heima/c++%E5%9F%BA%E7%A1%80--%E7%BB%93%E6%9E%84%E4%BD%93/</id>
+        <title>c++基础--结构体</title>
+        <link rel="alternate" href="https://empireofyt.github.io/computer-science/cpp/heima/c++%E5%9F%BA%E7%A1%80--%E7%BB%93%E6%9E%84%E4%BD%93/"/>
+        <content type="html">&lt;h1 id=&#34;结构体&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#结构体&#34;&gt;#&lt;/a&gt; 结构体&lt;/h1&gt;
+&lt;h3 id=&#34;1-结构体的定义&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#1-结构体的定义&#34;&gt;#&lt;/a&gt; 1. 结构体的定义&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;语法：&lt;/strong&gt; &lt;code&gt;struct 结构体名 &amp;#123; 结构体成员列表 &amp;#125;；&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;通过结构体创建变量的方式有三种：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;struct 结构体名 变量名&lt;/li&gt;
+&lt;li 成员1值=&#34;&#34; ，=&#34;&#34; 成员2值...=&#34;&#34;&gt;struct 结构体名 变量名 =&lt;/li&gt;
+&lt;li&gt;定义结构体时顺便创建变量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//结构体定义
+struct student
+&amp;#123;
+	//成员列表
+	string name;  //姓名
+	int age;      //年龄
+	int score;    //分数
+&amp;#125;stu3; //结构体变量创建方式3 
+
+
+int main() &amp;#123;
+
+	//结构体变量创建方式1
+	struct student stu1; //struct 关键字可以省略
+
+	stu1.name = &amp;quot;张三&amp;quot;;
+	stu1.age = 18;
+	stu1.score = 100;
+	
+	cout &amp;lt;&amp;lt; &amp;quot;姓名：&amp;quot; &amp;lt;&amp;lt; stu1.name &amp;lt;&amp;lt; &amp;quot; 年龄：&amp;quot; &amp;lt;&amp;lt; stu1.age  &amp;lt;&amp;lt; &amp;quot; 分数：&amp;quot; &amp;lt;&amp;lt; stu1.score &amp;lt;&amp;lt; endl;
+
+	//结构体变量创建方式2
+	struct student stu2 = &amp;#123; &amp;quot;李四&amp;quot;,19,60 &amp;#125;;
+
+	cout &amp;lt;&amp;lt; &amp;quot;姓名：&amp;quot; &amp;lt;&amp;lt; stu2.name &amp;lt;&amp;lt; &amp;quot; 年龄：&amp;quot; &amp;lt;&amp;lt; stu2.age  &amp;lt;&amp;lt; &amp;quot; 分数：&amp;quot; &amp;lt;&amp;lt; stu2.score &amp;lt;&amp;lt; endl;
+
+
+	stu3.name = &amp;quot;王五&amp;quot;;
+	stu3.age = 18;
+	stu3.score = 80;
+	
+
+	cout &amp;lt;&amp;lt; &amp;quot;姓名：&amp;quot; &amp;lt;&amp;lt; stu3.name &amp;lt;&amp;lt; &amp;quot; 年龄：&amp;quot; &amp;lt;&amp;lt; stu3.age  &amp;lt;&amp;lt; &amp;quot; 分数：&amp;quot; &amp;lt;&amp;lt; stu3.score &amp;lt;&amp;lt; endl;
+
+	system(&amp;quot;pause&amp;quot;);
+
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;总结 1：定义结构体时的关键字是 struct，不可省略&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;总结 2：创建结构体变量时，关键字 struct 可以省略&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;总结 3：结构体变量利用操作符 ‘’.’’  访问成员&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;2-结构体数组&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#2-结构体数组&#34;&gt;#&lt;/a&gt; 2 结构体数组&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;语法：&lt;/strong&gt;  &lt;code&gt;struct  结构体名 数组名[元素个数] = &amp;#123;  &amp;#123;&amp;#125; , &amp;#123;&amp;#125; , ... &amp;#123;&amp;#125; &amp;#125;&lt;/code&gt; &lt;br&gt;
+&lt;strong&gt; 示例：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//结构体定义
+struct student
+&amp;#123;
+	//成员列表
+	string name;  //姓名
+	int age;      //年龄
+	int score;    //分数
+&amp;#125;
+
+int main() &amp;#123;
+	
+	//结构体数组
+	struct student arr[3]=
+	&amp;#123;
+		&amp;#123;&amp;quot;张三&amp;quot;,18,80 &amp;#125;,
+		&amp;#123;&amp;quot;李四&amp;quot;,19,60 &amp;#125;,
+		&amp;#123;&amp;quot;王五&amp;quot;,20,70 &amp;#125;
+	&amp;#125;;
+
+	for (int i = 0; i &amp;lt; 3; i++)
+	&amp;#123;
+		cout &amp;lt;&amp;lt; &amp;quot;姓名：&amp;quot; &amp;lt;&amp;lt; arr[i].name &amp;lt;&amp;lt; &amp;quot; 年龄：&amp;quot; &amp;lt;&amp;lt; arr[i].age &amp;lt;&amp;lt; &amp;quot; 分数：&amp;quot; &amp;lt;&amp;lt; arr[i].score &amp;lt;&amp;lt; endl;
+	&amp;#125;
+
+	system(&amp;quot;pause&amp;quot;);
+
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;3-结构体指针&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#3-结构体指针&#34;&gt;#&lt;/a&gt; 3 结构体指针&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;作用：&lt;/strong&gt; 通过指针访问结构体中的成员&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;利用操作符  &lt;code&gt;-&amp;gt; &lt;/code&gt; 可以通过结构体指针访问结构体属性&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;//结构体定义
+struct student
+&amp;#123;
+	//成员列表
+	string name;  //姓名
+	int age;      //年龄
+	int score;    //分数
+&amp;#125;;
+
+int main() &amp;#123;
+	
+	struct student stu = &amp;#123; &amp;quot;张三&amp;quot;,18,100, &amp;#125;;
+	
+	struct student * p = &amp;amp;stu;
+	
+	p-&amp;gt;score = 80; //指针通过 -&amp;gt; 操作符可以访问成员
+
+	cout &amp;lt;&amp;lt; &amp;quot;姓名：&amp;quot; &amp;lt;&amp;lt; p-&amp;gt;name &amp;lt;&amp;lt; &amp;quot; 年龄：&amp;quot; &amp;lt;&amp;lt; p-&amp;gt;age &amp;lt;&amp;lt; &amp;quot; 分数：&amp;quot; &amp;lt;&amp;lt; p-&amp;gt;score &amp;lt;&amp;lt; endl;
+	
+	system(&amp;quot;pause&amp;quot;);
+
+	return 0;
+&amp;#125;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;4-结构体嵌套结构体&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#4-结构体嵌套结构体&#34;&gt;#&lt;/a&gt; 4 结构体嵌套结构体&lt;/h3&gt;
+&lt;p&gt;** 作用：** 结构体中的成员可以是另一个结构体&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//学生结构体定义
+struct student
+&amp;#123;
+	//成员列表
+	string name;  //姓名
+	int age;      //年龄
+	int score;    //分数
+&amp;#125;;
+
+//教师结构体定义
+struct teacher
+&amp;#123;
+    //成员列表
+	int id; //职工编号
+	string name;  //教师姓名
+	int age;   //教师年龄
+	struct student stu; //子结构体 学生
+&amp;#125;;
+
+
+int main() &amp;#123;
+
+	struct teacher t1;
+	t1.id = 10000;
+	t1.name = &amp;quot;老王&amp;quot;;
+	t1.age = 40;
+
+	t1.stu.name = &amp;quot;张三&amp;quot;;
+	t1.stu.age = 18;
+	t1.stu.score = 100;
+
+	cout &amp;lt;&amp;lt; &amp;quot;教师 职工编号： &amp;quot; &amp;lt;&amp;lt; t1.id &amp;lt;&amp;lt; &amp;quot; 姓名： &amp;quot; &amp;lt;&amp;lt; t1.name &amp;lt;&amp;lt; &amp;quot; 年龄： &amp;quot; &amp;lt;&amp;lt; t1.age &amp;lt;&amp;lt; endl;
+	
+	cout &amp;lt;&amp;lt; &amp;quot;辅导学员 姓名： &amp;quot; &amp;lt;&amp;lt; t1.stu.name &amp;lt;&amp;lt; &amp;quot; 年龄：&amp;quot; &amp;lt;&amp;lt; t1.stu.age &amp;lt;&amp;lt; &amp;quot; 考试分数： &amp;quot; &amp;lt;&amp;lt; t1.stu.score &amp;lt;&amp;lt; endl;
+
+	system(&amp;quot;pause&amp;quot;);
+
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;5-结构体作为函数参数&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#5-结构体作为函数参数&#34;&gt;#&lt;/a&gt; 5 结构体作为函数参数&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;类型：&lt;/strong&gt; 1 值传递；   2 地址传递&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//学生结构体定义
+struct student
+&amp;#123;
+	//成员列表
+	string name;  //姓名
+	int age;      //年龄
+	int score;    //分数
+&amp;#125;;
+
+//值传递
+void printStudent(student stu )
+&amp;#123;
+	stu.age = 28;
+	cout &amp;lt;&amp;lt; &amp;quot;子函数中 姓名：&amp;quot; &amp;lt;&amp;lt; stu.name &amp;lt;&amp;lt; &amp;quot; 年龄： &amp;quot; &amp;lt;&amp;lt; stu.age  &amp;lt;&amp;lt; &amp;quot; 分数：&amp;quot; &amp;lt;&amp;lt; stu.score &amp;lt;&amp;lt; endl;
+&amp;#125;
+
+//地址传递
+void printStudent2(student *stu)
+&amp;#123;
+	stu-&amp;gt;age = 28;
+	cout &amp;lt;&amp;lt; &amp;quot;子函数中 姓名：&amp;quot; &amp;lt;&amp;lt; stu-&amp;gt;name &amp;lt;&amp;lt; &amp;quot; 年龄： &amp;quot; &amp;lt;&amp;lt; stu-&amp;gt;age  &amp;lt;&amp;lt; &amp;quot; 分数：&amp;quot; &amp;lt;&amp;lt; stu-&amp;gt;score &amp;lt;&amp;lt; endl;
+&amp;#125;
+
+int main() &amp;#123;
+
+	student stu = &amp;#123; &amp;quot;张三&amp;quot;,18,100&amp;#125;;
+	//值传递
+	printStudent(stu);
+	cout &amp;lt;&amp;lt; &amp;quot;主函数中 姓名：&amp;quot; &amp;lt;&amp;lt; stu.name &amp;lt;&amp;lt; &amp;quot; 年龄： &amp;quot; &amp;lt;&amp;lt; stu.age &amp;lt;&amp;lt; &amp;quot; 分数：&amp;quot; &amp;lt;&amp;lt; stu.score &amp;lt;&amp;lt; endl;
+
+	cout &amp;lt;&amp;lt; endl;
+
+	//地址传递
+	printStudent2(&amp;amp;stu);
+	cout &amp;lt;&amp;lt; &amp;quot;主函数中 姓名：&amp;quot; &amp;lt;&amp;lt; stu.name &amp;lt;&amp;lt; &amp;quot; 年龄： &amp;quot; &amp;lt;&amp;lt; stu.age  &amp;lt;&amp;lt; &amp;quot; 分数：&amp;quot; &amp;lt;&amp;lt; stu.score &amp;lt;&amp;lt; endl;
+
+	system(&amp;quot;pause&amp;quot;);
+
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;6-结构体中const使用场景&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#6-结构体中const使用场景&#34;&gt;#&lt;/a&gt; 6 结构体中 const 使用场景&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;作用：&lt;/strong&gt; 用 const 防止误操作&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//学生结构体定义
+struct student
+&amp;#123;
+	//成员列表
+	string name;  //姓名
+	int age;      //年龄
+	int score;    //分数
+&amp;#125;;
+
+//const使用场景
+//将函数中的形参改为指针，可以减少内存，而且不会幅值新的副本
+void printStudent(const student *stu) //加const防止函数体中的误操作
+&amp;#123;
+	//stu-&amp;gt;age = 100; //操作失败，因为加了const修饰
+	cout &amp;lt;&amp;lt; &amp;quot;姓名：&amp;quot; &amp;lt;&amp;lt; stu-&amp;gt;name &amp;lt;&amp;lt; &amp;quot; 年龄：&amp;quot; &amp;lt;&amp;lt; stu-&amp;gt;age &amp;lt;&amp;lt; &amp;quot; 分数：&amp;quot; &amp;lt;&amp;lt; stu-&amp;gt;score &amp;lt;&amp;lt; endl;
+
+&amp;#125;
+
+int main() &amp;#123;
+
+	student stu = &amp;#123; &amp;quot;张三&amp;quot;,18,100 &amp;#125;;
+
+	printStudent(&amp;amp;stu);
+
+	system(&amp;quot;pause&amp;quot;);
+
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;将函数中的形参改为指针，可以减少内存，而且不会幅值新的副本&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+        <updated>2023-02-02T12:58:43.249Z</updated>
+    </entry>
+    <entry>
+        <id>https://empireofyt.github.io/computer-science/cpp/heima/c++%E5%9F%BA%E7%A1%80--%E6%8C%87%E9%92%88/</id>
+        <title>c++基础--指针</title>
+        <link rel="alternate" href="https://empireofyt.github.io/computer-science/cpp/heima/c++%E5%9F%BA%E7%A1%80--%E6%8C%87%E9%92%88/"/>
+        <content type="html">&lt;h1 id=&#34;指针&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#指针&#34;&gt;#&lt;/a&gt; 指针&lt;/h1&gt;
+&lt;h3 id=&#34;一-指针的大小&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#一-指针的大小&#34;&gt;#&lt;/a&gt; 一 指针的大小&lt;/h3&gt;
+&lt;p&gt;32 位下 4 个字节；64 位下 8 个字节&lt;/p&gt;
+&lt;h3 id=&#34;二-const指针&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#二-const指针&#34;&gt;#&lt;/a&gt; 二 const 指针&lt;/h3&gt;
+&lt;p&gt;const 修饰指针有三种情况&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;const 修饰指针   — 常量指针&lt;/li&gt;
+&lt;li&gt;const 修饰常量   — 指针常量&lt;/li&gt;
+&lt;li&gt;const 即修饰指针，又修饰常量&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;int main() &amp;#123;
+
+	int a = 10;
+	int b = 10;
+
+	//const修饰的是指针，指针指向可以改，指针指向的值不可以更改
+	const int * p1 = &amp;amp;a; 
+	p1 = &amp;amp;b; //正确
+	//*p1 = 100;  报错
+	
+
+	//const修饰的是常量，指针指向不可以改，指针指向的值可以更改
+	int * const p2 = &amp;amp;a;
+	//p2 = &amp;amp;b; //错误
+	*p2 = 100; //正确
+
+    //const既修饰指针又修饰常量
+	const int * const p3 = &amp;amp;a;
+	//p3 = &amp;amp;b; //错误
+	//*p3 = 100; //错误
+
+	system(&amp;quot;pause&amp;quot;);
+
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;技巧：看 const 右侧紧跟着的是指针还是常量，是指针就是常量指针，是常量就是指针常量&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+        <updated>2023-02-02T12:57:04.816Z</updated>
+    </entry>
+    <entry>
+        <id>https://empireofyt.github.io/computer-science/cpp/heima/c++%E5%9F%BA%E7%A1%80--%E5%87%BD%E6%95%B0/</id>
+        <title>c++基础--函数</title>
+        <link rel="alternate" href="https://empireofyt.github.io/computer-science/cpp/heima/c++%E5%9F%BA%E7%A1%80--%E5%87%BD%E6%95%B0/"/>
+        <content type="html">&lt;h1 id=&#34;函数&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#函数&#34;&gt;#&lt;/a&gt; 函数&lt;/h1&gt;
+&lt;h2 id=&#34;函数的分文件编写&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#函数的分文件编写&#34;&gt;#&lt;/a&gt; 函数的分文件编写&lt;/h2&gt;
+&lt;p&gt;作用： 让代码更清晰&lt;/p&gt;
+&lt;p&gt;步骤：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;创建后缀名为.h 的头文件&lt;/li&gt;
+&lt;li&gt;创建后缀名为.cpp 的源文件&lt;/li&gt;
+&lt;li&gt;在头文件中写函数的声明&lt;/li&gt;
+&lt;li&gt;在源文件中写函数的定义&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+        <updated>2023-02-02T12:55:12.817Z</updated>
+    </entry>
+</feed>
