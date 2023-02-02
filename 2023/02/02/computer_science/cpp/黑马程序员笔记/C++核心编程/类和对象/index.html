@@ -1,0 +1,1798 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="" href="https://empireofyt.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="" href="https://empireofyt.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="" href="https://empireofyt.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+
+<link rel="canonical" href="https://empireofyt.github.io/2023/02/02/computer_science/cpp/%E9%BB%91%E9%A9%AC%E7%A8%8B%E5%BA%8F%E5%91%98%E7%AC%94%E8%AE%B0/C++%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B/%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/">
+
+
+
+  <title>
+ |
+快乐每一天 = </title>
+<meta name="generator" content="Hexo 5.4.2"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2023-02-02 14:21:31">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-02-02T14:21:31+08:00">2023-02-02</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>18k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>16 分钟</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">快乐每一天</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipetv6p75j20zk0m8x6p.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipewf5l51j20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclfw2t96j20zk0m8x6p.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclfb3vzhj20zk0m8wny.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipeudstjqj20zk0m8k3r.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipexoj0moj20zk0m8kgu.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://empireofyt.github.io/2023/02/02/computer_science/cpp/%E9%BB%91%E9%A9%AC%E7%A8%8B%E5%BA%8F%E5%91%98%E7%AC%94%E8%AE%B0/C++%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B/%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="计算机圆子">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h2 id="类和对象"><a class="markdownIt-Anchor" href="#类和对象">#</a> 类和对象</h2>
+<p>[TOC]<br>
+ 面向对象的三大特性: <strong>封装、继承、多态</strong></p>
+<h3 id="1-封装"><a class="markdownIt-Anchor" href="#1-封装">#</a> 1. 封装</h3>
+<h4 id="11-封装的意义"><a class="markdownIt-Anchor" href="#11-封装的意义">#</a> 1.1 封装的意义：</h4>
+<ul>
+<li>将属性和行为作为一个整体，表现生活中的事物</li>
+<li>将属性和行为加以权限控制</li>
+</ul>
+<p><strong>封装意义一</strong>：在设计类的时候，属性和行为写在一起，表现事物<br>
+<strong>语法：</strong>  <code>class 类名&#123; 访问权限： 属性 / 行为 &#125;;</code></p>
+<p><strong>封装意义二</strong>：类在设计时，可以把属性和行为放在不同的权限下，加以控制访问权限有三种：</p>
+<ul>
+<li>public 公共权限</li>
+<li>protected 保护权限</li>
+<li>private 私有权限</li>
+</ul>
+<p><strong>struct 和 class 的区别</strong>：</p>
+<ul>
+<li>struct 默认权限是 公共 public</li>
+<li>class 默认权限是 私有 private</li>
+</ul>
+<h4 id="12-成员属性设置为私有"><a class="markdownIt-Anchor" href="#12-成员属性设置为私有">#</a> 1.2 成员属性设置为私有</h4>
+<p><strong>优点 1</strong>：将所有成员属性设置为私有，可以自己控制读写权限<br>
+<strong>优点 2</strong>：对于写权限，我们可以检测数据的有效性</p>
+<h3 id="2-对象的初始化和清理"><a class="markdownIt-Anchor" href="#2-对象的初始化和清理">#</a> 2. 对象的初始化和清理</h3>
+<h4 id="21-构造函数和析构函数"><a class="markdownIt-Anchor" href="#21-构造函数和析构函数">#</a> 2.1 构造函数和析构函数</h4>
+<p>构造函数和析构函数将会被编译器<strong>自动调用</strong>，完成对象初始化和清理工作。如果我们不提供构造和析构，编译器会提供<br>
+<strong>编译器提供的构造函数和析构函数是空实现</strong>。<br>
+<strong>构造函数</strong>：主要作用在于创建对象时为对象的成员属性赋值，构造函数由编译器自动调用，无须手动调用。<br>
+<strong>析构函数</strong>：主要作用在于对象销毁前系统自动调用，执行一些清理工作。</p>
+<p><strong>构造函数语法</strong>： <code>类名()&#123;&#125;</code></p>
+<ol>
+<li>构造函数，没有返回值也不写 void</li>
+<li>函数名称与类名相同</li>
+<li>构造函数<strong>可以有参数</strong>，因此<strong>可以发生重载</strong></li>
+<li>程序在调用对象时候会自动调用构造，无须手动调用，而且只会调用一次</li>
+</ol>
+<p><strong>析构函数语法</strong>：  <code>~类名()&#123;&#125;</code></p>
+<ol>
+<li>析构函数，没有返回值也不写 void</li>
+<li>函数名称与类名相同，在名称前加上符号～</li>
+<li>析构函数<strong>不可以有参数</strong>，因此<strong>不可以发生重载</strong></li>
+<li>程序在<strong>对象销毁前会自动调用析构</strong>，无须手动调用，而且只会调用一次</li>
+</ol>
+<h4 id="22-构造函数的分类及其调用"><a class="markdownIt-Anchor" href="#22-构造函数的分类及其调用">#</a> 2.2 构造函数的分类及其调用</h4>
+<p>两种分类方式：</p>
+<ul>
+<li>按参数分为： 有参构造和无参构造</li>
+<li>按类型分为： 普通构造和拷贝构造</li>
+</ul>
+<p>三种调用方式：</p>
+<ul>
+<li>括号法</li>
+<li>显示法</li>
+<li>隐式转换法</li>
+</ul>
+<pre><code>#include&lt;iostream&gt;
+
+#include&lt;string&gt;
+
+using namespace std;
+
+
+// 构造函数的分类及调用
+
+//分类
+
+
+class Person &#123;
+
+public:
+
+        int age;
+
+        Person() &#123;
+
+               cout &lt;&lt; &quot;无参数构造&quot; &lt;&lt; endl;
+
+        &#125;
+
+
+
+        Person(int a) &#123;
+
+               age = a;
+
+               cout &lt;&lt; &quot;有参数构造&quot; &lt;&lt; endl;
+
+        &#125;
+
+
+
+        // 拷贝构造函数
+
+        Person(const Person &amp;p) &#123;
+
+               //将传入的人身上的所有属性，拷贝到我身上
+
+               age = p.age;
+
+               cout &lt;&lt; &quot;拷贝构造函数&quot; &lt;&lt; endl;
+
+        &#125;
+
+        ~Person() &#123;
+
+               cout &lt;&lt; &quot;析构函数&quot; &lt;&lt; endl;
+
+        &#125;
+
+&#125;;
+
+
+
+//调用
+
+void test1() &#123;
+        //1. 括号法
+        Person p1;     //默认构造函数调用，
+        //注意调用构造函数时不要加上（），加上括号，编译器会认为这是一个函数的声明
+        Person p2(10); //有参数构造函数
+        Person p3(p2); //拷贝构造函数
+        cout &lt;&lt; &quot;p2's age = &quot; &lt;&lt; p2.age &lt;&lt; endl;
+        cout &lt;&lt; &quot;p3's age = &quot; &lt;&lt; p3.age &lt;&lt; endl;
+
+        //2. 显示法
+        Person p4;//默认构造函数调用，
+        Person p5 = Person(10);//有参数构造函数
+        Person p6 = Person(p5);//拷贝构造函数
+        Person(10);//匿名对象，当前行执行完，系统会立刻回收，马上析构
+        //2.3 隐式转换法
+        Person p7 = 10; // Person p7 = Person(10); 
+       Person p8 = p7; // Person p8 = Person(p7); 
+        //注意2：不能利用 拷贝构造函数 初始化匿名对象 编译器认为是对象声明
+        //Person p5(p4);
+&#125;
+
+
+int main() &#123;
+        test1();
+        system(&quot;pause&quot;);
+        return 0;
+&#125;
+
+</code></pre>
+<h4 id="23-拷贝构造函数调用时机"><a class="markdownIt-Anchor" href="#23-拷贝构造函数调用时机">#</a> 2.3 拷贝构造函数调用时机</h4>
+<p>C++ 中拷贝构造函数调用时机通常有三种情况</p>
+<ul>
+<li>使用一个已经创建完毕的对象来初始化一个新对象</li>
+<li>值传递的方式给函数参数传值</li>
+<li>以值方式返回局部对象</li>
+</ul>
+<pre><code>class Person &#123;
+public:
+	Person() &#123;
+		cout &lt;&lt; &quot;无参构造函数!&quot; &lt;&lt; endl;
+		mAge = 0;
+	&#125;
+	Person(int age) &#123;
+		cout &lt;&lt; &quot;有参构造函数!&quot; &lt;&lt; endl;
+		mAge = age;
+	&#125;
+	Person(const Person&amp; p) &#123;
+		cout &lt;&lt; &quot;拷贝构造函数!&quot; &lt;&lt; endl;
+		mAge = p.mAge;
+	&#125;
+	//析构函数在释放内存之前调用
+	~Person() &#123;
+		cout &lt;&lt; &quot;析构函数!&quot; &lt;&lt; endl;
+	&#125;
+public:
+	int mAge;
+&#125;;
+
+//1. 使用一个已经创建完毕的对象来初始化一个新对象
+void test01() &#123;
+
+	Person man(100); //p对象已经创建完毕
+	Person newman(man); //调用拷贝构造函数
+	Person newman2 = man; //拷贝构造
+
+	//Person newman3;
+	//newman3 = man; //不是调用拷贝构造函数，赋值操作
+&#125;
+
+//2. 值传递的方式给函数参数传值
+//相当于Person p1 = p;
+void doWork(Person p1) &#123;&#125;
+void test02() &#123;
+	Person p; //无参构造函数
+	doWork(p);
+&#125;
+
+//3. 以值方式返回局部对象
+Person doWork2()
+&#123;
+	Person p1;
+	cout &lt;&lt; (int *)&amp;p1 &lt;&lt; endl;
+	return p1;
+&#125;
+
+void test03()
+&#123;
+	Person p = doWork2();
+	cout &lt;&lt; (int *)&amp;p &lt;&lt; endl;
+&#125;
+
+
+int main() &#123;
+
+	//test01();
+	//test02();
+	test03();
+
+	system(&quot;pause&quot;);
+
+	return 0;
+&#125;
+</code></pre>
+<h4 id="24-构造函数调用规则"><a class="markdownIt-Anchor" href="#24-构造函数调用规则">#</a> 2.4 构造函数调用规则</h4>
+<p>默认情况下，c++ 编译器至少给一个类添加 3 个函数</p>
+<ul>
+<li><strong>默认构造函数</strong> (无参，函数体为空)</li>
+<li><strong>默认析构函数</strong> (无参，函数体为空)</li>
+<li><strong>默认拷贝构造函数</strong> ，对属性进行值拷贝</li>
+</ul>
+<p><strong>构造函数调用规则</strong>如下：</p>
+<ul>
+<li>如果用户定义<strong>有参构造函数</strong>，c++<strong> 不在提供默认无参构造</strong>，但是会<strong>提供默认拷贝构造</strong></li>
+<li>如果用户定义<strong>拷贝构造函数</strong>，c++<strong> 不会再提供其他构造函数</strong></li>
+</ul>
+<h4 id="25-深拷贝和浅拷贝面试经典问题"><a class="markdownIt-Anchor" href="#25-深拷贝和浅拷贝面试经典问题">#</a> 2.5 深拷贝和浅拷贝（面试经典问题）</h4>
+<p><strong>浅拷贝</strong>：简单的赋值拷贝操作；如果利用编译器提供的拷贝构造函数，就会进行浅拷贝<br>
+<strong>深拷贝</strong>：在堆区重新申请空间，进行拷贝操作；若自己写，可利用 new 进行深拷贝</p>
+<p>浅拷贝的问题：会带来堆区的内存重复释放<br>
+解决方法：使用深拷贝</p>
+<p><img data-src="en-resource://database/937:1" alt="098eb1d2a927c933f402f0a31c5475ae.png"><br>
+<img data-src="en-resource://database/939:1" alt="946a958eeefb478fa0ccd1a068fc6dca.png"></p>
+<pre><code>#include&lt;iostream&gt;
+
+#include&lt;string&gt;
+
+
+
+using namespace std;
+
+
+
+// 深拷贝和浅拷贝
+
+
+
+class Person &#123;
+
+public:
+
+        int age;
+
+        int *height;//设计为指针，是为了把height开辟在堆区
+
+
+
+        Person() &#123;
+
+               cout &lt;&lt; &quot;无参数构造&quot; &lt;&lt; endl;
+
+        &#125;
+
+
+
+        Person(int a, int h) &#123;
+
+               age = a;
+
+               height= new int(h);//把身高开辟在堆区
+
+               cout &lt;&lt; &quot;有参数构造&quot; &lt;&lt; endl;
+
+        &#125;
+
+
+
+        // 拷贝构造函数  
+
+        Person(const Person&amp; p) &#123;
+
+               cout &lt;&lt; &quot;拷贝构造函数!&quot; &lt;&lt; endl;
+
+               //如果不利用深拷贝在堆区创建新内存，会导致浅拷贝带来的重复释放堆区问题
+
+               age = p.age;
+
+               // height = p.height; // 这就是编译器自动进行的浅拷贝
+
+               height = new int(*p.height);  //使用new，在堆区新开辟一个空间
+
+
+
+        &#125;
+
+
+
+        ~Person() &#123;
+
+               //将堆区开辟的数据做释放操作
+
+               if (height != NULL)
+
+               &#123;
+
+                       delete height;
+
+               &#125;
+
+               cout &lt;&lt; &quot;析构函数&quot; &lt;&lt; endl;
+
+        &#125;
+
+&#125;;
+
+
+
+void test01() &#123;
+
+        Person p1(18, 160);
+
+        cout &lt;&lt; &quot;p1's age =&quot; &lt;&lt; p1.age &lt;&lt; endl;
+
+        cout &lt;&lt; &quot;p1's height =&quot; &lt;&lt; *p1.height &lt;&lt; endl;
+
+
+
+        Person p2(p1);
+
+        cout &lt;&lt; &quot;p2's age =&quot; &lt;&lt; p2.age &lt;&lt; endl;
+
+        cout &lt;&lt; &quot;p2's height =&quot; &lt;&lt; *p2.height &lt;&lt; endl;
+
+&#125;
+
+
+int main() &#123;
+
+        test01();
+
+        system(&quot;pause&quot;);
+
+        return 0;
+
+&#125;
+
+</code></pre>
+<blockquote>
+<p><strong>注意</strong>：当成功编写拷贝构造函数，但在 vs 里面运行失败，原因在于没有把其他 cpp 文件注释<br>
+<strong>总结</strong>：如果属性有在堆区开辟的，一定要自己提供拷贝构造函数，防止浅拷贝带来的问题</p>
+</blockquote>
+<h4 id="26-初始化列表"><a class="markdownIt-Anchor" href="#26-初始化列表">#</a> 2.6 初始化列表</h4>
+<p><strong>作用</strong>：C++ 提供了初始化列表语法，用来初始化属性<br>
+<strong>语法</strong>： <code>构造函数()：属性1(值1),属性2（值2）... &#123;&#125;</code> <br>
+ 上述语法固定了初始化的值，若想改变，则需要按照下法处理</p>
+<pre><code>class Person &#123;
+
+public:
+
+        int a, b, c;
+
+        //初始化列表，可随时改变值
+
+        Person(int aa, int bb, int cc) :a(aa), b(bb), c(cc)
+
+        &#123;  &#125;
+
+&#125;;
+
+
+</code></pre>
+<h4 id="27-类对象作为类成员"><a class="markdownIt-Anchor" href="#27-类对象作为类成员">#</a> 2.7 类对象作为类成员</h4>
+<pre><code>class A&#123;&#125;
+class B&#123;
+    A b;//
+&#125;
+</code></pre>
+<p>当类 A 对象作为 B 中一个成员时，创建对象时，会</p>
+<ul>
+<li>先构造 A 再构造 B</li>
+<li>先析构 B 在析构 A</li>
+</ul>
+<h4 id="28-静态成员"><a class="markdownIt-Anchor" href="#28-静态成员">#</a> 2.8 静态成员</h4>
+<p>静态成员就是在成员变量和成员函数前加上关键字 static，称为静态成员<br>
+静态成员分为：</p>
+<ul>
+<li>静态成员变量</li>
+</ul>
+<ol>
+<li>所有对象共享同一份数据</li>
+<li>在编译阶段分配内存</li>
+<li>类内声明，类外初始化</li>
+</ol>
+<blockquote>
+<p>静态成员变量也有访问权限；<br>
+静态成员变量可以通过对象访问（ <code>对象名.静态成员变量 </code> ）或者通过类名访问（ <code>类名::静态成员变量</code> ）</p>
+</blockquote>
+<pre><code>class Person
+&#123;
+	
+public:
+	static int m_A; //静态成员变量
+private:
+	static int m_B; //静态成员变量也是有访问权限的
+&#125;;
+//类外初始化的方法
+int Person::m_A = 10;
+int Person::m_B = 10;//私有变量无法类外访问
+
+void test01()
+&#123;
+	//静态成员变量两种访问方式
+
+	//1、通过对象
+	Person p1;
+	p1.m_A = 100;
+	cout &lt;&lt; &quot;p1.m_A = &quot; &lt;&lt; p1.m_A &lt;&lt; endl;//输出100
+
+	Person p2;
+	p2.m_A = 200;
+	cout &lt;&lt; &quot;p1.m_A = &quot; &lt;&lt; p1.m_A &lt;&lt; endl; //共享同一份数据，200
+	cout &lt;&lt; &quot;p2.m_A = &quot; &lt;&lt; p2.m_A &lt;&lt; endl;//输出200
+
+	//2、通过类名
+	cout &lt;&lt; &quot;m_A = &quot; &lt;&lt; Person::m_A &lt;&lt; endl;//200
+	//cout &lt;&lt; &quot;m_B = &quot; &lt;&lt; Person::m_B &lt;&lt; endl; //私有权限访问不到
+&#125;
+
+int main() &#123;
+	test01();
+	system(&quot;pause&quot;);
+	return 0;
+&#125;
+</code></pre>
+<ul>
+<li>静态成员函数</li>
+</ul>
+<ol>
+<li>所有对象共享同一个函数</li>
+<li>静态成员函数只能访问静态成员变量</li>
+</ol>
+<blockquote>
+<p>访问方式：1 通过对象 (.)  2 通过类名 ( :: )<br>
+ 静态成员函数也有访问权限；</p>
+</blockquote>
+<h3 id="3-c对象模型和this指针"><a class="markdownIt-Anchor" href="#3-c对象模型和this指针">#</a> 3. C++ 对象模型和 this 指针</h3>
+<h4 id="31-成员变量和成员函数分开存储"><a class="markdownIt-Anchor" href="#31-成员变量和成员函数分开存储">#</a> 3.1 成员变量和成员函数分开存储</h4>
+<ul>
+<li>
+<p>在 C++ 中，类内的成员变量和成员函数分开存储</p>
+</li>
+<li>
+<p>只有<strong>非静态成员变量</strong>才属于类的对象上，占用内存空间；静态成员变量和（静态 &amp; 非静态）成员函数都不属于类的对象，不占用内存空间。</p>
+</li>
+<li>
+<p><strong>空对象</strong>占用内存空间为<strong> 1</strong>，也有自己独一无二的内存地址</p>
+</li>
+</ul>
+<h4 id="32-this指针"><a class="markdownIt-Anchor" href="#32-this指针">#</a> 3.2 this 指针</h4>
+<p>在 C<ins> 中成员变量和成员函数是分开存储的，每一个非静态成员函数只会诞生一份函数实例，也就是说多个同类型的对象会共用一块代码<br>
+那么问题是：这一块代码是如何区分那个对象调用自己的呢？c</ins> 通过提供特殊的<strong>对象指针，this 指针</strong>，解决上述问题。</p>
+<p><strong>this 指针</strong>指向被调用的成员函数所属的对象 this 指针是隐含每一个非静态成员函数内的一种指针</p>
+<p>this 指针不需要定义，直接使用即可</p>
+<p><strong>this 指针的用途</strong>：</p>
+<ul>
+<li>当形参和成员变量同名时，可用 this 指针来区分</li>
+<li>在类的非静态成员函数中返回对象本身，可使用 return *this</li>
+</ul>
+<pre><code>class Person
+&#123;
+public:
+
+	Person(int age)
+	&#123;
+		//1、当形参和成员变量同名时，可用this指针来区分,，第一个age才是类内定义的age，第二个age是传来的参数副本
+		this-&gt;age = age;
+	&#125;
+
+	Person&amp; PersonAddPerson(Person p) //返回的是引用才会一直加，否则就是返回副本
+	&#123;
+		this-&gt;age += p.age;
+		//返回对象本身
+		return *this;
+	&#125;
+
+	int age;
+&#125;;
+
+void test01()
+&#123;
+	Person p1(10);
+	cout &lt;&lt; &quot;p1.age = &quot; &lt;&lt; p1.age &lt;&lt; endl;
+
+	Person p2(10);
+    //链式编程思想
+p2.PersonAddPerson(p1).PersonAddPerson(p1).PersonAddPerson(p1);
+	cout &lt;&lt; &quot;p2.age = &quot; &lt;&lt; p2.age &lt;&lt; endl;
+&#125;
+
+int main() &#123;
+
+	test01();
+	system(&quot;pause&quot;);
+	return 0;
+&#125;
+</code></pre>
+<h4 id="33-空指针访问成员函数"><a class="markdownIt-Anchor" href="#33-空指针访问成员函数">#</a> 3.3 空指针访问成员函数</h4>
+<p>C++ 中空指针也是可以调用成员函数的，但是也要注意有没有用到 this 指针</p>
+<p>如果用到 this 指针，需要加以判断保证代码的健壮性</p>
+<p>this 指针的本质是指针常量，指针的指向不可以修改</p>
+<pre><code>void ShowPerson() &#123;
+		if (this == NULL) &#123;
+			return;
+		&#125;
+		cout &lt;&lt; mAge &lt;&lt; endl;
+	&#125;
+
+</code></pre>
+<h4 id="34-const修饰成员函数"><a class="markdownIt-Anchor" href="#34-const修饰成员函数">#</a> 3.4 const 修饰成员函数</h4>
+<p><strong>常函数</strong>：</p>
+<ul>
+<li>成员函数后加 const 后我们称为这个函数为常函数</li>
+<li>常函数内不可以修改成员属性</li>
+<li>成员属性声明时加关键字 mutable 后，在常函数中依然可以修改</li>
+</ul>
+<p><strong>常对象</strong>：</p>
+<ul>
+<li>声明对象前加 const 称该对象为常对象</li>
+<li>常对象只能调用常函数</li>
+</ul>
+<pre><code>class Person &#123;
+public:
+	Person() &#123;
+		m_A = 0;
+		m_B = 0;
+	&#125;
+
+	//this指针的本质是一个指针常量，指针的指向不可修改
+	//如果想让指针指向的值也不可以修改，需要声明常函数
+	void ShowPerson() const &#123;
+		//const Type* const pointer;
+		//this = NULL; //不能修改指针的指向 Person* const this;
+		//this-&gt;mA = 100; //但是this指针指向的对象的数据是可以修改的
+
+		//const修饰成员函数，表示指针指向的内存空间的数据不能修改，除了mutable修饰的变量
+		this-&gt;m_B = 100;
+	&#125;
+
+	void MyFunc() const &#123;
+		//mA = 10000;
+	&#125;
+
+public:
+	int m_A;
+	mutable int m_B; //可修改 可变的
+&#125;;
+
+
+//const修饰对象  常对象
+void test01() &#123;
+
+	const Person person; //常量对象  
+	cout &lt;&lt; person.m_A &lt;&lt; endl;
+	//person.mA = 100; //常对象不能修改成员变量的值,但是可以访问
+	person.m_B = 100; //但是常对象可以修改mutable修饰成员变量
+
+	//常对象访问成员函数
+	person.MyFunc(); //常对象不能调用const的函数
+
+&#125;
+
+</code></pre>
+<h3 id="4-友元"><a class="markdownIt-Anchor" href="#4-友元">#</a> 4. 友元</h3>
+<p>友元的目的就是让一个函数或者类 访问另一个类中私有成员</p>
+<p>友元的关键字为<strong> friend</strong><br>
+ 友元的三种实现</p>
+<ol>
+<li>全局函数做友元</li>
+</ol>
+<pre><code>//告诉编译器 goodGay全局函数 是 Building类的好朋友，可以访问类中的私有内容
+	friend void goodGay(Building * building);
+</code></pre>
+<ol start="2">
+<li>类做友元</li>
+</ol>
+<pre><code>//告诉编译器 goodGay类是Building类的好朋友，可以访问到Building类中私有内容
+	friend class goodGay;
+</code></pre>
+<ol start="3">
+<li>成员函数做友元</li>
+</ol>
+<pre><code>//告诉编译器  goodGay类中的visit成员函数 是Building好朋友，可以访问私有内容
+	friend void goodGay::visit();
+</code></pre>
+<h3 id="5-运算符重载"><a class="markdownIt-Anchor" href="#5-运算符重载">#</a> 5. 运算符重载</h3>
+<p><strong>概念</strong>：对已有的运算符重新进行定义，赋予其另一种功能，以适应不同的数据类型<br>
+<strong>注意</strong>：对于内置的数据类型的表达式的的运算符是不可能改变的</p>
+<h4 id="51-加号运算符重载"><a class="markdownIt-Anchor" href="#51-加号运算符重载">#</a> 5.1 加号运算符重载</h4>
+<p>方法：</p>
+<ul>
+<li>成员函数</li>
+<li>全局函数</li>
+</ul>
+<pre><code>//成员函数实现 + 号运算符重载
+	Person operator+(const Person&amp; p) &#123;
+		Person temp;
+		temp.m_A = this-&gt;m_A + p.m_A;
+		temp.m_B = this-&gt;m_B + p.m_B;
+		return temp;
+	&#125;
+    Person p3 = p2 + p1;  //相当于 p2.operaor+(p1)
+</code></pre>
+<pre><code>//全局函数实现 + 号运算符重载
+Person operator+(const Person&amp; p1, const Person&amp; p2) &#123;
+	Person temp(0, 0);
+	temp.m_A = p1.m_A + p2.m_A;
+	temp.m_B = p1.m_B + p2.m_B;
+	return temp;
+&#125;
+Person p3 = p2 + p1;  //相当于 operaor+(p1,p2)
+</code></pre>
+<pre><code>//全局函数
+//运算符重载 可以发生函数重载 
+Person operator+(const Person&amp; p2, int val)  
+&#123;
+	Person temp;
+	temp.m_A = p2.m_A + val;
+	temp.m_B = p2.m_B + val;
+	return temp;
+&#125;
+Person p4 = p3 + 10; //相当于 operator+(p3,10)
+
+</code></pre>
+<h4 id="52-左移运算符重载"><a class="markdownIt-Anchor" href="#52-左移运算符重载">#</a> 5.2 左移运算符重载</h4>
+<p>方式：只有全局函数才可以，成员函数无法达到我们的期望</p>
+<pre><code>//成员函数：
+//本质p.operator&lt;&lt;(cout)  简化版本p&lt;&lt;cout，不满足我们的期望
+        void operator&lt;&lt;(cout) &#123;&#125;
+</code></pre>
+<pre><code>//只能利用全局函数重载左移运算符
+//本质operator&lt;&lt;(cout， p)  简化版本cout&lt;&lt;p，符合要求
+//ostream对象只能有一个
+ostream&amp; operator&lt;&lt;(ostream&amp; out, Person&amp; p) &#123;
+	out &lt;&lt; &quot;a:&quot; &lt;&lt; p.m_A &lt;&lt; &quot; b:&quot; &lt;&lt; p.m_B;
+	return out;
+&#125;
+//链式编程思想，定义返回的类型为ostream&amp;，则cout &lt;&lt; p后还是一个cout，可以继续加endl
+   cout &lt;&lt; p &lt;&lt; endl;
+</code></pre>
+<h4 id="53-递增运算符重载"><a class="markdownIt-Anchor" href="#53-递增运算符重载">#</a> 5.3 递增运算符重载</h4>
+<p>深浅拷贝问题<br>
+ c++ 编译器至少给一个类添加 4 个函数</p>
+<ul>
+<li>默认构造函数 (无参，函数体为空)</li>
+<li>默认析构函数 (无参，函数体为空)</li>
+<li>默认拷贝构造函数，对属性进行值拷贝</li>
+<li>赋值运算符 operator=, 对属性进行值拷贝</li>
+</ul>
+<p>如果类中有属性指向堆区，做赋值操作时也会出现深浅拷贝问题</p>
+<pre><code>class Person
+&#123;
+public:
+
+	Person(int age)
+	&#123;
+		//将年龄数据开辟到堆区
+		m_Age = new int(age);
+	&#125;
+
+	//重载赋值运算符 
+	Person&amp; operator=(Person &amp;p)
+	&#123;
+		if (m_Age != NULL)
+		&#123;
+			delete m_Age;
+			m_Age = NULL;
+		&#125;
+		//编译器提供的代码是浅拷贝
+		//m_Age = p.m_Age;
+
+		//提供深拷贝 解决浅拷贝的问题
+		m_Age = new int(*p.m_Age);
+
+		//返回自身
+		return *this;
+	&#125;
+
+
+	~Person()
+	&#123;
+		if (m_Age != NULL)
+		&#123;
+			delete m_Age;
+			m_Age = NULL;
+		&#125;
+	&#125;
+
+	//年龄的指针
+	int *m_Age;
+
+&#125;;
+
+
+void test01()
+&#123;
+	Person p1(18);
+	Person p2(20);
+	Person p3(30);
+
+	p3 = p2 = p1; //赋值操作
+    
+	cout &lt;&lt; &quot;p1的年龄为：&quot; &lt;&lt; *p1.m_Age &lt;&lt; endl;
+    cout &lt;&lt; &quot;p2的年龄为：&quot; &lt;&lt; *p2.m_Age &lt;&lt; endl;
+	cout &lt;&lt; &quot;p3的年龄为：&quot; &lt;&lt; *p3.m_Age &lt;&lt; endl;
+&#125;
+
+int main() &#123;
+	test01();
+	system(&quot;pause&quot;);
+	return 0;
+&#125;
+</code></pre>
+<h4 id="55-函数调用运算符重载"><a class="markdownIt-Anchor" href="#55-函数调用运算符重载">#</a> 5.5 函数调用运算符重载</h4>
+<ul>
+<li>函数调用运算符 () 也可以重载</li>
+<li>由于重载后使用的方式非常像函数的调用，因此称为仿函数仿函数</li>
+<li>没有固定写法，非常灵活</li>
+</ul>
+<pre><code>class MyPrint
+&#123;
+public:
+	void operator()(string text)
+	&#123;
+		cout &lt;&lt; text &lt;&lt; endl;
+	&#125;
+
+&#125;;
+void test01()
+&#123;
+	//重载的（）操作符 也称为仿函数
+	MyPrint myFunc;
+	myFunc(&quot;hello world&quot;);
+&#125;
+
+
+class MyAdd
+&#123;
+public:
+	int operator()(int v1, int v2)
+	&#123;
+		return v1 + v2;
+	&#125;
+&#125;;
+
+void test02()
+&#123;
+	MyAdd add;
+	int ret = add(10, 10);
+	cout &lt;&lt; &quot;ret = &quot; &lt;&lt; ret &lt;&lt; endl;
+
+	//匿名对象调用  
+	cout &lt;&lt; &quot;MyAdd()(100,100) = &quot; &lt;&lt; MyAdd()(100, 100) &lt;&lt; endl;
+&#125;
+</code></pre>
+<h3 id="6-继承"><a class="markdownIt-Anchor" href="#6-继承">#</a> 6. 继承</h3>
+<h4 id="61-继承的基本语法"><a class="markdownIt-Anchor" href="#61-继承的基本语法">#</a> 6.1 继承的基本语法</h4>
+<p><strong>优点</strong>： 减少重复代码<br>
+<strong>语法</strong>：  <code>class A : 继承方式 B;</code></p>
+<ul>
+<li>A 类称为子类 或 派生类</li>
+<li>B 类称为父类 或 基类</li>
+</ul>
+<p>派生类中的成员，包含两大部分：</p>
+<ul>
+<li>一类是从基类继承过来的，一类是自己增加的成员。</li>
+<li>从基类继承过过来的表现其共性，而新增的成员体现了其个性。</li>
+</ul>
+<h4 id="62-继承方式"><a class="markdownIt-Anchor" href="#62-继承方式">#</a> 6.2 继承方式</h4>
+<p>继承方式：</p>
+<ol>
+<li>公共继承</li>
+<li>保护继承</li>
+<li>私有继承<br>
+<img data-src="en-resource://database/1062:1" alt="dc2636a35ca7cf20ef2e3bf033b2b85c.png"></li>
+</ol>
+<h4 id="63-继承中的对象模型"><a class="markdownIt-Anchor" href="#63-继承中的对象模型">#</a> 6.3 继承中的对象模型</h4>
+<pre><code>class Base &#123;
+
+public:
+        int m_A;
+protected:
+        int m_B;
+private:
+        int m_C;
+&#125;;
+class Son : public Base &#123;
+public:
+        int m_D;
+&#125;;
+
+void test01() &#123;
+        cout &lt;&lt; sizeof(Son) &lt;&lt; endl;//输出的是16
+        return;
+&#125;
+</code></pre>
+<blockquote>
+<p>父类中的<strong>所有非静态成员属性</strong>都会被子类继承下去<br>
+父类中的私有成员属性是被编译器隐藏了，虽然访问不到，但的确被继承了</p>
+</blockquote>
+<p>利用 vs 的开发人员命令提示工具查看对象模型（对象的布局）:</p>
+<ol>
+<li>打开工具窗口后，定位到当前 CPP 文件的盘符</li>
+<li>然后输入： cl /d1 reportSingleClassLayout 查看的类名 所属文件名</li>
+<li>结果如下所示：<br>
+<img data-src="en-resource://database/1066:1" alt="a2fb57ba4f8eafec791c565fa73df6b9.png"></li>
+</ol>
+<h4 id="64-继承中构造和析构的顺序"><a class="markdownIt-Anchor" href="#64-继承中构造和析构的顺序">#</a> 6.4 继承中构造和析构的顺序</h4>
+<p>继承中：</p>
+<ul>
+<li>先调用父类构造函数，再调用子类构造函数，</li>
+<li>析构顺序与构造相反</li>
+</ul>
+<h4 id="65-继承同名成员处理方式"><a class="markdownIt-Anchor" href="#65-继承同名成员处理方式">#</a> 6.5 继承同名成员处理方式</h4>
+<p>当子类与父类出现同名的成员，如何通过子类对象，访问到子类或父类中同名的数据：</p>
+<ul>
+<li>访问子类同名成员 直接访问即可</li>
+<li>访问父类同名成员 需要加作用域</li>
+</ul>
+<blockquote>
+<p>当子类与父类拥有同名的成员函数（即使参数列表不同），子类会隐藏父类中同名成员函数，加作用域可以访问到父类中同名函数</p>
+</blockquote>
+<pre><code>class Base &#123;
+public:
+        Base() &#123;
+               m_A = 100;
+        &#125;
+        void func() &#123;
+               cout &lt;&lt; &quot;父类的函数&quot; &lt;&lt; endl;
+        &#125;
+
+        void func(int m_A) &#123;
+               cout &lt;&lt; &quot;父类的函数有参数&quot; &lt;&lt; endl;
+        &#125;
+        int m_A;
+&#125;;
+
+class Son : public Base &#123;
+public:
+        Son() &#123;
+               m_A = 200;
+       &#125;
+        void func() &#123;
+               cout &lt;&lt; &quot;子类的函数&quot; &lt;&lt; endl;
+        &#125;
+        int m_A;
+
+&#125;;
+
+void test01() &#123;
+        Son b;
+        cout &lt;&lt; b.m_A &lt;&lt; endl;//直接访问，即为子类的同名成员
+        cout &lt;&lt; b.Base::m_A &lt;&lt; endl;//加上作用域，即可访问父类的同名成员
+        b.func();//直接访问，即为子类的同名函数
+        b.Base::func();//加上作用域，即可访问父类的同名函数
+
+        //当子类与父类拥有同名的成员函数，子类会隐藏父类中所有版本的同名成员函数
+        //如果想访问父类中被隐藏的同名成员函数，需要加父类的作用域
+        //b.func(100);
+        b.Base::func(100);
+        return;
+&#125;
+</code></pre>
+<h4 id="66-继承同名静态成员处理方式"><a class="markdownIt-Anchor" href="#66-继承同名静态成员处理方式">#</a> 6.6 继承同名静态成员处理方式</h4>
+<p>静态成员变量复习：</p>
+<ul>
+<li>类内声明，类外初始化</li>
+<li>访问方式有两种：1 通过对象访问      2. 通过类名访问</li>
+</ul>
+<p>继承同名静态成员处理方式：</p>
+<ul>
+<li>访问子类同名成员 直接访问即可</li>
+<li>访问父类同名成员 需要加作用域</li>
+</ul>
+<blockquote>
+<p>当子类与父类拥有同名的静态成员函数（即使参数列表不同），子类会隐藏父类中同名静态成员函数，加作用域可以访问到父类中同名静态成员函数</p>
+</blockquote>
+<pre><code>class Base &#123;
+public:
+        //静态成员变量特点：定义就分配内存，所有对象共享同一份数据
+        //类内申明，类外初始化
+        static int m_A;
+        static void func() &#123;
+               cout &lt;&lt; &quot;父类的函数&quot; &lt;&lt; endl;
+        &#125;
+&#125;;
+int Base::m_A = 100;
+
+class Son : public Base &#123;
+public:
+        static int m_A;
+        static void func() &#123;
+               cout &lt;&lt; &quot;子类的函数&quot; &lt;&lt; endl;
+        &#125;
+&#125;;
+int Son::m_A = 200;
+
+void test01() &#123;
+        //通过对象访问
+        cout &lt;&lt; &quot;通过对象访问： &quot; &lt;&lt; endl;
+        Son b;
+        cout &lt;&lt; &quot;Son下m_A = &quot; &lt;&lt; b.m_A &lt;&lt; endl;//直接访问，即为子类的同名成员
+       cout &lt;&lt; &quot;Base下m_A = &quot; &lt;&lt; b.Base::m_A &lt;&lt; endl;//加上作用域，即可访问父类的同名成员
+
+        //通过类名访问
+        cout &lt;&lt; &quot;通过类名访问： &quot; &lt;&lt; endl;
+        cout &lt;&lt; &quot;Son下m_A = &quot; &lt;&lt; Son::m_A &lt;&lt; endl;//直接访问，即为子类的同名成员
+        cout &lt;&lt; &quot;Base下m_A = &quot; &lt;&lt; Base::m_A &lt;&lt; endl;//加上作用域，即可访问父类的同名成员
+        //第一个::代表通过类名方式访问， 第二个::代表作用域
+        cout &lt;&lt; &quot;Base下m_A = &quot; &lt;&lt; Son::Base::m_A &lt;&lt; endl;
+        return;
+&#125;
+
+void test02() &#123;
+       //通过对象访问
+        cout &lt;&lt; &quot;通过对象访问： &quot; &lt;&lt; endl;
+        Son s;
+        s.func();
+        s.Base::func();
+        //当子类与父类拥有同名的成员函数，子类会隐藏父类中所有版本的同名成员函数
+        //如果想访问父类中被隐藏的同名成员函数，需要加父类的作用域
+        //s.func(100);
+        s.Base::func(100);
+        
+        //通过类名访问
+        cout &lt;&lt; &quot;通过类名访问： &quot; &lt;&lt; endl;
+        Son::func();
+        Base::func();
+        Son::Base::func();
+        Son::Base::func(100);
+&#125;
+
+</code></pre>
+<h4 id="67-多继承语法"><a class="markdownIt-Anchor" href="#67-多继承语法">#</a> 6.7 多继承语法</h4>
+<p>C++ 允许一个类继承多个类</p>
+<p><strong>语法</strong>： <code>class 子类 ：继承方式 父类1 ， 继承方式 父类2...</code></p>
+<p>多继承可能会引发父类中有同名成员出现，需要加<strong>作用域</strong>区分</p>
+<p>C++ 实际开发中不建议用多继承</p>
+<h4 id="68-菱形继承"><a class="markdownIt-Anchor" href="#68-菱形继承">#</a> 6.8 菱形继承</h4>
+<p><strong>菱形继承概念</strong>：两个派生类继承同一个基类，又有某个类同时继承者两个派生类</p>
+<pre><code>class Animal
+&#123;
+public:
+	int m_Age;
+&#125;;
+
+//利用虚继承，可以解决菱形继承的问题
+//继承前加virtual关键字后，变为虚继承
+//此时公共的父类Animal称为虚基类
+class Sheep : virtual public Animal &#123;&#125;;
+class Tuo   : virtual public Animal &#123;&#125;;
+class SheepTuo : public Sheep, public Tuo &#123;&#125;;
+
+void test01()
+&#123;
+	SheepTuo st;
+	st.Sheep::m_Age = 100;
+	st.Tuo::m_Age = 200;
+
+	cout &lt;&lt; &quot;st.Sheep::m_Age = &quot; &lt;&lt; st.Sheep::m_Age &lt;&lt; endl;
+	cout &lt;&lt; &quot;st.Tuo::m_Age = &quot; &lt;&lt;  st.Tuo::m_Age &lt;&lt; endl;
+	cout &lt;&lt; &quot;st.m_Age = &quot; &lt;&lt; st.m_Age &lt;&lt; endl;
+&#125;
+</code></pre>
+<blockquote>
+<p>菱形继承带来的主要问题是子类继承两份相同的数据，导致资源浪费以及毫无意义<br>
+利用虚继承可以解决菱形继承问题</p>
+</blockquote>
+<h3 id="7-多态"><a class="markdownIt-Anchor" href="#7-多态">#</a> 7. 多态</h3>
+<h4 id="71-多态的基本概念"><a class="markdownIt-Anchor" href="#71-多态的基本概念">#</a> 7.1 多态的基本概念</h4>
+<p>多态分为两类</p>
+<ul>
+<li><strong>静态</strong>多态: <strong>函数重载和 算符重载</strong>属于静态多态，复用函数名</li>
+<li><strong>动态</strong>多态: <strong>派生类和虚函数</strong>实现运行时多态静态多态和动态多态</li>
+</ul>
+<p>区别：</p>
+<ul>
+<li><strong>静态多态</strong>的函数地址<strong>早绑定 - 编译阶段</strong>确定函数地址</li>
+<li><strong>动态多态</strong>的函数地址<strong>晚绑定 - 运行阶段</strong>确定函数地址</li>
+</ul>
+<p>应用：</p>
+<ul>
+<li>基类中的函数 A 不是虚函数，派生类中的同名函数 Aa，则生成一个派生类对象，只会调用 A</li>
+<li>基类中的函数 A 是虚函数，派生类中的同名函数 Aa，则生成一个派生类对象，会调用 Aa</li>
+</ul>
+<p>多态满足条件</p>
+<ul>
+<li>有继承关系子类</li>
+<li><strong>重写</strong>父类中的<strong>虚函数</strong>多态<br>
+<strong>重写</strong>：函数返回值类型 函数名 参数列表 完全一致称为重写</li>
+</ul>
+<p>使用条件</p>
+<ul>
+<li>父类指针或引用指向子类对象</li>
+</ul>
+<pre><code>父类 *指针变量 = new 子类;
+</code></pre>
+<p>多态的优点：</p>
+<ul>
+<li>代码组织结构清晰</li>
+<li>可读性强</li>
+<li>利于前期和后期的扩展以及维护</li>
+</ul>
+<p><img data-src="en-resource://database/1070:1" alt="e1c8f86e43581c2952d33d0e5f322eed.png"></p>
+<p>没有重写时：<br>
+<img data-src="en-resource://database/1072:1" alt="41c0d2aa0e0c734b3aa5dcfb2aa72f8c.png"></p>
+<p>发生重写时：<br>
+<img data-src="en-resource://database/1074:1" alt="b18a91d2beec4622fb0af86790fe2b5c.png"></p>
+<pre><code>class Animal
+&#123;
+public:
+	//Speak函数就是虚函数
+	//函数前面加上virtual关键字，变成虚函数，那么编译器在编译的时候就不能确定函数调用了。
+	virtual void speak()
+	&#123;
+		cout &lt;&lt; &quot;动物在说话&quot; &lt;&lt; endl;
+	&#125;
+&#125;;
+
+class Cat :public Animal
+&#123;
+public:
+	void speak()
+	&#123;
+		cout &lt;&lt; &quot;小猫在说话&quot; &lt;&lt; endl;
+	&#125;
+&#125;;
+
+class Dog :public Animal
+&#123;
+public:
+
+	void speak()
+	&#123;
+		cout &lt;&lt; &quot;小狗在说话&quot; &lt;&lt; endl;
+	&#125;
+
+&#125;;
+//我们希望传入什么对象，那么就调用什么对象的函数
+//如果函数地址在编译阶段就能确定，那么静态联编
+//如果函数地址在运行阶段才能确定，就是动态联编
+
+void DoSpeak(Animal &amp; animal)
+&#123;
+	animal.speak();
+&#125;
+//
+//多态满足条件： 
+//1、有继承关系
+//2、子类重写父类中的虚函数
+//多态使用：
+//父类指针或引用指向子类对象
+
+void test01()
+&#123;
+	Cat cat;
+	DoSpeak(cat);
+
+	Dog dog;
+	DoSpeak(dog);
+&#125;
+</code></pre>
+<pre><code>//多态实现
+//抽象计算器类
+//多态优点：代码组织结构清晰，可读性强，利于前期和后期的扩展以及维护
+class AbstractCalculator
+&#123;
+public :
+
+	virtual int getResult()
+	&#123;
+		return 0;
+	&#125;
+
+	int m_Num1;
+	int m_Num2;
+&#125;;
+
+//加法计算器
+class AddCalculator :public AbstractCalculator
+&#123;
+public:
+	int getResult()
+	&#123;
+		return m_Num1 + m_Num2;
+	&#125;
+&#125;;
+
+//减法计算器
+class SubCalculator :public AbstractCalculator
+&#123;
+public:
+	int getResult()
+	&#123;
+		return m_Num1 - m_Num2;
+	&#125;
+&#125;;
+
+void test02()
+&#123;
+	//创建加法计算器
+	AbstractCalculator *abc = new AddCalculator;
+	abc-&gt;m_Num1 = 10;
+	abc-&gt;m_Num2 = 10;
+	cout &lt;&lt; abc-&gt;m_Num1 &lt;&lt; &quot; + &quot; &lt;&lt; abc-&gt;m_Num2 &lt;&lt; &quot; = &quot; &lt;&lt; abc-&gt;getResult() &lt;&lt; endl;
+	delete abc;  //用完了记得销毁
+
+	//创建减法计算器
+	abc = new SubCalculator;
+	abc-&gt;m_Num1 = 10;
+	abc-&gt;m_Num2 = 10;
+	cout &lt;&lt; abc-&gt;m_Num1 &lt;&lt; &quot; - &quot; &lt;&lt; abc-&gt;m_Num2 &lt;&lt; &quot; = &quot; &lt;&lt; abc-&gt;getResult() &lt;&lt; endl;
+	delete abc;  
+&#125;
+
+</code></pre>
+<h4 id="72-纯虚函数和抽象类"><a class="markdownIt-Anchor" href="#72-纯虚函数和抽象类">#</a> 7.2 纯虚函数和抽象类</h4>
+<p>在多态中，通常父类中虚函数的实现是毫无意义的，主要都是调用子类重写的内容，因此可以将虚函数改为<strong>纯虚函数</strong></p>
+<p><strong>纯虚函数语法</strong>： <code>virtual 返回值类型 函数名 （参数列表）= 0 ;</code></p>
+<p>当类中有了纯虚函数，这个类也称为<strong>抽象类</strong></p>
+<p><strong>抽象类特点</strong>：</p>
+<ul>
+<li>无法实例化对象</li>
+<li>子类必须重写抽象类中的纯虚函数，否则也属于抽象类</li>
+</ul>
+<pre><code>#include&lt;iostream&gt;
+#include&lt;string&gt;
+using namespace std;
+
+class AbstractDrinking &#123;
+public:
+        //煮水，冲泡，倒入杯中，放入佐料
+        virtual void Boil() = 0;
+        virtual void Brew() = 0;
+        virtual void PourIntoCup() = 0;
+        virtual void Putsth() = 0;
+        void makeDrink() &#123;
+               Boil();
+               Brew();
+              PourIntoCup();
+              Putsth();
+        &#125;
+&#125;;
+
+class Coffee :public AbstractDrinking &#123;
+public:
+        //煮水，冲泡，倒入杯中，放入佐料
+        virtual void Boil() &#123;
+               cout &lt;&lt; &quot;Boil coffee&quot; &lt;&lt; endl;
+        &#125;
+        virtual void Brew() &#123;
+               cout &lt;&lt; &quot;Brew coffee&quot; &lt;&lt; endl;
+        &#125;
+        virtual void PourIntoCup() &#123;
+              cout &lt;&lt; &quot;PourIntoCup coffee&quot; &lt;&lt; endl;
+        &#125;
+        virtual void Putsth() &#123;
+               cout &lt;&lt; &quot;Putsth coffee&quot; &lt;&lt; endl;
+        &#125;
+&#125;;
+
+class Tea :public AbstractDrinking &#123;
+public:
+        //煮水，冲泡，倒入杯中，放入佐料
+        virtual void Boil() &#123;
+               cout &lt;&lt; &quot;Boil Tea&quot; &lt;&lt; endl;
+        &#125;
+        virtual void Brew() &#123;
+               cout &lt;&lt; &quot;Brew Tea&quot; &lt;&lt; endl;
+        &#125;
+        virtual void PourIntoCup() &#123;
+              cout &lt;&lt; &quot;PourIntoCup Tea&quot; &lt;&lt; endl;
+        &#125;
+        virtual void Putsth() &#123;
+               cout &lt;&lt; &quot;Putsth Tea&quot; &lt;&lt; endl;
+        &#125;
+&#125;;
+
+void doWork(AbstractDrinking* abs) &#123;
+        //父类指针调用接口
+        abs-&gt;makeDrink();
+        delete abs;//释放
+&#125;
+
+void test01() &#123;
+        doWork(new Coffee);
+        doWork(new Tea);
+       return;
+&#125;
+
+int main() &#123;
+        test01();
+        system(&quot;pause&quot;);
+        return 0;
+&#125;
+</code></pre>
+<h4 id="73-虚析构和纯虚析构"><a class="markdownIt-Anchor" href="#73-虚析构和纯虚析构">#</a> 7.3 虚析构和纯虚析构</h4>
+<p>多态使用时，如果子类中有属性开辟到堆区，那么父类指针在释放时无法调用到子类的析构代码</p>
+<p><strong>解决方式</strong>：将父类中的析构函数改为虚析构或者纯虚析构</p>
+<p>虚析构和纯虚析构<strong>共性</strong>：</p>
+<ul>
+<li>可以解决父类指针释放子类对象</li>
+<li>都需要有具体的函数实现</li>
+</ul>
+<p>虚析构和纯虚析构<strong>区别</strong>：</p>
+<ul>
+<li>如果是纯虚析构，该类属于抽象类，无法实例化对象</li>
+</ul>
+<p><strong>虚析构语法</strong>： <code>virtual ~类名()&#123;&#125;</code> <br>
+<strong> 纯虚析构语法</strong>： <code>virtual ~类名() = 0;类名::~类名()&#123;&#125;</code></p>
+<p><strong>总结</strong>：</p>
+<ul>
+<li>虚析构或纯虚析构就是用来解决<strong>通过父类指针释放子类对象</strong></li>
+<li>如果子类中没有堆区数据，可以不写为虚析构或纯虚析构</li>
+<li>拥有纯虚析构函数的类也属于抽象类</li>
+</ul>
+<pre><code>class Animal
+&#123;
+public:
+        Animal()
+        &#123;
+               cout &lt;&lt; &quot;Animal 构造函数调用！&quot; &lt;&lt; endl;
+        &#125;
+        //Speak函数就是纯虚函数
+        virtual void speak() = 0;
+         /*~Animal()
+        &#123;
+               cout &lt;&lt; &quot;Animal析构函数调用！&quot; &lt;&lt; endl;
+        &#125;*/
+        //析构函数加上virtual关键字，变成虚析构函数
+        /*virtual ~Animal()
+        &#123;
+               cout &lt;&lt; &quot;Animal虚析构函数调用！&quot; &lt;&lt; endl;
+        &#125;*/
+        //纯虚析构,使用的时候，必须要类外实现，因为父类也有可能有数据咋堆区
+        //有了纯虚析构之后，类也是抽象类，无法实例化对象
+        virtual ~Animal() = 0;
+&#125;;
+
+//类外实现
+Animal::~Animal()
+&#123;
+        cout &lt;&lt; &quot;Animal 纯虚析构函数调用！&quot; &lt;&lt; endl;
+&#125;
+
+class Cat :public Animal
+&#123;
+public:
+        string *m_Name;
+        Cat(string name)
+        &#123;
+               cout &lt;&lt; &quot;Cat构造函数调用！&quot; &lt;&lt; endl;
+               //堆区创造一个属性
+               m_Name = new string(name);
+        &#125;
+        virtual void speak()
+        &#123;
+               cout &lt;&lt; &quot;小猫在说话&quot; &lt;&lt; endl;
+        &#125;
+        ~Cat()
+        &#123;
+               cout &lt;&lt; &quot;Cat析构函数调用!&quot; &lt;&lt; endl;
+               if (this-&gt;m_Name != NULL) &#123;
+                       delete m_Name;
+                       m_Name = NULL;
+               &#125;
+        &#125;
+&#125;;
+
+</code></pre>
+
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2023-02-02 12:36:35" itemprop="dateModified" datetime="2023-02-02T12:36:35+08:00">2023-02-02</time>
+  </span>
+  <span id="2023/02/02/computer_science/cpp/黑马程序员笔记/C++核心编程/类和对象/" class="item leancloud_visitors" data-flag-title="" title="阅读次数">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">阅读次数</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>计算机圆子 <i class="ic i-at"><em>@</em></i>
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://empireofyt.github.io/2023/02/02/computer_science/cpp/%E9%BB%91%E9%A9%AC%E7%A8%8B%E5%BA%8F%E5%91%98%E7%AC%94%E8%AE%B0/C++%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B/%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/" title="">https://empireofyt.github.io/2023/02/02/computer_science/cpp/黑马程序员笔记/C++核心编程/类和对象/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2023/02/02/computer_science/cpp/%E9%BB%91%E9%A9%AC%E7%A8%8B%E5%BA%8F%E5%91%98%E7%AC%94%E8%AE%B0/C++%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B/%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicis081o9j20zk0m8dmr.jpg" title="未命名">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>未命名</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2023/02/02/computer_science/cpp/%E9%BB%91%E9%A9%AC%E7%A8%8B%E5%BA%8F%E5%91%98%E7%AC%94%E8%AE%B0/C++%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B/%E8%81%8C%E5%B7%A5%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicm0n457cj20zk0m8e81.jpg" title="未命名">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>未命名</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.</span> <span class="toc-text"> 类和对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%B0%81%E8%A3%85"><span class="toc-number">1.1.</span> <span class="toc-text"> 1. 封装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#11-%E5%B0%81%E8%A3%85%E7%9A%84%E6%84%8F%E4%B9%89"><span class="toc-number">1.1.1.</span> <span class="toc-text"> 1.1 封装的意义：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#12-%E6%88%90%E5%91%98%E5%B1%9E%E6%80%A7%E8%AE%BE%E7%BD%AE%E4%B8%BA%E7%A7%81%E6%9C%89"><span class="toc-number">1.1.2.</span> <span class="toc-text"> 1.2 成员属性设置为私有</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E5%92%8C%E6%B8%85%E7%90%86"><span class="toc-number">1.2.</span> <span class="toc-text"> 2. 对象的初始化和清理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#21-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%92%8C%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0"><span class="toc-number">1.2.1.</span> <span class="toc-text"> 2.1 构造函数和析构函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#22-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E7%9A%84%E5%88%86%E7%B1%BB%E5%8F%8A%E5%85%B6%E8%B0%83%E7%94%A8"><span class="toc-number">1.2.2.</span> <span class="toc-text"> 2.2 构造函数的分类及其调用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#23-%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E6%97%B6%E6%9C%BA"><span class="toc-number">1.2.3.</span> <span class="toc-text"> 2.3 拷贝构造函数调用时机</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#24-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E8%A7%84%E5%88%99"><span class="toc-number">1.2.4.</span> <span class="toc-text"> 2.4 构造函数调用规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#25-%E6%B7%B1%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B5%85%E6%8B%B7%E8%B4%9D%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%85%B8%E9%97%AE%E9%A2%98"><span class="toc-number">1.2.5.</span> <span class="toc-text"> 2.5 深拷贝和浅拷贝（面试经典问题）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#26-%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8"><span class="toc-number">1.2.6.</span> <span class="toc-text"> 2.6 初始化列表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#27-%E7%B1%BB%E5%AF%B9%E8%B1%A1%E4%BD%9C%E4%B8%BA%E7%B1%BB%E6%88%90%E5%91%98"><span class="toc-number">1.2.7.</span> <span class="toc-text"> 2.7 类对象作为类成员</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#28-%E9%9D%99%E6%80%81%E6%88%90%E5%91%98"><span class="toc-number">1.2.8.</span> <span class="toc-text"> 2.8 静态成员</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-c%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B%E5%92%8Cthis%E6%8C%87%E9%92%88"><span class="toc-number">1.3.</span> <span class="toc-text"> 3. C++ 对象模型和 this 指针</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#31-%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E5%92%8C%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0%E5%88%86%E5%BC%80%E5%AD%98%E5%82%A8"><span class="toc-number">1.3.1.</span> <span class="toc-text"> 3.1 成员变量和成员函数分开存储</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#32-this%E6%8C%87%E9%92%88"><span class="toc-number">1.3.2.</span> <span class="toc-text"> 3.2 this 指针</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#33-%E7%A9%BA%E6%8C%87%E9%92%88%E8%AE%BF%E9%97%AE%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.3.</span> <span class="toc-text"> 3.3 空指针访问成员函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#34-const%E4%BF%AE%E9%A5%B0%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.4.</span> <span class="toc-text"> 3.4 const 修饰成员函数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%8F%8B%E5%85%83"><span class="toc-number">1.4.</span> <span class="toc-text"> 4. 友元</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD"><span class="toc-number">1.5.</span> <span class="toc-text"> 5. 运算符重载</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#51-%E5%8A%A0%E5%8F%B7%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD"><span class="toc-number">1.5.1.</span> <span class="toc-text"> 5.1 加号运算符重载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#52-%E5%B7%A6%E7%A7%BB%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD"><span class="toc-number">1.5.2.</span> <span class="toc-text"> 5.2 左移运算符重载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#53-%E9%80%92%E5%A2%9E%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD"><span class="toc-number">1.5.3.</span> <span class="toc-text"> 5.3 递增运算符重载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#55-%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD"><span class="toc-number">1.5.4.</span> <span class="toc-text"> 5.5 函数调用运算符重载</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E7%BB%A7%E6%89%BF"><span class="toc-number">1.6.</span> <span class="toc-text"> 6. 继承</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#61-%E7%BB%A7%E6%89%BF%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-number">1.6.1.</span> <span class="toc-text"> 6.1 继承的基本语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#62-%E7%BB%A7%E6%89%BF%E6%96%B9%E5%BC%8F"><span class="toc-number">1.6.2.</span> <span class="toc-text"> 6.2 继承方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#63-%E7%BB%A7%E6%89%BF%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.6.3.</span> <span class="toc-text"> 6.3 继承中的对象模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#64-%E7%BB%A7%E6%89%BF%E4%B8%AD%E6%9E%84%E9%80%A0%E5%92%8C%E6%9E%90%E6%9E%84%E7%9A%84%E9%A1%BA%E5%BA%8F"><span class="toc-number">1.6.4.</span> <span class="toc-text"> 6.4 继承中构造和析构的顺序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#65-%E7%BB%A7%E6%89%BF%E5%90%8C%E5%90%8D%E6%88%90%E5%91%98%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F"><span class="toc-number">1.6.5.</span> <span class="toc-text"> 6.5 继承同名成员处理方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#66-%E7%BB%A7%E6%89%BF%E5%90%8C%E5%90%8D%E9%9D%99%E6%80%81%E6%88%90%E5%91%98%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F"><span class="toc-number">1.6.6.</span> <span class="toc-text"> 6.6 继承同名静态成员处理方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#67-%E5%A4%9A%E7%BB%A7%E6%89%BF%E8%AF%AD%E6%B3%95"><span class="toc-number">1.6.7.</span> <span class="toc-text"> 6.7 多继承语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#68-%E8%8F%B1%E5%BD%A2%E7%BB%A7%E6%89%BF"><span class="toc-number">1.6.8.</span> <span class="toc-text"> 6.8 菱形继承</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E5%A4%9A%E6%80%81"><span class="toc-number">1.7.</span> <span class="toc-text"> 7. 多态</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#71-%E5%A4%9A%E6%80%81%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">1.7.1.</span> <span class="toc-text"> 7.1 多态的基本概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#72-%E7%BA%AF%E8%99%9A%E5%87%BD%E6%95%B0%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB"><span class="toc-number">1.7.2.</span> <span class="toc-text"> 7.2 纯虚函数和抽象类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#73-%E8%99%9A%E6%9E%90%E6%9E%84%E5%92%8C%E7%BA%AF%E8%99%9A%E6%9E%90%E6%9E%84"><span class="toc-number">1.7.3.</span> <span class="toc-text"> 7.3 虚析构和纯虚析构</span></a></li></ol></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="计算机圆子"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">计算机圆子</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">27</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">2</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tLw==" title="https:&#x2F;&#x2F;github.com&#x2F;"><i class="ic i-github"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS8=" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item douban" data-url="aHR0cHM6Ly93d3cuZG91YmFuLmNvbS8=" title="https:&#x2F;&#x2F;www.douban.com&#x2F;"><i class="ic i-douban"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2023/02/02/computer_science/cpp/%E9%BB%91%E9%A9%AC%E7%A8%8B%E5%BA%8F%E5%91%98%E7%AC%94%E8%AE%B0/C++%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B/%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2023/02/02/computer_science/cpp/%E9%BB%91%E9%A9%AC%E7%A8%8B%E5%BA%8F%E5%91%98%E7%AC%94%E8%AE%B0/C++%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B/%E8%81%8C%E5%B7%A5%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/02/02/computer_science/cpp/%E9%BB%91%E9%A9%AC%E7%A8%8B%E5%BA%8F%E5%91%98%E7%AC%94%E8%AE%B0/C++%E6%8F%90%E9%AB%98%E7%BC%96%E7%A8%8B/%E6%A8%A1%E6%9D%BF/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/02/02/computer_science/cpp/%E9%BB%91%E9%A9%AC%E7%A8%8B%E5%BA%8F%E5%91%98%E7%AC%94%E8%AE%B0/C++%E5%9F%BA%E7%A1%80/%E7%BB%93%E6%9E%84%E4%BD%93/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/02/02/computer_science/cpp/%E9%BB%91%E9%A9%AC%E7%A8%8B%E5%BA%8F%E5%91%98%E7%AC%94%E8%AE%B0/C++%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B/%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/02/02/computer_science/cpp/%E9%BB%91%E9%A9%AC%E7%A8%8B%E5%BA%8F%E5%91%98%E7%AC%94%E8%AE%B0/C++%E6%8F%90%E9%AB%98%E7%BC%96%E7%A8%8B/STL%E5%B8%B8%E8%A7%81%E5%AE%B9%E5%99%A8/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c-%E8%AF%AD%E6%B3%95/" title="分类于 c++语法">c++语法</a>
+</div>
+
+    <span><span class="exturl" data-url="aHR0cDovL3d3dy5nb29nbGUuY29tLw==" title="www.google.com">www.google.com<i class="ic i-link-alt"></i></span></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c-%E8%AF%AD%E6%B3%95/" title="分类于 c++语法">c++语法</a>
+</div>
+
+    <span><a href="/2022/08/30/computer_science/cpp/blog1/" title="blog">blog</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/02/02/computer_science/github/github%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/02/02/computer_science/cpp/%E9%BB%91%E9%A9%AC%E7%A8%8B%E5%BA%8F%E5%91%98%E7%AC%94%E8%AE%B0/C++%E6%8F%90%E9%AB%98%E7%BC%96%E7%A8%8B/STL%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2022/08/30/happy/blog/" title="blog">blog</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/02/02/computer_science/web_services/README/" title="未命名">未命名</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">计算机圆子 @ 快乐每一天</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="站点总字数">70k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:03</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2023/02/02/computer_science/cpp/黑马程序员笔记/C++核心编程/类和对象/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "null • All posts by \"c++\" category",
+    "description": "",
+    "home_page_url": "https://empireofyt.github.io",
+    "items": [
+        {
+            "id": "https://empireofyt.github.io/:computer_science/cpp/%E9%BB%91%E9%A9%AC%E7%A8%8B%E5%BA%8F%E5%91%98%E7%AC%94%E8%AE%B0/C++%E6%8F%90%E9%AB%98%E7%BC%96%E7%A8%8B/%E5%87%BD%E6%95%B0/",
+            "url": "https://empireofyt.github.io/:computer_science/cpp/%E9%BB%91%E9%A9%AC%E7%A8%8B%E5%BA%8F%E5%91%98%E7%AC%94%E8%AE%B0/C++%E6%8F%90%E9%AB%98%E7%BC%96%E7%A8%8B/%E5%87%BD%E6%95%B0/",
+            "title": "函数",
+            "date_published": "2023-02-02T08:00:19.613Z",
+            "content_html": "<h1 id=\"函数\"><a class=\"markdownIt-Anchor\" href=\"#函数\">#</a> 函数</h1>\n<p>[TOC]</p>\n<h2 id=\"一-函数的分文件编写\"><a class=\"markdownIt-Anchor\" href=\"#一-函数的分文件编写\">#</a> 一 函数的分文件编写</h2>\n<p>作用： 让代码更清晰</p>\n<p>步骤：</p>\n<ol>\n<li>创建后缀名为.h 的头文件</li>\n<li>创建后缀名为.cpp 的源文件</li>\n<li>在头文件中写函数的声明</li>\n<li>在源文件中写函数的定义</li>\n</ol>\n",
+            "tags": []
+        },
+        {
+            "id": "https://empireofyt.github.io/:computer_science/cpp/%E9%BB%91%E9%A9%AC%E7%A8%8B%E5%BA%8F%E5%91%98%E7%AC%94%E8%AE%B0/README/",
+            "url": "https://empireofyt.github.io/:computer_science/cpp/%E9%BB%91%E9%A9%AC%E7%A8%8B%E5%BA%8F%E5%91%98%E7%AC%94%E8%AE%B0/README/",
+            "title": "黑马程序员课程目录",
+            "date_published": "2023-02-02T06:21:30.852Z",
+            "content_html": "<h1 id=\"黑马程序员cpp课程笔记\"><a class=\"markdownIt-Anchor\" href=\"#黑马程序员cpp课程笔记\">#</a> 黑马程序员 cpp 课程笔记</h1>\n<h2 id=\"c基础编程\"><a class=\"markdownIt-Anchor\" href=\"#c基础编程\">#</a> C++ 基础编程</h2>\n<h3 id=\"函数\"><a class=\"markdownIt-Anchor\" href=\"#函数\">#</a> 函数</h3>\n<h3 id=\"指针\"><a class=\"markdownIt-Anchor\" href=\"#指针\">#</a> 指针</h3>\n<h3 id=\"结构体\"><a class=\"markdownIt-Anchor\" href=\"#结构体\">#</a> 结构体</h3>\n<h3 id=\"通讯录管理系统\"><a class=\"markdownIt-Anchor\" href=\"#通讯录管理系统\">#</a> 通讯录管理系统</h3>\n<h2 id=\"c核心编程\"><a class=\"markdownIt-Anchor\" href=\"#c核心编程\">#</a> C++ 核心编程</h2>\n<h3 id=\"内存分区模型\"><a class=\"markdownIt-Anchor\" href=\"#内存分区模型\">#</a> 内存分区模型</h3>\n<h3 id=\"引用\"><a class=\"markdownIt-Anchor\" href=\"#引用\">#</a> 引用</h3>\n<h3 id=\"函数高级\"><a class=\"markdownIt-Anchor\" href=\"#函数高级\">#</a> 函数高级</h3>\n<h3 id=\"类和对象\"><a class=\"markdownIt-Anchor\" href=\"#类和对象\">#</a> 类和对象</h3>\n<h3 id=\"文件操作\"><a class=\"markdownIt-Anchor\" href=\"#文件操作\">#</a> 文件操作</h3>\n<h3 id=\"职工管理系统\"><a class=\"markdownIt-Anchor\" href=\"#职工管理系统\">#</a> 职工管理系统</h3>\n<h2 id=\"c提高编程\"><a class=\"markdownIt-Anchor\" href=\"#c提高编程\">#</a> C++ 提高编程</h2>\n<h3 id=\"模板\"><a class=\"markdownIt-Anchor\" href=\"#模板\">#</a> 模板</h3>\n<h3 id=\"stl初始\"><a class=\"markdownIt-Anchor\" href=\"#stl初始\">#</a> STL 初始</h3>\n<h3 id=\"stl常见容器\"><a class=\"markdownIt-Anchor\" href=\"#stl常见容器\">#</a> STL 常见容器</h3>\n<h3 id=\"stl函数对象\"><a class=\"markdownIt-Anchor\" href=\"#stl函数对象\">#</a> STL 函数对象</h3>\n<h3 id=\"stl-常见算法\"><a class=\"markdownIt-Anchor\" href=\"#stl-常见算法\">#</a> STL 常见算法</h3>\n",
+            "tags": []
+        }
+    ]
+}

@@ -1,0 +1,754 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="" href="https://empireofyt.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="" href="https://empireofyt.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="" href="https://empireofyt.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+
+<link rel="canonical" href="https://empireofyt.github.io/2023/02/02/computer_science/cpp/%E9%BB%91%E9%A9%AC%E7%A8%8B%E5%BA%8F%E5%91%98%E7%AC%94%E8%AE%B0/C++%E5%9F%BA%E7%A1%80/%E7%BB%93%E6%9E%84%E4%BD%93/">
+
+
+
+  <title>
+ |
+快乐每一天 = </title>
+<meta name="generator" content="Hexo 5.4.2"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2023-02-02 14:21:30">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-02-02T14:21:30+08:00">2023-02-02</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>4.1k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>4 分钟</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">快乐每一天</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipexbei4hj20zk0m8npd.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gicli9lfebj20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclh3brzpj20zk0m8ann.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gicliierfjj20zk0m8npd.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipewf5l51j20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giph47e9vtj20zk0m8x6l.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://empireofyt.github.io/2023/02/02/computer_science/cpp/%E9%BB%91%E9%A9%AC%E7%A8%8B%E5%BA%8F%E5%91%98%E7%AC%94%E8%AE%B0/C++%E5%9F%BA%E7%A1%80/%E7%BB%93%E6%9E%84%E4%BD%93/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="计算机圆子">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="结构体"><a class="markdownIt-Anchor" href="#结构体">#</a> 结构体</h1>
+<p>[TOC]</p>
+<h3 id="1-结构体的定义"><a class="markdownIt-Anchor" href="#1-结构体的定义">#</a> 1. 结构体的定义</h3>
+<p><strong>语法：</strong> <code>struct 结构体名 &#123; 结构体成员列表 &#125;；</code></p>
+<p>通过结构体创建变量的方式有三种：</p>
+<ul>
+<li>struct 结构体名 变量名</li>
+<li 成员1值="" ，="" 成员2值...="">struct 结构体名 变量名 =</li>
+<li>定义结构体时顺便创建变量</li>
+</ul>
+<p><strong>示例：</strong></p>
+<pre><code>//结构体定义
+struct student
+&#123;
+	//成员列表
+	string name;  //姓名
+	int age;      //年龄
+	int score;    //分数
+&#125;stu3; //结构体变量创建方式3 
+
+
+int main() &#123;
+
+	//结构体变量创建方式1
+	struct student stu1; //struct 关键字可以省略
+
+	stu1.name = &quot;张三&quot;;
+	stu1.age = 18;
+	stu1.score = 100;
+	
+	cout &lt;&lt; &quot;姓名：&quot; &lt;&lt; stu1.name &lt;&lt; &quot; 年龄：&quot; &lt;&lt; stu1.age  &lt;&lt; &quot; 分数：&quot; &lt;&lt; stu1.score &lt;&lt; endl;
+
+	//结构体变量创建方式2
+	struct student stu2 = &#123; &quot;李四&quot;,19,60 &#125;;
+
+	cout &lt;&lt; &quot;姓名：&quot; &lt;&lt; stu2.name &lt;&lt; &quot; 年龄：&quot; &lt;&lt; stu2.age  &lt;&lt; &quot; 分数：&quot; &lt;&lt; stu2.score &lt;&lt; endl;
+
+
+	stu3.name = &quot;王五&quot;;
+	stu3.age = 18;
+	stu3.score = 80;
+	
+
+	cout &lt;&lt; &quot;姓名：&quot; &lt;&lt; stu3.name &lt;&lt; &quot; 年龄：&quot; &lt;&lt; stu3.age  &lt;&lt; &quot; 分数：&quot; &lt;&lt; stu3.score &lt;&lt; endl;
+
+	system(&quot;pause&quot;);
+
+	return 0;
+&#125;
+</code></pre>
+<blockquote>
+<p>总结 1：定义结构体时的关键字是 struct，不可省略</p>
+</blockquote>
+<blockquote>
+<p>总结 2：创建结构体变量时，关键字 struct 可以省略</p>
+</blockquote>
+<blockquote>
+<p>总结 3：结构体变量利用操作符 ‘’.’’  访问成员</p>
+</blockquote>
+<h3 id="2-结构体数组"><a class="markdownIt-Anchor" href="#2-结构体数组">#</a> 2 结构体数组</h3>
+<p><strong>语法：</strong>  <code>struct  结构体名 数组名[元素个数] = &#123;  &#123;&#125; , &#123;&#125; , ... &#123;&#125; &#125;</code> <br>
+<strong> 示例：</strong></p>
+<pre><code>//结构体定义
+struct student
+&#123;
+	//成员列表
+	string name;  //姓名
+	int age;      //年龄
+	int score;    //分数
+&#125;
+
+int main() &#123;
+	
+	//结构体数组
+	struct student arr[3]=
+	&#123;
+		&#123;&quot;张三&quot;,18,80 &#125;,
+		&#123;&quot;李四&quot;,19,60 &#125;,
+		&#123;&quot;王五&quot;,20,70 &#125;
+	&#125;;
+
+	for (int i = 0; i &lt; 3; i++)
+	&#123;
+		cout &lt;&lt; &quot;姓名：&quot; &lt;&lt; arr[i].name &lt;&lt; &quot; 年龄：&quot; &lt;&lt; arr[i].age &lt;&lt; &quot; 分数：&quot; &lt;&lt; arr[i].score &lt;&lt; endl;
+	&#125;
+
+	system(&quot;pause&quot;);
+
+	return 0;
+&#125;
+</code></pre>
+<h3 id="3-结构体指针"><a class="markdownIt-Anchor" href="#3-结构体指针">#</a> 3 结构体指针</h3>
+<p><strong>作用：</strong> 通过指针访问结构体中的成员</p>
+<blockquote>
+<p>利用操作符  <code>-&gt; </code> 可以通过结构体指针访问结构体属性</p>
+</blockquote>
+<pre><code>//结构体定义
+struct student
+&#123;
+	//成员列表
+	string name;  //姓名
+	int age;      //年龄
+	int score;    //分数
+&#125;;
+
+int main() &#123;
+	
+	struct student stu = &#123; &quot;张三&quot;,18,100, &#125;;
+	
+	struct student * p = &amp;stu;
+	
+	p-&gt;score = 80; //指针通过 -&gt; 操作符可以访问成员
+
+	cout &lt;&lt; &quot;姓名：&quot; &lt;&lt; p-&gt;name &lt;&lt; &quot; 年龄：&quot; &lt;&lt; p-&gt;age &lt;&lt; &quot; 分数：&quot; &lt;&lt; p-&gt;score &lt;&lt; endl;
+	
+	system(&quot;pause&quot;);
+
+	return 0;
+&#125;
+
+</code></pre>
+<h3 id="4-结构体嵌套结构体"><a class="markdownIt-Anchor" href="#4-结构体嵌套结构体">#</a> 4 结构体嵌套结构体</h3>
+<p>** 作用：** 结构体中的成员可以是另一个结构体</p>
+<pre><code>//学生结构体定义
+struct student
+&#123;
+	//成员列表
+	string name;  //姓名
+	int age;      //年龄
+	int score;    //分数
+&#125;;
+
+//教师结构体定义
+struct teacher
+&#123;
+    //成员列表
+	int id; //职工编号
+	string name;  //教师姓名
+	int age;   //教师年龄
+	struct student stu; //子结构体 学生
+&#125;;
+
+
+int main() &#123;
+
+	struct teacher t1;
+	t1.id = 10000;
+	t1.name = &quot;老王&quot;;
+	t1.age = 40;
+
+	t1.stu.name = &quot;张三&quot;;
+	t1.stu.age = 18;
+	t1.stu.score = 100;
+
+	cout &lt;&lt; &quot;教师 职工编号： &quot; &lt;&lt; t1.id &lt;&lt; &quot; 姓名： &quot; &lt;&lt; t1.name &lt;&lt; &quot; 年龄： &quot; &lt;&lt; t1.age &lt;&lt; endl;
+	
+	cout &lt;&lt; &quot;辅导学员 姓名： &quot; &lt;&lt; t1.stu.name &lt;&lt; &quot; 年龄：&quot; &lt;&lt; t1.stu.age &lt;&lt; &quot; 考试分数： &quot; &lt;&lt; t1.stu.score &lt;&lt; endl;
+
+	system(&quot;pause&quot;);
+
+	return 0;
+&#125;
+</code></pre>
+<h3 id="5-结构体作为函数参数"><a class="markdownIt-Anchor" href="#5-结构体作为函数参数">#</a> 5 结构体作为函数参数</h3>
+<p><strong>类型：</strong> 1 值传递；   2 地址传递</p>
+<pre><code>//学生结构体定义
+struct student
+&#123;
+	//成员列表
+	string name;  //姓名
+	int age;      //年龄
+	int score;    //分数
+&#125;;
+
+//值传递
+void printStudent(student stu )
+&#123;
+	stu.age = 28;
+	cout &lt;&lt; &quot;子函数中 姓名：&quot; &lt;&lt; stu.name &lt;&lt; &quot; 年龄： &quot; &lt;&lt; stu.age  &lt;&lt; &quot; 分数：&quot; &lt;&lt; stu.score &lt;&lt; endl;
+&#125;
+
+//地址传递
+void printStudent2(student *stu)
+&#123;
+	stu-&gt;age = 28;
+	cout &lt;&lt; &quot;子函数中 姓名：&quot; &lt;&lt; stu-&gt;name &lt;&lt; &quot; 年龄： &quot; &lt;&lt; stu-&gt;age  &lt;&lt; &quot; 分数：&quot; &lt;&lt; stu-&gt;score &lt;&lt; endl;
+&#125;
+
+int main() &#123;
+
+	student stu = &#123; &quot;张三&quot;,18,100&#125;;
+	//值传递
+	printStudent(stu);
+	cout &lt;&lt; &quot;主函数中 姓名：&quot; &lt;&lt; stu.name &lt;&lt; &quot; 年龄： &quot; &lt;&lt; stu.age &lt;&lt; &quot; 分数：&quot; &lt;&lt; stu.score &lt;&lt; endl;
+
+	cout &lt;&lt; endl;
+
+	//地址传递
+	printStudent2(&amp;stu);
+	cout &lt;&lt; &quot;主函数中 姓名：&quot; &lt;&lt; stu.name &lt;&lt; &quot; 年龄： &quot; &lt;&lt; stu.age  &lt;&lt; &quot; 分数：&quot; &lt;&lt; stu.score &lt;&lt; endl;
+
+	system(&quot;pause&quot;);
+
+	return 0;
+&#125;
+</code></pre>
+<h3 id="6-结构体中const使用场景"><a class="markdownIt-Anchor" href="#6-结构体中const使用场景">#</a> 6 结构体中 const 使用场景</h3>
+<p><strong>作用：</strong> 用 const 防止误操作</p>
+<pre><code>//学生结构体定义
+struct student
+&#123;
+	//成员列表
+	string name;  //姓名
+	int age;      //年龄
+	int score;    //分数
+&#125;;
+
+//const使用场景
+//将函数中的形参改为指针，可以减少内存，而且不会幅值新的副本
+void printStudent(const student *stu) //加const防止函数体中的误操作
+&#123;
+	//stu-&gt;age = 100; //操作失败，因为加了const修饰
+	cout &lt;&lt; &quot;姓名：&quot; &lt;&lt; stu-&gt;name &lt;&lt; &quot; 年龄：&quot; &lt;&lt; stu-&gt;age &lt;&lt; &quot; 分数：&quot; &lt;&lt; stu-&gt;score &lt;&lt; endl;
+
+&#125;
+
+int main() &#123;
+
+	student stu = &#123; &quot;张三&quot;,18,100 &#125;;
+
+	printStudent(&amp;stu);
+
+	system(&quot;pause&quot;);
+
+	return 0;
+&#125;
+</code></pre>
+<blockquote>
+<p>将函数中的形参改为指针，可以减少内存，而且不会幅值新的副本</p>
+</blockquote>
+
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2023-02-02 12:31:14" itemprop="dateModified" datetime="2023-02-02T12:31:14+08:00">2023-02-02</time>
+  </span>
+  <span id="2023/02/02/computer_science/cpp/黑马程序员笔记/C++基础/结构体/" class="item leancloud_visitors" data-flag-title="" title="阅读次数">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">阅读次数</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>计算机圆子 <i class="ic i-at"><em>@</em></i>
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://empireofyt.github.io/2023/02/02/computer_science/cpp/%E9%BB%91%E9%A9%AC%E7%A8%8B%E5%BA%8F%E5%91%98%E7%AC%94%E8%AE%B0/C++%E5%9F%BA%E7%A1%80/%E7%BB%93%E6%9E%84%E4%BD%93/" title="">https://empireofyt.github.io/2023/02/02/computer_science/cpp/黑马程序员笔记/C++基础/结构体/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2023/02/02/computer_science/cpp/%E9%BB%91%E9%A9%AC%E7%A8%8B%E5%BA%8F%E5%91%98%E7%AC%94%E8%AE%B0/C++%E5%9F%BA%E7%A1%80/%E6%8C%87%E9%92%88/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipewf5l51j20zk0m8b29.jpg" title="未命名">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>未命名</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2023/02/02/computer_science/cpp/%E9%BB%91%E9%A9%AC%E7%A8%8B%E5%BA%8F%E5%91%98%E7%AC%94%E8%AE%B0/C++%E5%9F%BA%E7%A1%80/%E9%80%9A%E8%AE%AF%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicli3sbvtj20zk0m8x6p.jpg" title="未命名">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>未命名</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93"><span class="toc-number">1.</span> <span class="toc-text"> 结构体</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%BB%93%E6%9E%84%E4%BD%93%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-number">1.0.1.</span> <span class="toc-text"> 1. 结构体的定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%BB%93%E6%9E%84%E4%BD%93%E6%95%B0%E7%BB%84"><span class="toc-number">1.0.2.</span> <span class="toc-text"> 2 结构体数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%BB%93%E6%9E%84%E4%BD%93%E6%8C%87%E9%92%88"><span class="toc-number">1.0.3.</span> <span class="toc-text"> 3 结构体指针</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E7%BB%93%E6%9E%84%E4%BD%93%E5%B5%8C%E5%A5%97%E7%BB%93%E6%9E%84%E4%BD%93"><span class="toc-number">1.0.4.</span> <span class="toc-text"> 4 结构体嵌套结构体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E7%BB%93%E6%9E%84%E4%BD%93%E4%BD%9C%E4%B8%BA%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0"><span class="toc-number">1.0.5.</span> <span class="toc-text"> 5 结构体作为函数参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E7%BB%93%E6%9E%84%E4%BD%93%E4%B8%ADconst%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">1.0.6.</span> <span class="toc-text"> 6 结构体中 const 使用场景</span></a></li></ol></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="计算机圆子"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">计算机圆子</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">27</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">2</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tLw==" title="https:&#x2F;&#x2F;github.com&#x2F;"><i class="ic i-github"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS8=" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item douban" data-url="aHR0cHM6Ly93d3cuZG91YmFuLmNvbS8=" title="https:&#x2F;&#x2F;www.douban.com&#x2F;"><i class="ic i-douban"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2023/02/02/computer_science/cpp/%E9%BB%91%E9%A9%AC%E7%A8%8B%E5%BA%8F%E5%91%98%E7%AC%94%E8%AE%B0/C++%E5%9F%BA%E7%A1%80/%E6%8C%87%E9%92%88/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2023/02/02/computer_science/cpp/%E9%BB%91%E9%A9%AC%E7%A8%8B%E5%BA%8F%E5%91%98%E7%AC%94%E8%AE%B0/C++%E5%9F%BA%E7%A1%80/%E9%80%9A%E8%AE%AF%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/02/02/computer_science/cpp/%E9%BB%91%E9%A9%AC%E7%A8%8B%E5%BA%8F%E5%91%98%E7%AC%94%E8%AE%B0/README/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/02/02/computer_science/cpp/%E9%BB%91%E9%A9%AC%E7%A8%8B%E5%BA%8F%E5%91%98%E7%AC%94%E8%AE%B0/C++%E5%9F%BA%E7%A1%80/%E5%87%BD%E6%95%B0/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c-%E8%AF%AD%E6%B3%95/" title="分类于 c++语法">c++语法</a>
+</div>
+
+    <span><a href="/2022/08/30/computer_science/cpp/blog1/" title="blog">blog</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/02/02/computer_science/cpp/%E9%BB%91%E9%A9%AC%E7%A8%8B%E5%BA%8F%E5%91%98%E7%AC%94%E8%AE%B0/C++%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B/%E5%BC%95%E7%94%A8/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c-%E8%AF%AD%E6%B3%95/" title="分类于 c++语法">c++语法</a>
+</div>
+
+    <span><span class="exturl" data-url="aHR0cDovL3d3dy5nb29nbGUuY29tLw==" title="www.google.com">www.google.com<i class="ic i-link-alt"></i></span></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c-%E8%AF%AD%E6%B3%95/" title="分类于 c++语法">c++语法</a>
+</div>
+
+    <span><a href="/2013/12/26/computer_science/cpp/images/" title="Images">Images</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/02/02/computer_science/cpp/%E9%BB%91%E9%A9%AC%E7%A8%8B%E5%BA%8F%E5%91%98%E7%AC%94%E8%AE%B0/C++%E6%8F%90%E9%AB%98%E7%BC%96%E7%A8%8B/STL%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/02/02/computer_science/web_services/README/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2022/08/29/computer_science/cpp/hello-world/" title="Hello World">Hello World</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/02/02/computer_science/cpp/%E9%BB%91%E9%A9%AC%E7%A8%8B%E5%BA%8F%E5%91%98%E7%AC%94%E8%AE%B0/C++%E5%9F%BA%E7%A1%80/%E9%80%9A%E8%AE%AF%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" title="未命名">未命名</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">计算机圆子 @ 快乐每一天</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="站点总字数">70k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:03</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2023/02/02/computer_science/cpp/黑马程序员笔记/C++基础/结构体/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

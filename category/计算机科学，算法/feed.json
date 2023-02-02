@@ -1,0 +1,16 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "null • All posts by \"计算机科学，算法\" category",
+    "description": "",
+    "home_page_url": "https://empireofyt.github.io",
+    "items": [
+        {
+            "id": "https://empireofyt.github.io/2023/02/02/computer_science/algorithm/BFS/",
+            "url": "https://empireofyt.github.io/2023/02/02/computer_science/algorithm/BFS/",
+            "title": "tags",
+            "date_published": "2023-02-02T06:37:27.000Z",
+            "content_html": "<h2 id=\"一-应用场景\"><a class=\"markdownIt-Anchor\" href=\"#一-应用场景\">#</a> 一 应用场景</h2>\n<p><strong>找到的路径一定是最短的</strong>，但空间复杂度可能大于 DFS</p>\n<h2 id=\"二-代码框架\"><a class=\"markdownIt-Anchor\" href=\"#二-代码框架\">#</a> 二 代码框架</h2>\n<p>``// 计算从起点 start 到终点 target 的最近距离`</p>\n<p><code>int BFS(Node start, Node target) &#123;</code></p>\n<p>​\t\t  <code>queue&lt;Node&gt; q; // 核心数据结构</code></p>\n<p>​\t\t <code>set&lt;Node&gt; visited; // 避免走回头路</code></p>\n<p>​\t\t <code>q.push(start); // 将起点加入队列</code></p>\n<p>​\t\t <code>visited.insert(start);  int step = 0; // 记录扩散的步数</code> <br>\n <code>while (q not empty) &#123;</code></p>\n<p>​\t            <code>int sz = q.size();</code></p>\n<p>​        <code>/* 将当前队列中的所有节点向四周扩散 */    *</code></p>\n<pre><code>\t`for (int i = 0; i &lt; sz; i++) &#123;`      \t\n</code></pre>\n<p>​\t\t\t\t <code>Node cur = q.front();</code></p>\n<p>​\t\t\t\t  <code>q.pop();</code></p>\n<p><code>/* 划重点：这里判断是否到达终点 */    *</code></p>\n<p>​\t\t\t\t <code>if (cur is target)        return step;</code></p>\n<p><code>/* 将 cur 的相邻节点加入队列 */      *</code></p>\n<p>​\t\t\t\t <code>for (Node x : cur.adj()) &#123;</code></p>\n<p>​\t\t\t\t\t  <code>if (x not in visited) &#123;</code></p>\n<p>​\t\t\t\t\t\t\t\t  <code>q.push(x);</code></p>\n<p>​\t\t\t\t\t\t\t\t  <code>visited.insert(x);</code></p>\n<p><code>&#125;</code></p>\n<p><code>&#125;</code></p>\n<p>​     <code>/* 划重点：更新步数在这里 */</code></p>\n<p><code>step++;</code></p>\n<p><code>&#125;</code></p>\n<p><code>&#125;</code></p>\n",
+            "tags": []
+        }
+    ]
+}

@@ -3,111 +3,226 @@
     <id>https://empireofyt.github.io</id>
     <title></title>
     <link href="https://empireofyt.github.io" />
-    <updated>2023-02-01T13:31:17.724Z</updated>
+    <updated>2023-02-02T08:29:00.276Z</updated>
+    <category term="算法" />
     <entry>
-        <id>https://empireofyt.github.io/2023/02/01/cpp/readme/</id>
-        <title></title>
-        <link rel="alternate" href="https://empireofyt.github.io/2023/02/01/cpp/readme/"/>
-        <content type="html">&lt;hr&gt;
-&lt;p&gt;title: 置顶文章&lt;/p&gt;
-&lt;p&gt;sticky: true&lt;/p&gt;
-&lt;p&gt;date: 2023-02-01&lt;br&gt;
-tags:&lt;/p&gt;
-&lt;hr&gt;
-&lt;h1 id=&#34;博客参考&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#博客参考&#34;&gt;#&lt;/a&gt; 博客参考&lt;/h1&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9yZXZvaWRtZW1vcmllcy5naXRodWIuaW8v&#34;&gt;https://revoidmemories.github.io/&lt;/span&gt;&lt;/p&gt;
+        <id>https://empireofyt.github.io/:computer_science/github/github%20-%20%E5%89%AF%E6%9C%AC/</id>
+        <title>github使用教程</title>
+        <link rel="alternate" href="https://empireofyt.github.io/:computer_science/github/github%20-%20%E5%89%AF%E6%9C%AC/"/>
+        <content type="html">&lt;h1 id=&#34;github使用教程&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#github使用教程&#34;&gt;#&lt;/a&gt; github 使用教程&lt;/h1&gt;
+&lt;h2 id=&#34;一-首次上传此文件夹&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#一-首次上传此文件夹&#34;&gt;#&lt;/a&gt; 一 首次上传此文件夹&lt;/h2&gt;
+&lt;h3 id=&#34;一-github与git连接本地git仓库&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#一-github与git连接本地git仓库&#34;&gt;#&lt;/a&gt; （一） github 与 git 连接–本地 Git 仓库&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;本地文件夹&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;右键 - Git Bash-&lt;/li&gt;
+&lt;li&gt;输入 “git init” 初始化成一个 Git 可管理的仓库&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;将本地文件 add 到 Git 仓库上&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;git add .  //. 表示添加该目录下所有文件&lt;/li&gt;
+&lt;li&gt;git status // 用来查看仓库状态&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;把项目提交到仓库&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;git commit -m &amp;quot; 注释 “”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;二-github和git连接远程连接&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#二-github和git连接远程连接&#34;&gt;#&lt;/a&gt; （二） github 和 git 连接–远程连接&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;创建 SSH key（只用一次就行了）&lt;/li&gt;
+&lt;li&gt;在 github 上新建仓库&lt;/li&gt;
+&lt;li&gt;关联远程仓库
+&lt;ul&gt;
+&lt;li&gt;git remote add origin &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL1hYWCVFRiVCQyU4OCVFOCU4NyVBQSVFNSVCNyVCMSVFNCVCQiU5MyVFNSVCQSU5MyVFRiVCQyU4OQ==&#34;&gt;https://github.com/XXX（自己仓库）&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;本地内容上传
+&lt;ul&gt;
+&lt;li&gt;git push (-u) origin main   // 初次上传必须加上 - u&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;二-后续更新上传&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#二-后续更新上传&#34;&gt;#&lt;/a&gt; 二 后续更新上传&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;将本地文件 add 到 Git 仓库上
+&lt;ul&gt;
+&lt;li&gt;git add .  //. 表示添加该目录下所有文件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;把项目提交到仓库
+&lt;ul&gt;
+&lt;li&gt;git commit -m &amp;quot; 注释 “”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;本地内容上传
+&lt;ul&gt;
+&lt;li&gt;git push (-u) origin main   // 初次上传必须加上 - u&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 </content>
-        <updated>2023-02-01T13:31:17.724Z</updated>
+        <updated>2023-02-02T08:29:00.276Z</updated>
     </entry>
     <entry>
-        <id>https://empireofyt.github.io/2022/08/30/happy/blog/</id>
+        <id>https://empireofyt.github.io/:computer_science/github/github/</id>
+        <title>github使用教程</title>
+        <link rel="alternate" href="https://empireofyt.github.io/:computer_science/github/github/"/>
+        <content type="html">&lt;h1 id=&#34;github使用教程&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#github使用教程&#34;&gt;#&lt;/a&gt; github 使用教程&lt;/h1&gt;
+&lt;h2 id=&#34;一-首次上传此文件夹&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#一-首次上传此文件夹&#34;&gt;#&lt;/a&gt; 一 首次上传此文件夹&lt;/h2&gt;
+&lt;h3 id=&#34;一-github与git连接本地git仓库&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#一-github与git连接本地git仓库&#34;&gt;#&lt;/a&gt; （一） github 与 git 连接–本地 Git 仓库&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;本地文件夹&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;右键 - Git Bash-&lt;/li&gt;
+&lt;li&gt;输入 “git init” 初始化成一个 Git 可管理的仓库&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;将本地文件 add 到 Git 仓库上&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;git add .  //. 表示添加该目录下所有文件&lt;/li&gt;
+&lt;li&gt;git status // 用来查看仓库状态&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;把项目提交到仓库&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;git commit -m &amp;quot; 注释 “”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;二-github和git连接远程连接&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#二-github和git连接远程连接&#34;&gt;#&lt;/a&gt; （二） github 和 git 连接–远程连接&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;创建 SSH key（只用一次就行了）&lt;/li&gt;
+&lt;li&gt;在 github 上新建仓库&lt;/li&gt;
+&lt;li&gt;关联远程仓库
+&lt;ul&gt;
+&lt;li&gt;git remote add origin &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL1hYWCVFRiVCQyU4OCVFOCU4NyVBQSVFNSVCNyVCMSVFNCVCQiU5MyVFNSVCQSU5MyVFRiVCQyU4OQ==&#34;&gt;https://github.com/XXX（自己仓库）&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;本地内容上传
+&lt;ul&gt;
+&lt;li&gt;git push (-u) origin main   // 初次上传必须加上 - u&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;二-后续更新上传&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#二-后续更新上传&#34;&gt;#&lt;/a&gt; 二 后续更新上传&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;将本地文件 add 到 Git 仓库上
+&lt;ul&gt;
+&lt;li&gt;git add .  //. 表示添加该目录下所有文件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;把项目提交到仓库
+&lt;ul&gt;
+&lt;li&gt;git commit -m &amp;quot; 注释 “”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;本地内容上传
+&lt;ul&gt;
+&lt;li&gt;git push (-u) origin main   // 初次上传必须加上 - u&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+        <updated>2023-02-02T08:12:28.457Z</updated>
+    </entry>
+    <entry>
+        <id>https://empireofyt.github.io/:computer_science/cpp/%E9%BB%91%E9%A9%AC%E7%A8%8B%E5%BA%8F%E5%91%98%E7%AC%94%E8%AE%B0/C++%E6%8F%90%E9%AB%98%E7%BC%96%E7%A8%8B/%E5%87%BD%E6%95%B0/</id>
+        <title>函数</title>
+        <link rel="alternate" href="https://empireofyt.github.io/:computer_science/cpp/%E9%BB%91%E9%A9%AC%E7%A8%8B%E5%BA%8F%E5%91%98%E7%AC%94%E8%AE%B0/C++%E6%8F%90%E9%AB%98%E7%BC%96%E7%A8%8B/%E5%87%BD%E6%95%B0/"/>
+        <content type="html">&lt;h1 id=&#34;函数&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#函数&#34;&gt;#&lt;/a&gt; 函数&lt;/h1&gt;
+&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h2 id=&#34;一-函数的分文件编写&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#一-函数的分文件编写&#34;&gt;#&lt;/a&gt; 一 函数的分文件编写&lt;/h2&gt;
+&lt;p&gt;作用： 让代码更清晰&lt;/p&gt;
+&lt;p&gt;步骤：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;创建后缀名为.h 的头文件&lt;/li&gt;
+&lt;li&gt;创建后缀名为.cpp 的源文件&lt;/li&gt;
+&lt;li&gt;在头文件中写函数的声明&lt;/li&gt;
+&lt;li&gt;在源文件中写函数的定义&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+        <updated>2023-02-02T08:00:19.613Z</updated>
+    </entry>
+    <entry>
+        <id>https://empireofyt.github.io/:computer_science/cpp/%E9%BB%91%E9%A9%AC%E7%A8%8B%E5%BA%8F%E5%91%98%E7%AC%94%E8%AE%B0/README/</id>
+        <title>黑马程序员课程目录</title>
+        <link rel="alternate" href="https://empireofyt.github.io/:computer_science/cpp/%E9%BB%91%E9%A9%AC%E7%A8%8B%E5%BA%8F%E5%91%98%E7%AC%94%E8%AE%B0/README/"/>
+        <content type="html">&lt;h1 id=&#34;黑马程序员cpp课程笔记&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#黑马程序员cpp课程笔记&#34;&gt;#&lt;/a&gt; 黑马程序员 cpp 课程笔记&lt;/h1&gt;
+&lt;h2 id=&#34;c基础编程&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#c基础编程&#34;&gt;#&lt;/a&gt; C++ 基础编程&lt;/h2&gt;
+&lt;h3 id=&#34;函数&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#函数&#34;&gt;#&lt;/a&gt; 函数&lt;/h3&gt;
+&lt;h3 id=&#34;指针&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#指针&#34;&gt;#&lt;/a&gt; 指针&lt;/h3&gt;
+&lt;h3 id=&#34;结构体&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#结构体&#34;&gt;#&lt;/a&gt; 结构体&lt;/h3&gt;
+&lt;h3 id=&#34;通讯录管理系统&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#通讯录管理系统&#34;&gt;#&lt;/a&gt; 通讯录管理系统&lt;/h3&gt;
+&lt;h2 id=&#34;c核心编程&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#c核心编程&#34;&gt;#&lt;/a&gt; C++ 核心编程&lt;/h2&gt;
+&lt;h3 id=&#34;内存分区模型&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#内存分区模型&#34;&gt;#&lt;/a&gt; 内存分区模型&lt;/h3&gt;
+&lt;h3 id=&#34;引用&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#引用&#34;&gt;#&lt;/a&gt; 引用&lt;/h3&gt;
+&lt;h3 id=&#34;函数高级&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#函数高级&#34;&gt;#&lt;/a&gt; 函数高级&lt;/h3&gt;
+&lt;h3 id=&#34;类和对象&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#类和对象&#34;&gt;#&lt;/a&gt; 类和对象&lt;/h3&gt;
+&lt;h3 id=&#34;文件操作&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#文件操作&#34;&gt;#&lt;/a&gt; 文件操作&lt;/h3&gt;
+&lt;h3 id=&#34;职工管理系统&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#职工管理系统&#34;&gt;#&lt;/a&gt; 职工管理系统&lt;/h3&gt;
+&lt;h2 id=&#34;c提高编程&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#c提高编程&#34;&gt;#&lt;/a&gt; C++ 提高编程&lt;/h2&gt;
+&lt;h3 id=&#34;模板&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#模板&#34;&gt;#&lt;/a&gt; 模板&lt;/h3&gt;
+&lt;h3 id=&#34;stl初始&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#stl初始&#34;&gt;#&lt;/a&gt; STL 初始&lt;/h3&gt;
+&lt;h3 id=&#34;stl常见容器&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#stl常见容器&#34;&gt;#&lt;/a&gt; STL 常见容器&lt;/h3&gt;
+&lt;h3 id=&#34;stl函数对象&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#stl函数对象&#34;&gt;#&lt;/a&gt; STL 函数对象&lt;/h3&gt;
+&lt;h3 id=&#34;stl-常见算法&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#stl-常见算法&#34;&gt;#&lt;/a&gt; STL 常见算法&lt;/h3&gt;
+</content>
+        <updated>2023-02-02T06:21:30.852Z</updated>
+    </entry>
+    <entry>
+        <id>https://empireofyt.github.io/:computer_science/algorithm/BFS/</id>
+        <title>BFS</title>
+        <link rel="alternate" href="https://empireofyt.github.io/:computer_science/algorithm/BFS/"/>
+        <content type="html">&lt;h2 id=&#34;一-应用场景&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#一-应用场景&#34;&gt;#&lt;/a&gt; 一 应用场景&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;找到的路径一定是最短的&lt;/strong&gt;，但空间复杂度可能大于 DFS&lt;/p&gt;
+&lt;h2 id=&#34;二-代码框架&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#二-代码框架&#34;&gt;#&lt;/a&gt; 二 代码框架&lt;/h2&gt;
+&lt;p&gt;``// 计算从起点 start 到终点 target 的最近距离`&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;int BFS(Node start, Node target) &amp;#123;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;​		  &lt;code&gt;queue&amp;lt;Node&amp;gt; q; // 核心数据结构&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;​		 &lt;code&gt;set&amp;lt;Node&amp;gt; visited; // 避免走回头路&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;​		 &lt;code&gt;q.push(start); // 将起点加入队列&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;​		 &lt;code&gt;visited.insert(start);  int step = 0; // 记录扩散的步数&lt;/code&gt; &lt;br&gt;
+ &lt;code&gt;while (q not empty) &amp;#123;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;​	            &lt;code&gt;int sz = q.size();&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;​        &lt;code&gt;/* 将当前队列中的所有节点向四周扩散 */    *&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;	`for (int i = 0; i &amp;lt; sz; i++) &amp;#123;`      	
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;​				 &lt;code&gt;Node cur = q.front();&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;​				  &lt;code&gt;q.pop();&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;/* 划重点：这里判断是否到达终点 */    *&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;​				 &lt;code&gt;if (cur is target)        return step;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;/* 将 cur 的相邻节点加入队列 */      *&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;​				 &lt;code&gt;for (Node x : cur.adj()) &amp;#123;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;​					  &lt;code&gt;if (x not in visited) &amp;#123;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;​								  &lt;code&gt;q.push(x);&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;​								  &lt;code&gt;visited.insert(x);&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;&amp;#125;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;&amp;#125;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;​     &lt;code&gt;/* 划重点：更新步数在这里 */&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;step++;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;&amp;#125;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;&amp;#125;&lt;/code&gt;&lt;/p&gt;
+</content>
+        <category term="算法" />
+        <updated>2023-02-01T13:52:41.528Z</updated>
+    </entry>
+    <entry>
+        <id>https://empireofyt.github.io/:happy/blog/</id>
         <title>blog</title>
-        <link rel="alternate" href="https://empireofyt.github.io/2022/08/30/happy/blog/"/>
+        <link rel="alternate" href="https://empireofyt.github.io/:happy/blog/"/>
         <content type="html">&lt;h1 id=&#34;blog&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#blog&#34;&gt;#&lt;/a&gt; blog&lt;/h1&gt;
 &lt;p&gt;my blog&lt;/p&gt;
 </content>
         <updated>2022-08-30T03:24:34.000Z</updated>
-    </entry>
-    <entry>
-        <id>https://empireofyt.github.io/2022/08/30/cpp/blog1/</id>
-        <title>blog</title>
-        <link rel="alternate" href="https://empireofyt.github.io/2022/08/30/cpp/blog1/"/>
-        <content type="html">&lt;h1 id=&#34;c语法test&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#c语法test&#34;&gt;#&lt;/a&gt; c++ 语法 test&lt;/h1&gt;
-&lt;p&gt;c++ 语法&lt;/p&gt;
-&lt;p&gt;my blog&lt;/p&gt;
-</content>
-        <updated>2022-08-30T03:24:34.000Z</updated>
-    </entry>
-    <entry>
-        <id>https://empireofyt.github.io/2022/08/29/cpp/hello-world/</id>
-        <title>Hello World</title>
-        <link rel="alternate" href="https://empireofyt.github.io/2022/08/29/cpp/hello-world/"/>
-        <content type="html">&lt;p&gt;Welcome to &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvLw==&#34;&gt;Hexo&lt;/span&gt;! This is your very first post. Check &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv&#34;&gt;documentation&lt;/span&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=&#34;&gt;troubleshooting&lt;/span&gt; or you can ask me on &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==&#34;&gt;GitHub&lt;/span&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;quick-start&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#quick-start&#34;&gt;#&lt;/a&gt; Quick Start&lt;/h2&gt;
-&lt;h3 id=&#34;create-a-new-post&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#create-a-new-post&#34;&gt;#&lt;/a&gt; Create a new post&lt;/h3&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ hexo new &lt;span class=&#34;token string&#34;&gt;&#34;My New Post&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s&#34;&gt;Writing&lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&#34;run-server&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#run-server&#34;&gt;#&lt;/a&gt; Run server&lt;/h3&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ hexo server&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=&#34;&gt;Server&lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&#34;generate-static-files&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#generate-static-files&#34;&gt;#&lt;/a&gt; Generate static files&lt;/h3&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ hexo generate&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s&#34;&gt;Generating&lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&#34;deploy-to-remote-sites&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#deploy-to-remote-sites&#34;&gt;#&lt;/a&gt; Deploy to remote sites&lt;/h3&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ hexo deploy&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s&#34;&gt;Deployment&lt;/span&gt;&lt;/p&gt;
-</content>
-        <updated>2022-08-29T09:38:55.344Z</updated>
-    </entry>
-    <entry>
-        <id>https://empireofyt.github.io/2013/12/26/cpp/images/</id>
-        <title>Images</title>
-        <link rel="alternate" href="https://empireofyt.github.io/2013/12/26/cpp/images/"/>
-        <content type="html">&lt;p&gt;This is a image test post.&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/assets/wallpaper-2572384.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/assets/wallpaper-2311325.jpg&#34; alt=&#34;Caption&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/assets/wallpaper-878514.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://placehold.it/350x150.jpg&#34; alt=&#34;Small Picture&#34;&gt;&lt;/p&gt;
-</content>
-        <updated>2013-12-26T14:46:49.000Z</updated>
-    </entry>
-    <entry>
-        <id>https://empireofyt.github.io/2013/12/25/cpp/excerpts/</id>
-        <title>Excerpts</title>
-        <link rel="alternate" href="https://empireofyt.github.io/2013/12/25/cpp/excerpts/"/>
-        <content type="html">&lt;p&gt;The following contents should be invisible in home/archive page.&lt;/p&gt;
-&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
-&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget urna vitae velit eleifend interdum at ac nisi. In nec ligula lacus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed eu cursus erat, ut dapibus quam. Aliquam eleifend dolor vitae libero pharetra adipiscing. Etiam adipiscing dolor a quam tempor, eu convallis nulla varius. Aliquam sollicitudin risus a porta aliquam. Ut nec velit dolor. Proin eget leo lobortis, aliquam est sed, mollis mauris. Fusce vitae leo pretium massa accumsan condimentum. Fusce malesuada gravida lectus vel vulputate. Donec bibendum porta nibh ut aliquam.&lt;/p&gt;
-&lt;p&gt;Sed lorem felis, congue non fringilla eu, aliquam eu eros. Curabitur orci libero, mollis sed semper vitae, adipiscing in lectus. Aenean non egestas odio. Donec sollicitudin nisi quis lorem gravida, in pharetra mauris fringilla. Duis sit amet faucibus dolor, id aliquam neque. In egestas, odio gravida tempor dictum, mauris felis faucibus purus, sit amet commodo lacus diam vitae est. Ut ut quam eget massa semper sodales. Aenean non ipsum cursus, blandit lectus in, ornare odio. Curabitur ultrices porttitor vulputate.&lt;/p&gt;
-</content>
-        <updated>2013-12-24T16:23:23.000Z</updated>
-    </entry>
-    <entry>
-        <id>https://empireofyt.github.io/2013/12/25/cpp/gallery-post/</id>
-        <title>Gallery Post</title>
-        <link rel="alternate" href="https://empireofyt.github.io/2013/12/25/cpp/gallery-post/"/>
-        <content type="html">&lt;p&gt;This post contains 4 photos:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Widescreen wallpaper&lt;/li&gt;
-&lt;li&gt;Portrait photo&lt;/li&gt;
-&lt;li&gt;Dual widescreen wallpaper&lt;/li&gt;
-&lt;li&gt;Small photo&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;All photos should be displayed properly.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;From &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3dhbGxiYXNlLmNj&#34;&gt;Wallbase.cc&lt;/span&gt;&lt;/em&gt;&lt;/p&gt;
-</content>
-        <updated>2013-12-24T16:16:18.000Z</updated>
-    </entry>
-    <entry>
-        <id>https://empireofyt.github.io/2013/12/24/cpp/link-post-without-title/</id>
-        <title>www.google.com</title>
-        <link rel="alternate" href="https://empireofyt.github.io/2013/12/24/cpp/link-post-without-title/"/>
-        <content type="html">&lt;p&gt;This is a link post without a title. The title should be the link with or without protocol. Clicking on the link should open &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3d3dy5nb29nbGUuY29tLw==&#34;&gt;Google&lt;/span&gt; in a new tab or window.&lt;/p&gt;
-</content>
-        <updated>2013-12-24T15:44:13.000Z</updated>
-    </entry>
-    <entry>
-        <id>https://empireofyt.github.io/2013/12/24/cpp/link-post/</id>
-        <title>Link Post</title>
-        <link rel="alternate" href="https://empireofyt.github.io/2013/12/24/cpp/link-post/"/>
-        <content type="html">&lt;p&gt;This is a link post. Clicking on the link should open &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3d3dy5nb29nbGUuY29tLw==&#34;&gt;Google&lt;/span&gt; in a new tab or window.&lt;/p&gt;
-</content>
-        <updated>2013-12-24T15:30:04.000Z</updated>
     </entry>
 </feed>

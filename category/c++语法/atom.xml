@@ -5,9 +5,9 @@
     <link href="https://empireofyt.github.io" />
     <updated>2022-08-30T03:24:34.000Z</updated>
     <entry>
-        <id>https://empireofyt.github.io/2022/08/30/cpp/blog1/</id>
+        <id>https://empireofyt.github.io/2022/08/30/computer_science/cpp/blog1/</id>
         <title>blog</title>
-        <link rel="alternate" href="https://empireofyt.github.io/2022/08/30/cpp/blog1/"/>
+        <link rel="alternate" href="https://empireofyt.github.io/2022/08/30/computer_science/cpp/blog1/"/>
         <content type="html">&lt;h1 id=&#34;c语法test&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#c语法test&#34;&gt;#&lt;/a&gt; c++ 语法 test&lt;/h1&gt;
 &lt;p&gt;c++ 语法&lt;/p&gt;
 &lt;p&gt;my blog&lt;/p&gt;
@@ -15,9 +15,9 @@
         <updated>2022-08-30T03:24:34.000Z</updated>
     </entry>
     <entry>
-        <id>https://empireofyt.github.io/2013/12/26/cpp/images/</id>
+        <id>https://empireofyt.github.io/2013/12/26/computer_science/cpp/images/</id>
         <title>Images</title>
-        <link rel="alternate" href="https://empireofyt.github.io/2013/12/26/cpp/images/"/>
+        <link rel="alternate" href="https://empireofyt.github.io/2013/12/26/computer_science/cpp/images/"/>
         <content type="html">&lt;p&gt;This is a image test post.&lt;/p&gt;
 &lt;p&gt;&lt;img data-src=&#34;/assets/wallpaper-2572384.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img data-src=&#34;/assets/wallpaper-2311325.jpg&#34; alt=&#34;Caption&#34;&gt;&lt;/p&gt;
@@ -27,9 +27,9 @@
         <updated>2013-12-26T14:46:49.000Z</updated>
     </entry>
     <entry>
-        <id>https://empireofyt.github.io/2013/12/25/cpp/excerpts/</id>
+        <id>https://empireofyt.github.io/2013/12/25/computer_science/cpp/excerpts/</id>
         <title>Excerpts</title>
-        <link rel="alternate" href="https://empireofyt.github.io/2013/12/25/cpp/excerpts/"/>
+        <link rel="alternate" href="https://empireofyt.github.io/2013/12/25/computer_science/cpp/excerpts/"/>
         <content type="html">&lt;p&gt;The following contents should be invisible in home/archive page.&lt;/p&gt;
 &lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
 &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget urna vitae velit eleifend interdum at ac nisi. In nec ligula lacus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed eu cursus erat, ut dapibus quam. Aliquam eleifend dolor vitae libero pharetra adipiscing. Etiam adipiscing dolor a quam tempor, eu convallis nulla varius. Aliquam sollicitudin risus a porta aliquam. Ut nec velit dolor. Proin eget leo lobortis, aliquam est sed, mollis mauris. Fusce vitae leo pretium massa accumsan condimentum. Fusce malesuada gravida lectus vel vulputate. Donec bibendum porta nibh ut aliquam.&lt;/p&gt;
@@ -38,9 +38,9 @@
         <updated>2013-12-24T16:23:23.000Z</updated>
     </entry>
     <entry>
-        <id>https://empireofyt.github.io/2013/12/25/cpp/gallery-post/</id>
+        <id>https://empireofyt.github.io/2013/12/25/computer_science/cpp/gallery-post/</id>
         <title>Gallery Post</title>
-        <link rel="alternate" href="https://empireofyt.github.io/2013/12/25/cpp/gallery-post/"/>
+        <link rel="alternate" href="https://empireofyt.github.io/2013/12/25/computer_science/cpp/gallery-post/"/>
         <content type="html">&lt;p&gt;This post contains 4 photos:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Widescreen wallpaper&lt;/li&gt;
@@ -54,17 +54,17 @@
         <updated>2013-12-24T16:16:18.000Z</updated>
     </entry>
     <entry>
-        <id>https://empireofyt.github.io/2013/12/24/cpp/link-post-without-title/</id>
+        <id>https://empireofyt.github.io/2013/12/24/computer_science/cpp/link-post-without-title/</id>
         <title>www.google.com</title>
-        <link rel="alternate" href="https://empireofyt.github.io/2013/12/24/cpp/link-post-without-title/"/>
+        <link rel="alternate" href="https://empireofyt.github.io/2013/12/24/computer_science/cpp/link-post-without-title/"/>
         <content type="html">&lt;p&gt;This is a link post without a title. The title should be the link with or without protocol. Clicking on the link should open &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3d3dy5nb29nbGUuY29tLw==&#34;&gt;Google&lt;/span&gt; in a new tab or window.&lt;/p&gt;
 </content>
         <updated>2013-12-24T15:44:13.000Z</updated>
     </entry>
     <entry>
-        <id>https://empireofyt.github.io/2013/12/24/cpp/link-post/</id>
+        <id>https://empireofyt.github.io/2013/12/24/computer_science/cpp/link-post/</id>
         <title>Link Post</title>
-        <link rel="alternate" href="https://empireofyt.github.io/2013/12/24/cpp/link-post/"/>
+        <link rel="alternate" href="https://empireofyt.github.io/2013/12/24/computer_science/cpp/link-post/"/>
         <content type="html">&lt;p&gt;This is a link post. Clicking on the link should open &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3d3dy5nb29nbGUuY29tLw==&#34;&gt;Google&lt;/span&gt; in a new tab or window.&lt;/p&gt;
 </content>
         <updated>2013-12-24T15:30:04.000Z</updated>
