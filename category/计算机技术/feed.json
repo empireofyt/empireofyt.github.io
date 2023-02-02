@@ -5,24 +5,24 @@
     "home_page_url": "https://empireofyt.github.io",
     "items": [
         {
-            "id": "https://empireofyt.github.io/:computer_science/github/github%20-%20%E5%89%AF%E6%9C%AC/",
-            "url": "https://empireofyt.github.io/:computer_science/github/github%20-%20%E5%89%AF%E6%9C%AC/",
+            "id": "https://empireofyt.github.io/:computer-science/github/github%20-%20%E5%89%AF%E6%9C%AC/",
+            "url": "https://empireofyt.github.io/:computer-science/github/github%20-%20%E5%89%AF%E6%9C%AC/",
             "title": "github使用教程",
             "date_published": "2023-02-02T08:29:00.276Z",
             "content_html": "<h1 id=\"github使用教程\"><a class=\"markdownIt-Anchor\" href=\"#github使用教程\">#</a> github 使用教程</h1>\n<h2 id=\"一-首次上传此文件夹\"><a class=\"markdownIt-Anchor\" href=\"#一-首次上传此文件夹\">#</a> 一 首次上传此文件夹</h2>\n<h3 id=\"一-github与git连接本地git仓库\"><a class=\"markdownIt-Anchor\" href=\"#一-github与git连接本地git仓库\">#</a> （一） github 与 git 连接–本地 Git 仓库</h3>\n<ol>\n<li>\n<p>本地文件夹</p>\n<ul>\n<li>右键 - Git Bash-</li>\n<li>输入 “git init” 初始化成一个 Git 可管理的仓库</li>\n</ul>\n</li>\n<li>\n<p>将本地文件 add 到 Git 仓库上</p>\n<ul>\n<li>git add .  //. 表示添加该目录下所有文件</li>\n<li>git status // 用来查看仓库状态</li>\n</ul>\n</li>\n<li>\n<p>把项目提交到仓库</p>\n<ul>\n<li>git commit -m &quot; 注释 “”</li>\n</ul>\n</li>\n</ol>\n<h3 id=\"二-github和git连接远程连接\"><a class=\"markdownIt-Anchor\" href=\"#二-github和git连接远程连接\">#</a> （二） github 和 git 连接–远程连接</h3>\n<ol>\n<li>创建 SSH key（只用一次就行了）</li>\n<li>在 github 上新建仓库</li>\n<li>关联远程仓库\n<ul>\n<li>git remote add origin <span class=\"exturl\" data-url=\"aHR0cHM6Ly9naXRodWIuY29tL1hYWCVFRiVCQyU4OCVFOCU4NyVBQSVFNSVCNyVCMSVFNCVCQiU5MyVFNSVCQSU5MyVFRiVCQyU4OQ==\">https://github.com/XXX（自己仓库）</span></li>\n</ul>\n</li>\n<li>本地内容上传\n<ul>\n<li>git push (-u) origin main   // 初次上传必须加上 - u</li>\n</ul>\n</li>\n</ol>\n<h2 id=\"二-后续更新上传\"><a class=\"markdownIt-Anchor\" href=\"#二-后续更新上传\">#</a> 二 后续更新上传</h2>\n<ol>\n<li>将本地文件 add 到 Git 仓库上\n<ul>\n<li>git add .  //. 表示添加该目录下所有文件</li>\n</ul>\n</li>\n<li>把项目提交到仓库\n<ul>\n<li>git commit -m &quot; 注释 “”</li>\n</ul>\n</li>\n<li>本地内容上传\n<ul>\n<li>git push (-u) origin main   // 初次上传必须加上 - u</li>\n</ul>\n</li>\n</ol>\n",
             "tags": []
         },
         {
-            "id": "https://empireofyt.github.io/:computer_science/github/github/",
-            "url": "https://empireofyt.github.io/:computer_science/github/github/",
+            "id": "https://empireofyt.github.io/:computer-science/github/github/",
+            "url": "https://empireofyt.github.io/:computer-science/github/github/",
             "title": "github使用教程",
             "date_published": "2023-02-02T08:12:28.457Z",
             "content_html": "<h1 id=\"github使用教程\"><a class=\"markdownIt-Anchor\" href=\"#github使用教程\">#</a> github 使用教程</h1>\n<h2 id=\"一-首次上传此文件夹\"><a class=\"markdownIt-Anchor\" href=\"#一-首次上传此文件夹\">#</a> 一 首次上传此文件夹</h2>\n<h3 id=\"一-github与git连接本地git仓库\"><a class=\"markdownIt-Anchor\" href=\"#一-github与git连接本地git仓库\">#</a> （一） github 与 git 连接–本地 Git 仓库</h3>\n<ol>\n<li>\n<p>本地文件夹</p>\n<ul>\n<li>右键 - Git Bash-</li>\n<li>输入 “git init” 初始化成一个 Git 可管理的仓库</li>\n</ul>\n</li>\n<li>\n<p>将本地文件 add 到 Git 仓库上</p>\n<ul>\n<li>git add .  //. 表示添加该目录下所有文件</li>\n<li>git status // 用来查看仓库状态</li>\n</ul>\n</li>\n<li>\n<p>把项目提交到仓库</p>\n<ul>\n<li>git commit -m &quot; 注释 “”</li>\n</ul>\n</li>\n</ol>\n<h3 id=\"二-github和git连接远程连接\"><a class=\"markdownIt-Anchor\" href=\"#二-github和git连接远程连接\">#</a> （二） github 和 git 连接–远程连接</h3>\n<ol>\n<li>创建 SSH key（只用一次就行了）</li>\n<li>在 github 上新建仓库</li>\n<li>关联远程仓库\n<ul>\n<li>git remote add origin <span class=\"exturl\" data-url=\"aHR0cHM6Ly9naXRodWIuY29tL1hYWCVFRiVCQyU4OCVFOCU4NyVBQSVFNSVCNyVCMSVFNCVCQiU5MyVFNSVCQSU5MyVFRiVCQyU4OQ==\">https://github.com/XXX（自己仓库）</span></li>\n</ul>\n</li>\n<li>本地内容上传\n<ul>\n<li>git push (-u) origin main   // 初次上传必须加上 - u</li>\n</ul>\n</li>\n</ol>\n<h2 id=\"二-后续更新上传\"><a class=\"markdownIt-Anchor\" href=\"#二-后续更新上传\">#</a> 二 后续更新上传</h2>\n<ol>\n<li>将本地文件 add 到 Git 仓库上\n<ul>\n<li>git add .  //. 表示添加该目录下所有文件</li>\n</ul>\n</li>\n<li>把项目提交到仓库\n<ul>\n<li>git commit -m &quot; 注释 “”</li>\n</ul>\n</li>\n<li>本地内容上传\n<ul>\n<li>git push (-u) origin main   // 初次上传必须加上 - u</li>\n</ul>\n</li>\n</ol>\n",
             "tags": []
         },
         {
-            "id": "https://empireofyt.github.io/:computer_science/cpp/%E9%BB%91%E9%A9%AC%E7%A8%8B%E5%BA%8F%E5%91%98%E7%AC%94%E8%AE%B0/C++%E6%8F%90%E9%AB%98%E7%BC%96%E7%A8%8B/%E5%87%BD%E6%95%B0/",
-            "url": "https://empireofyt.github.io/:computer_science/cpp/%E9%BB%91%E9%A9%AC%E7%A8%8B%E5%BA%8F%E5%91%98%E7%AC%94%E8%AE%B0/C++%E6%8F%90%E9%AB%98%E7%BC%96%E7%A8%8B/%E5%87%BD%E6%95%B0/",
+            "id": "https://empireofyt.github.io/:computer-science/cpp/%E9%BB%91%E9%A9%AC%E7%A8%8B%E5%BA%8F%E5%91%98%E7%AC%94%E8%AE%B0/C++%E6%8F%90%E9%AB%98%E7%BC%96%E7%A8%8B/%E5%87%BD%E6%95%B0/",
+            "url": "https://empireofyt.github.io/:computer-science/cpp/%E9%BB%91%E9%A9%AC%E7%A8%8B%E5%BA%8F%E5%91%98%E7%AC%94%E8%AE%B0/C++%E6%8F%90%E9%AB%98%E7%BC%96%E7%A8%8B/%E5%87%BD%E6%95%B0/",
             "title": "函数",
             "date_published": "2023-02-02T08:00:19.613Z",
             "content_html": "<h1 id=\"函数\"><a class=\"markdownIt-Anchor\" href=\"#函数\">#</a> 函数</h1>\n<p>[TOC]</p>\n<h2 id=\"一-函数的分文件编写\"><a class=\"markdownIt-Anchor\" href=\"#一-函数的分文件编写\">#</a> 一 函数的分文件编写</h2>\n<p>作用： 让代码更清晰</p>\n<p>步骤：</p>\n<ol>\n<li>创建后缀名为.h 的头文件</li>\n<li>创建后缀名为.cpp 的源文件</li>\n<li>在头文件中写函数的声明</li>\n<li>在源文件中写函数的定义</li>\n</ol>\n",

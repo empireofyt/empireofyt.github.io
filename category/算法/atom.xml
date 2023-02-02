@@ -6,9 +6,9 @@
     <updated>2023-02-01T13:52:41.528Z</updated>
     <category term="算法" />
     <entry>
-        <id>https://empireofyt.github.io/:computer_science/algorithm/BFS/</id>
+        <id>https://empireofyt.github.io/:computer-science/algorithm/BFS/</id>
         <title>BFS</title>
-        <link rel="alternate" href="https://empireofyt.github.io/:computer_science/algorithm/BFS/"/>
+        <link rel="alternate" href="https://empireofyt.github.io/:computer-science/algorithm/BFS/"/>
         <content type="html">&lt;h2 id=&#34;一-应用场景&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#一-应用场景&#34;&gt;#&lt;/a&gt; 一 应用场景&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;找到的路径一定是最短的&lt;/strong&gt;，但空间复杂度可能大于 DFS&lt;/p&gt;
 &lt;h2 id=&#34;二-代码框架&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#二-代码框架&#34;&gt;#&lt;/a&gt; 二 代码框架&lt;/h2&gt;
